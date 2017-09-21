@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "681806121576",
+    "project_id": "provider-cd1dd"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681806121576:android:6a9c19e0caf633c2",
+        "android_client_info": {
+          "package_name": "com.Presto.Provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681806121576-580urcdkhguatlnc8c7j9gd9616l5h8u.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "681806121576-148gajscnb75s5ik1bj6jvpco5megus5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Presto.Provider",
+            "certificate_hash": "a23a56073b138d7f5bf494c4a5da17e2fe753c38"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo2L9pQSnP6-DMRoZg36Vi0pfc-KjcQjY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
