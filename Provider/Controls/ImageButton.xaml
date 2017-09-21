@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:RoundedView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    x:Class="Provider.Controls.ImageButton"
+    BorderThickness="2" BorderRadius="20" HeightRequest="40"
+    Padding="0" Margin="0" 
+    HorizontalOptions="Fill" VerticalOptions="Fill"
+    x:Name="imgBtn">
+   <!--<controls:RoundedView.GestureRecognizers>
+            <TapGestureRecognizer x:Name="Tap" Tapped="OnTap" 
+        Command="{Binding TapCommand,Source={x:Reference imgBtn}"/>
+        </controls:RoundedView.GestureRecognizers>-->
+    <Grid Padding="0" Margin="0" x:Name="grid" >
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer x:Name="Tap" />
+        </Grid.GestureRecognizers>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <controls:FitImage x:Name="imgHolder" Size="25"  Margin="25,5,10,5" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Label x:Name="accNameLabel" TextColor="White" Margin="5" Grid.Column="1"
+            HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+  </Grid>
+</controls:RoundedView>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    xmlns:utils="clr-namespace:Provider.Utility;assembly=Provider"
+    x:Class="Provider.Views.ProfilePage"
+    Style="{StaticResource DefaultPageStyle}"
+    Padding="0,20"
+    Title="Presto">
+    <ContentPage.BindingContext>
+        <vm:ProfilePageViewModel/>
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <Grid Padding="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    Grid.Column="0" Grid.ColumnSpan="3"
+                    HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+                <!--<controls:RoundedView 
+                    BorderColor="Gray" BorderThickness="2" BorderRadius="10">-->
+                   <Image RotationX="0" HorizontalOptions="Center" VerticalOptions="Fill"  
+                    Source="avatar.png"
+                    HeightRequest="100" WidthRequest="100"/>
+<!--                </controls:RoundedView>-->
+                    <Label Text="{Binding Name}" 
+                        Style="{StaticResource ProfilPageDescStyle}"
+                        LineBreakMode="WordWrap" HorizontalTextAlignment="Center"
+                    TextColor="Teal"/>
+                    <Label Text="{Binding Rating}"
+                        Style="{StaticResource ProfilPageDescStyle}"
+                        LineBreakMode="WordWrap"
+                    TextColor="Gray"/>
+                    </StackLayout>
+                <StackLayout Grid.Column="2" HorizontalOptions="EndAndExpand">
+                    <Label Text="{Binding Status}" HorizontalTextAlignment="End" Style="{StaticResource ProfilPageDescStyle}"/>
+                    <Label Text="{Binding Distance,StringFormat='{0:N} miles away'}" HorizontalTextAlignment="End" Style="{StaticResource ProfilPageDescStyle}"/>
+                    <controls:FitImage ImgSource="call.png" Size="40" HorizontalOptions="End"/>
+                    <controls:FitImage ImgSource="message.png" Size="40" HorizontalOptions="End"/>
+                    <controls:FitImage ImgSource="favour.png" Size="40" HorizontalOptions="End"/>
+                </StackLayout>
+            </Grid>
+            
+            <Grid 
+                Grid.Row="1" BackgroundColor="#F5F5F5" Padding="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                    Text="{Binding AboutMe}" LineBreakMode="WordWrap"
+                    TextColor="Gray"
+                    Style="{StaticResource ProfilPageDescStyle}"/>
+                <StackLayout Grid.Row="1" Grid.Column="0"
+                    Orientation="Horizontal">
+                    <Label Text="Pre Order" Style="{StaticResource ProfilPageDescStyle}" 
+                     TextColor="Teal" VerticalOptions="Center"/>
+                    <Switch IsToggled="true" VerticalOptions="Center"/>
+                </StackLayout>
+                <Label
+                    Grid.Row="1" Grid.Column="1" 
+                    VerticalOptions="Center"
+                    Style="{StaticResource ProfilPageDescStyle}"
+                    Text="{Binding LeadTime, StringFormat='Lead Time {0:N} hours'}"/>
+                <Label
+                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                    HorizontalOptions="Center" Style="{StaticResource ProfilPageDescStyle}"
+                    Text="Chef Menu >" TextColor="Teal"/>
+            </Grid>
+            
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

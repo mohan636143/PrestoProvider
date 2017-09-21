@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls;assembly:Provider"
+    xmlns:utils="clr-namespace:Provider.Utility;assembly=Provider"
+    x:Class="Provider.Themes.DefaultTheme">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Colors-->
+            <Color x:Key="StatusBarColor">#000000</Color>
+            <Color x:Key="viewBackgroundColor">White</Color>
+            <Color x:Key="HomePageHeadingColor">Yellow</Color>
+            <Color x:Key="HomePageLabelBGColor">#10F5F5F5</Color>
+            <Color x:Key="HomePageLabelColor">Black</Color>
+
+            <!--Styles-->
+            <Style TargetType="{x:Type ContentPage}" x:Key="DefaultPageStyle">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="Padding" Value="15"/>
+            </Style>
+            
+            <Style TargetType="{x:Type controls:RoundedView}" x:Key="PickerStyle">
+                    <Setter Property="BorderColor" Value="Brown"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="BorderRadius" Value="6"/>     
+                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="Padding" Value="6"/>
+            </Style>
+            
+            <Style TargetType="{x:Type controls:ExtendedEntry}" x:Key="DefExtendedEntryStyle">
+                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="BorderRadius" Value="6"/>
+                    <Setter Property="BorderColor" Value="Transparent"/>
+                    <Setter Property="BorderWidth" Value="1"/>
+            </Style>
+
+            <Style TargetType="{x:Type controls:ExtendedButton}" x:Key="DefExtendedBtnStyle">
+                    <Setter Property="HeightRequest" Value="50"/>
+                    <Setter Property="BorderRadius" Value="25"/>
+                    <Setter Property="BorderColor" Value="Transparent"/>
+                    <Setter Property="BorderWidth" Value="1"/>
+            </Style>
+
+            <Style TargetType="{x:Type controls:RoundedView}" x:Key="DefRoundedViewStyle">
+                    <Setter Property="BorderColor" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+            </Style>
+            
+            <Style TargetType="{x:Type Label}" x:Key="ProfilPageDescStyle">
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Lobster}" />
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+</ContentPage>

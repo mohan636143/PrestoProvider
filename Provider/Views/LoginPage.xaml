@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    x:Name="thisPage"
+    x:Class="Provider.Views.LoginPage">
+    <ContentPage.BindingContext>
+        <vm:LoginPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+            
+
+                <Grid BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                   <!-- <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>-->
+                </Grid.RowDefinitions>
+            <Image Source="LoginBG.png" Grid.Row="0" Grid.RowSpan="2" Aspect="Fill"/>
+                <Grid Grid.Row="1" Margin="25" VerticalOptions="EndAndExpand">
+                <controls:ImageButton
+                    Grid.Row="0"
+                    FillColor="#3b5998" BorderColor="#3b5998"
+                    BorderThickness="2" SourceImage="facebook.png" Text="Facebook"
+                    TextColor="White" TapCommand="{Binding FbLoginCommand}"/>
+                <controls:ImageButton x:Name="btnGoogle"
+                    Grid.Row="1"
+                    FillColor="#d34836" BorderColor="#d34836"
+                    BorderThickness="2" SourceImage="google.png" Text="Google"
+                    TextColor="White" TapCommand="{Binding GoogleLoginCommand}"/>
+                </Grid>
+                </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:RoundedView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    x:Class="Provider.Controls.CustomPicker" 
+    Style="{StaticResource PickerStyle}">
+    <controls:RoundedView.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnCustomPickerTapped"/>
+    </controls:RoundedView.GestureRecognizers>
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+   <Label Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" 
+        HorizontalOptions="StartAndExpand" x:Name="pickerLabel"/>
+   <Label Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="End" 
+        HorizontalOptions="End" x:Name="pickerAnchor" />
+    </Grid>
+</controls:RoundedView>
