@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infra:DualMasterPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:infra="clr-namespace:Provider.Infrastructure"
+    xmlns:views="clr-namespace:Provider.Views"
+    x:Class="Provider.Views.ProviderLaunchPage"
+     BarBackgroundColor="White" BarTintColor="Blue">
+    <infra:DualMasterPage.LeftMaster>
+        <views:MenuPage/>
+    </infra:DualMasterPage.LeftMaster>
+    <infra:DualMasterPage.Detail>
+        <views:ProfilePage/>
+    </infra:DualMasterPage.Detail>
+</infra:DualMasterPage>

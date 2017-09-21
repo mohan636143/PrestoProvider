@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    x:Class="Provider.Views.MenuPage"
+    BackgroundColor="Black">
+    <ContentPage.BindingContext>
+        <vm:MenuPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+        <StackLayout BackgroundColor="Black" Margin="20,10" Orientation="Horizontal">
+            <controls:RoundedView HorizontalOptions="Center"
+                HeightRequest="80" WidthRequest="80" Margin="3"
+                BorderRadius="40" BorderColor="White" BorderThickness="2">
+                <Image Source="avatar.png" />
+            </controls:RoundedView>
+            <Label Text="Jon Snow" VerticalTextAlignment="Center" TextColor="White"/>
+            </StackLayout>
+            <BoxView HeightRequest="1" Color="White"/> 
+            <Label Text="LogOut" TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogOutCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Provider.Infrastructure.CustomNavBar">
+    <StackLayout 
+    Orientation="Horizontal" 
+    HorizontalOptions="FillAndExpand">
+    
+    <Grid x:Name="centralPanel" 
+          HorizontalOptions="FillAndExpand" 
+          VerticalOptions="FillAndExpand" >
+
+      <StackLayout 
+        Padding="46,0,46,0" Orientation="Horizontal"
+        HorizontalOptions="CenterAndExpand" 
+        VerticalOptions="FillAndExpand">
+        
+        <Label
+          x:Name="titleLabel"
+          FontSize="30"
+          VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand"
+          VerticalTextAlignment="Center"
+          HorizontalTextAlignment="Center"
+          Style="{StaticResource ProfilPageDescStyle}"
+          TextColor="Black">
+
+          <Label.HorizontalTextAlignment >
+            <OnPlatform x:TypeArguments="TextAlignment" iOS="Center" Android="Center" />
+          </Label.HorizontalTextAlignment>
+        </Label>
+      </StackLayout>
+
+      <StackLayout 
+        Orientation="Horizontal" 
+        HorizontalOptions="FillAndExpand">
+        
+        <StackLayout 
+          x:Name="leftPanel" 
+          Spacing="5"
+          Orientation="Horizontal" 
+          VerticalOptions="FillAndExpand" 
+          HorizontalOptions="StartAndExpand"/>
+        
+        <StackLayout 
+          x:Name="rightPanel" 
+          Spacing="5"
+          Orientation="Horizontal" 
+          VerticalOptions="FillAndExpand" 
+          HorizontalOptions="EndAndExpand"/>
+      </StackLayout>
+
+    </Grid>
+
+    <StackLayout.HeightRequest>
+      <OnPlatform x:TypeArguments="x:Double" iOS="64" Android="44" />
+    </StackLayout.HeightRequest>
+    <StackLayout.Padding>
+      <OnPlatform x:TypeArguments="Thickness" iOS="5,20,5,3" Android="5,3,5,3" />
+    </StackLayout.Padding>
+  </StackLayout>
+</ContentPage>
