@@ -7,4 +7,6 @@ UITests/
 *.suo
 *.bak
 *.cache
-Provider/obj/
+/Provider/obj/
+/Provider/bin
+*.userprefs
