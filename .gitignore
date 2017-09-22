@@ -9,3 +9,4 @@ UITests/
 *.cache
 Provider/obj/
 Provider/bin
+*.userprefs
