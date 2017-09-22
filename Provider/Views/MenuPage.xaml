@@ -14,7 +14,7 @@
             <controls:RoundedView HorizontalOptions="Center"
                 HeightRequest="80" WidthRequest="80" Margin="3"
                 BorderRadius="40" BorderColor="White" BorderThickness="2">
-                <Image Source="avatar.png" />
+                    <Image Source="chef1.png" />
             </controls:RoundedView>
             <Label Text="Jon Snow" VerticalTextAlignment="Center" TextColor="White"/>
             </StackLayout>

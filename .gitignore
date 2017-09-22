@@ -8,3 +8,4 @@ UITests/
 *.bak
 *.cache
 Provider/obj/
+Provider/bin

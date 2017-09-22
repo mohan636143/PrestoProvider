@@ -178,6 +178,7 @@
     <AndroidResource Include="Resources\drawable\LoginBG.png" />
     <AndroidResource Include="Resources\drawable\facebook.png" />
     <AndroidResource Include="Resources\drawable\google.png" />
+    <AndroidResource Include="Resources\drawable\chef1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
