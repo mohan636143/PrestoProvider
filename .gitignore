@@ -1,0 +1,10 @@
+iOS/obj/
+UITests/
+/packages
+/ios/bin/
+/droid/obj/
+/droid/bin
+*.suo
+*.bak
+*.cache
+Provider/obj/
