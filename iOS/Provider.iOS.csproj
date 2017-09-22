@@ -24,11 +24,12 @@
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
     <IOSDebuggerPort>29358</IOSDebuggerPort>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
 <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+<MtouchSdkVersion>10.3</MtouchSdkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -178,6 +179,7 @@
     <BundleResource Include="Resources\facebook.png" />
     <BundleResource Include="Resources\google.png" />
     <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\chef1.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Fonts\Lobster.otf">
