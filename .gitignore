@@ -10,3 +10,4 @@ UITests/
 Provider/obj/
 Provider/bin
 Presto/Provider.userprefs
+*.userprefs
