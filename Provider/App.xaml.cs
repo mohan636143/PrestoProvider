@@ -38,7 +38,7 @@ namespace Provider
             if (LoginAccount == null)
                 MainPage = new LoginPage();
             else
-                MainPage = new ProviderLaunchPage();
+                MainPage = new ProviderLaunchPage() { Detail = new ProfilePage()};
         }
 
         protected override void OnStart()
