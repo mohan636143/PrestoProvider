@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    xmlns:utility="clr-namespace:Provider.Utility"
+    x:Class="Provider.Views.UserSignUpPage">
+    <ContentPage.BindingContext>
+        <vm:UserSignUpPageViewModel/>
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="Black" Spacing="0">
+               <Grid BackgroundColor="White">
+                    <controls:RoundedView 
+                        Margin="10" HorizontalOptions="Center" 
+                        HeightRequest="80" WidthRequest="80" 
+                        BorderRadius="40" BorderColor="Gray" BorderThickness="2">
+                        <controls:FitImage ImgSource="{Binding ProfilePic}" Size="80" />
+                    </controls:RoundedView>
+                </Grid>
+                <BoxView HeightRequest="1" Color="Black"/>
+                <StackLayout Padding="10" BackgroundColor="White">
+                    <controls:ExtendedEntry 
+                    Placeholder="First Name" Text="{Binding FirstName}" 
+                    Style="{StaticResource SignUpPageEntryStyle}"/>
+                     <controls:ExtendedEntry 
+                    Placeholder="Last Name" Text="{Binding LastName}" 
+                    Style="{StaticResource SignUpPageEntryStyle}"/>
+                     <controls:ExtendedEntry 
+                    Placeholder="Email" Text="{Binding Email}" 
+                    Style="{StaticResource SignUpPageEntryStyle}"/>
+                     <controls:ExtendedEntry 
+                    Placeholder="Mobile" Text="{Binding Mobile}" 
+                    Style="{StaticResource SignUpPageEntryStyle}"/>
+                     <controls:ExtendedEntry 
+                    Placeholder="Age" Text="{Binding Age}" 
+                    Style="{StaticResource SignUpPageEntryStyle}"/>
+                     <controls:ExtendedEntry 
+                    Placeholder="Zip Code" Text="{Binding Location}" 
+                    Style="{StaticResource SignUpPageEntryStyle}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>

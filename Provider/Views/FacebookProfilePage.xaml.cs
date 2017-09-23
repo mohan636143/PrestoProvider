@@ -72,8 +72,6 @@ namespace Provider.Views
 	      var facebookServices = new FacebookServices();
 
 	        FacebookProfile facebookProfile = await facebookServices.GetFacebookProfileAsync(accessToken);
-            Application.Current.MainPage.Navigation.PopModalAsync();
-            Application.Current.MainPage = new ProviderLaunchPage();
 	      
 	  }
 	}
