@@ -4,11 +4,8 @@
     xmlns:infra="clr-namespace:Provider.Infrastructure"
     xmlns:views="clr-namespace:Provider.Views"
     x:Class="Provider.Views.ProviderLaunchPage"
-     BarBackgroundColor="White" BarTintColor="Blue">
+    BarBackgroundColor="White" BarTintColor="Blue">
     <infra:DualMasterPage.LeftMaster>
         <views:MenuPage/>
     </infra:DualMasterPage.LeftMaster>
-    <infra:DualMasterPage.Detail>
-        <views:ProfilePage/>
-    </infra:DualMasterPage.Detail>
 </infra:DualMasterPage>

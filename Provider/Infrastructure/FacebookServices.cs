@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Xamarin.Auth;
+using Provider.Utility;
 
 namespace Provider.Infrastructure
 {
@@ -34,21 +35,21 @@ namespace Provider.Infrastructure
             facebookProfile.access_token = accessToken;
 
             Dictionary<string, string> userEnumerable = new Dictionary<string, string>();
-            userEnumerable.Add("id", facebookProfile.Id);
-            userEnumerable.Add("firstName", facebookProfile.FirstName);
-            userEnumerable.Add("lastName", facebookProfile.LastName);
+            userEnumerable.Add(AccProperties.Id, facebookProfile.Id);
+            userEnumerable.Add(AccProperties.FirstName, facebookProfile.FirstName);
+            userEnumerable.Add(AccProperties.LastName, facebookProfile.LastName);
             if (string.IsNullOrEmpty(facebookProfile.email))
             {
                 facebookProfile.email = "NAN";
             }
-            userEnumerable.Add("email", facebookProfile.email);
-            userEnumerable.Add("accessToken", facebookProfile.access_token);
-            userEnumerable.Add("refreshToken", facebookProfile.access_token);
-            userEnumerable.Add("pictureUrl", facebookProfile.Picture.Data.Url.ToString());
+            userEnumerable.Add(AccProperties.Email, facebookProfile.email);
+            userEnumerable.Add(AccProperties.AccessToken, facebookProfile.access_token);
+            userEnumerable.Add(AccProperties.RefreshToken, facebookProfile.access_token);
+            userEnumerable.Add(AccProperties.PicUrl, facebookProfile.Picture.Data.Url.ToString());
 
             account = new Account(Constants.FacebookAuth, userEnumerable as IDictionary<string, string>);
 
-            App.Store.Save(account, Constants.FacebookAuth);
+            AccountUtility.AddUserDatatoStore(account, AccTypes.Facebook);
             return facebookProfile;
         }
     }

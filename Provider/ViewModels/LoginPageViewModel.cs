@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Provider.Utility;
 
 namespace Provider.ViewModels
 {
@@ -53,15 +54,6 @@ namespace Provider.ViewModels
 
         private void HandleGoogelLogin()
         {
-            //App.Store.FindAccountsForService(Constants.GoogleAuth).FirstOrDefault();
-            //if (account != null)
-            //{
-            //    var props = account.Properties;
-            //    store.Delete(account, Constants.GoogleAuth);
-            //}
-			//}
-			//else
-			//{
 
 				string clientId = null;
 				string redirectUri = null;
@@ -96,7 +88,6 @@ namespace Provider.ViewModels
 
 				var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
 				presenter.Login(authenticator);
-			//}
 		}
 
 		async void OnAuthCompleted(object sender, AuthenticatorCompletedEventArgs e)
@@ -134,19 +125,17 @@ namespace Provider.ViewModels
 				user.access_token = e.Account.Properties["access_token"];
 				user.refresh_token = e.Account.Properties["refresh_token"];
 				Dictionary<string, string> userEnumerable = new Dictionary<string, string>();
-				userEnumerable.Add("id", user.Id);
-				userEnumerable.Add("firstName", user.GivenName);
-				userEnumerable.Add("lastName", user.FamilyName);
-				userEnumerable.Add("email", user.Email);
-				userEnumerable.Add("accessToken", user.access_token);
-				userEnumerable.Add("refreshToken", user.refresh_token);
-				userEnumerable.Add("pictureUrl", user.Picture);
+                userEnumerable.Add(AccProperties.Id, user.Id);
+                userEnumerable.Add(AccProperties.FirstName, user.GivenName);
+                userEnumerable.Add(AccProperties.LastName, user.FamilyName);
+                userEnumerable.Add(AccProperties.Email, user.Email);
+				userEnumerable.Add(AccProperties.AccessToken, user.access_token);
+                userEnumerable.Add(AccProperties.RefreshToken, user.refresh_token);
+                userEnumerable.Add(AccProperties.PicUrl, user.Picture);
 
 				account = new Account(Constants.GoogleAuth, userEnumerable as IDictionary<string, string>);
 
-                App.Store.Save(account, Constants.GoogleAuth);
-
-				Application.Current.MainPage = new ProviderLaunchPage();
+                AccountUtility.AddUserDatatoStore(account, AccTypes.Google);
 				
 			}
 		}
@@ -164,18 +153,9 @@ namespace Provider.ViewModels
 		}
 
 
-		public void OnFacebookSigin()
-		{
-			//account = store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
-			//if (account != null)
-			//{
-			//	var props = account.Properties;
-								
-			//}
-			//else
-			//{
-                App.Current.MainPage.Navigation.PushModalAsync(new FacebookProfilePage());
-			//}
-		}
+        public void OnFacebookSigin()
+        {
+            App.Current.MainPage.Navigation.PushModalAsync(new FacebookProfilePage());
+        }
     }
 }

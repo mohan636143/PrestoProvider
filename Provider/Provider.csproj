@@ -57,6 +57,9 @@
     <EmbeddedResource Include="Views\FacebookProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserSignUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -109,6 +112,12 @@
       <DependentUpon>FacebookProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\FacebookServices.cs" />
+    <Compile Include="Utility\SignUpUtility.cs" />
+    <Compile Include="Views\UserSignUpPage.xaml.cs">
+      <DependentUpon>UserSignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\UserSignUpPageViewModel.cs" />
+    <Compile Include="Infrastructure\AccProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

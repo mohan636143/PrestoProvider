@@ -10,28 +10,40 @@
         <vm:LoginPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-            
-
-                <Grid BackgroundColor="White">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                   <!-- <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>-->
-                </Grid.RowDefinitions>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+               <!-- <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>-->
+            </Grid.RowDefinitions>
             <Image Source="LoginBG.png" Grid.Row="0" Grid.RowSpan="2" Aspect="Fill"/>
-                <Grid Grid.Row="1" Margin="25" VerticalOptions="EndAndExpand">
+            <Grid Grid.Row="0" Margin="25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"  VerticalTextAlignment="Center"
+                    Text="Presto" TextColor="White" FontSize="40" 
+                    Style="{StaticResource DefLabelStyle}"/>
+                <Label Grid.Row="1" VerticalTextAlignment="Center"
+                    Text="Order from kitchen around you !"
+                    TextColor="White" FontSize="20"
+                    Style="{StaticResource DefLabelStyle}"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="25" VerticalOptions="EndAndExpand" >
                 <controls:ImageButton
                     Grid.Row="0"
-                    FillColor="#3b5998" BorderColor="#3b5998"
+                    FillColor="#3b5998" BorderColor="#3b5998" BorderRadius="3"
                     BorderThickness="2" SourceImage="facebook.png" Text="Facebook"
                     TextColor="White" TapCommand="{Binding FbLoginCommand}"/>
                 <controls:ImageButton x:Name="btnGoogle"
                     Grid.Row="1"
-                    FillColor="#d34836" BorderColor="#d34836"
+                    FillColor="#d34836" BorderColor="#d34836" BorderRadius="3"
                     BorderThickness="2" SourceImage="google.png" Text="Google"
                     TextColor="White" TapCommand="{Binding GoogleLoginCommand}"/>
-                </Grid>
-                </Grid>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

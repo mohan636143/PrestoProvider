@@ -27,7 +27,7 @@ namespace Provider.Infrastructure
 		{
 			set
 			{
-				this.titleLabel.Text = value;
+				//this.titleLabel.Text = value;
 			}
 		}
 		public new IList<ToolbarItem> ToolbarItems
@@ -192,7 +192,7 @@ namespace Provider.Infrastructure
 						((Label)enmr.Current).TextColor = value;
 					}
 				}
-				this.titleLabel.TextColor = value;
+				//this.titleLabel.TextColor = value;
 			}
 		}
 

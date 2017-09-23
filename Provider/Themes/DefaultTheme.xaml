@@ -27,19 +27,19 @@
                     <Setter Property="Padding" Value="6"/>
             </Style>
             
-            <Style TargetType="{x:Type controls:ExtendedEntry}" x:Key="DefExtendedEntryStyle">
+            <!--<Style TargetType="{x:Type controls:ExtendedEntry}" x:Key="DefExtendedEntryStyle">
                     <Setter Property="HeightRequest" Value="40"/>
                     <Setter Property="BorderRadius" Value="6"/>
                     <Setter Property="BorderColor" Value="Transparent"/>
                     <Setter Property="BorderWidth" Value="1"/>
-            </Style>
+            </Style>-->
 
-            <Style TargetType="{x:Type controls:ExtendedButton}" x:Key="DefExtendedBtnStyle">
+            <!--<Style TargetType="{x:Type controls:ExtendedButton}" x:Key="DefExtendedBtnStyle">
                     <Setter Property="HeightRequest" Value="50"/>
                     <Setter Property="BorderRadius" Value="25"/>
                     <Setter Property="BorderColor" Value="Transparent"/>
                     <Setter Property="BorderWidth" Value="1"/>
-            </Style>
+            </Style>-->
 
             <Style TargetType="{x:Type controls:RoundedView}" x:Key="DefRoundedViewStyle">
                     <Setter Property="BorderColor" Value="Transparent"/>
@@ -47,7 +47,18 @@
             </Style>
             
             <Style TargetType="{x:Type Label}" x:Key="ProfilPageDescStyle">
-                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Lobster}" />
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+            </Style>
+            
+            <Style TargetType="{x:Type Label}" x:Key="DefLabelStyle">
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+            </Style>
+
+            <Style TargetType="{x:Type controls:ExtendedEntry}" x:Key="SignUpPageEntryStyle">
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+                <Setter Property="PlaceholderColor" Value="Gray" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="16" />
             </Style>
             
         </ResourceDictionary>

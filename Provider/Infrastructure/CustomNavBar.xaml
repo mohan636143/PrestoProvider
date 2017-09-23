@@ -17,13 +17,12 @@
         
         <Label
           x:Name="titleLabel"
-          FontSize="30"
+          FontSize="30" Text="Presto" TextColor="Black"
           VerticalOptions="FillAndExpand"
           HorizontalOptions="FillAndExpand"
           VerticalTextAlignment="Center"
           HorizontalTextAlignment="Center"
-          Style="{StaticResource ProfilPageDescStyle}"
-          TextColor="Black">
+          Style="{StaticResource ProfilPageDescStyle}">
 
           <Label.HorizontalTextAlignment >
             <OnPlatform x:TypeArguments="TextAlignment" iOS="Center" Android="Center" />
