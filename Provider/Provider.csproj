@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="ViewModels\UserSignUpPageViewModel.cs" />
     <Compile Include="Infrastructure\AccProperties.cs" />
+    <Compile Include="Controls\RoundedEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

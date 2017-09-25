@@ -54,11 +54,26 @@
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
             </Style>
 
+            <Style TargetType="{x:Type Label}" x:Key="SignUpPageLabelStyle">
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+                <Setter Property="TextColor" Value="Teal" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
             <Style TargetType="{x:Type controls:ExtendedEntry}" x:Key="SignUpPageEntryStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
                 <Setter Property="PlaceholderColor" Value="Gray" />
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="FontSize" Value="16" />
+                <Setter Property="EntryBorderStyle" Value="NoBorderStyle" />
+            </Style>
+
+            <Style TargetType="{x:Type controls:RoundedView}" x:Key="RoundedEntryStyle">
+                <Setter Property="BorderColor" Value="Gray" />
+                <Setter Property="BorderRadius" Value="3" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="HeightRequest" Value="40" />
             </Style>
             
         </ResourceDictionary>

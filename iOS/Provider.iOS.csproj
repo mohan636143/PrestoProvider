@@ -149,6 +149,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\RoundedViewRenderer.cs" />
     <Compile Include="Renderers\CustomLabelRenderer.cs" />
+    <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\avatar.png" />
