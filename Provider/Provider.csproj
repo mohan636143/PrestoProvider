@@ -60,6 +60,9 @@
     <EmbeddedResource Include="Views\UserSignUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProviderSkillsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -119,6 +122,10 @@
     <Compile Include="ViewModels\UserSignUpPageViewModel.cs" />
     <Compile Include="Infrastructure\AccProperties.cs" />
     <Compile Include="Controls\RoundedEntry.cs" />
+    <Compile Include="Views\ProviderSkillsPage.xaml.cs">
+      <DependentUpon>ProviderSkillsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ProviderSkillsPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

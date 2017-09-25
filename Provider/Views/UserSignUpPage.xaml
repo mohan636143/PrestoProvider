@@ -91,8 +91,11 @@
                     Style="{StaticResource SignUpPageLabelStyle}"
                     TextColor="Black" FontSize="16"
                     Text="Next >>"
-                    HorizontalOptions="End" HorizontalTextAlignment="End"/>
-                
+                    HorizontalOptions="End" HorizontalTextAlignment="End">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NextCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
         </ScrollView>
 	</ContentPage.Content>

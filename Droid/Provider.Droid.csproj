@@ -137,6 +137,7 @@
     <Compile Include="Renderers\CustomLabelRenderer.cs" />
     <Compile Include="CustomUrlSchemeInterceptorActivity.cs" />
     <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
+    <Compile Include="Renderers\ExtendedEditorRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -4,6 +4,8 @@ using Xamarin.Auth;
 using Provider.Utility;
 using System.Linq;
 using Xamarin.Forms;
+using System.Windows.Input;
+using Provider.Views;
 
 namespace Provider.ViewModels
 {
@@ -124,6 +126,13 @@ namespace Provider.ViewModels
             }
         }
 
+
+        #endregion
+
+        #region Commands
+
+        public ICommand NextCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -134,6 +143,14 @@ namespace Provider.ViewModels
             if (StoredAcc == null)
                 StoredAcc = App.Store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
             UpdateData(StoredAcc);
+
+            NextCommand = new Command((obj) => LoadNextPage());
+        }
+
+        private void LoadNextPage()
+        {
+            NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
+            navPage.PushAsync(new ProviderSkillsPage());
         }
 
         #endregion

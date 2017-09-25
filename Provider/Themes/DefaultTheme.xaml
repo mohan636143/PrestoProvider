@@ -75,6 +75,12 @@
                 <Setter Property="BorderThickness" Value="2" />
                 <Setter Property="HeightRequest" Value="40" />
             </Style>
+
+            <Style TargetType="{x:Type Editor}" x:Key="DefaultEditorStyle">
+                <Setter Property="HeightRequest" Value="180" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+            </Style>
             
         </ResourceDictionary>
     </ContentPage.Resources>
