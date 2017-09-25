@@ -71,7 +71,7 @@ namespace Provider.Views
 	  {
 	      var facebookServices = new FacebookServices();
 
-	        FacebookProfile facebookProfile = await facebookServices.GetFacebookProfileAsync(accessToken);
+            FacebookProfileData facebookProfile = await facebookServices.GetFacebookProfileAsync(accessToken);
 	      
 	  }
 	}
