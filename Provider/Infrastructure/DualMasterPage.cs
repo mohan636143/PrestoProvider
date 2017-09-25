@@ -15,7 +15,7 @@ namespace Provider.Infrastructure
         Page _rightMasterPage;
         ContentPage _maskerPage;
 
-        NavigationPage _detailPageNavigationPage;
+        public NavigationPage DualMasterNavPage;
         CustomNavBar _navBarPage;
 
         Rectangle _leftMasterDefaultPosition;
@@ -92,17 +92,17 @@ namespace Provider.Infrastructure
 
         async void HandleLeftMasterButtonTapAction()
         {
-            if (this._detailPageNavigationPage.Navigation.NavigationStack.Count > 1)
+            if (this.DualMasterNavPage.Navigation.NavigationStack.Count > 1)
             {
                 // this is back button so first we pop the view from navigaton stack.
-                await this._detailPageNavigationPage.Navigation.PopAsync();
+                await this.DualMasterNavPage.Navigation.PopAsync();
 
                 // If this the root page, we need to change the navigation buttons to the left and right ones.
                 // If not, we leave it with the back button.
-                _navBarPage.ShouldShowForRootPage = _detailPageNavigationPage.Navigation.NavigationStack.Count == 1;
+                _navBarPage.ShouldShowForRootPage = DualMasterNavPage.Navigation.NavigationStack.Count == 1;
 
                 // Consider the toolbar items defined in the page.
-                _navBarPage.ToolbarItems = _detailPageNavigationPage.Navigation.NavigationStack.ElementAt(0).ToolbarItems;
+                _navBarPage.ToolbarItems = DualMasterNavPage.Navigation.NavigationStack.ElementAt(0).ToolbarItems;
             }
             else
             {
@@ -234,11 +234,11 @@ namespace Provider.Infrastructure
 
 
             // Create a new Navigation page using this detail page as its root view.
-            rlf._detailPageNavigationPage = new NavigationPage((Page)newValue);
+            rlf.DualMasterNavPage = new NavigationPage((Page)newValue);
 
             // We want to keep a tab on the navigation stack when some page is pushed on to it.
             // This enables us to change the Navigation bar as per the stack status.
-            rlf._detailPageNavigationPage.Pushed += (sender1, e) =>
+            rlf.DualMasterNavPage.Pushed += (sender1, e) =>
             {
                 rlf._navBarPage.ShouldShowForRootPage = false;
                 rlf._navBarPage.ToolbarItems = e.Page.ToolbarItems;
@@ -248,7 +248,7 @@ namespace Provider.Infrastructure
             // In case of Popped, the page that comes in is still the existing page, hence
             // we need to go through the navigation stack to find out the page we will
             // navigate to.
-            rlf._detailPageNavigationPage.Popped += (sender1, e) =>
+            rlf.DualMasterNavPage.Popped += (sender1, e) =>
             {
                 NavigationPage navPage = (NavigationPage)sender1;
                 Page pg = navPage.Navigation.NavigationStack.ElementAt<Page>(
@@ -260,7 +260,7 @@ namespace Provider.Infrastructure
             };
             // Popped to root will need the navigation bar to show with 
             // hamburger menu.
-            rlf._detailPageNavigationPage.PoppedToRoot += (sender1, e) =>
+            rlf.DualMasterNavPage.PoppedToRoot += (sender1, e) =>
             {
                 rlf._navBarPage.ShouldShowForRootPage = true;
                 rlf._navBarPage.ToolbarItems = e.Page.ToolbarItems;
@@ -272,7 +272,7 @@ namespace Provider.Infrastructure
 
 
 
-            rlf.Children.Insert(0, rlf._detailPageNavigationPage);
+            rlf.Children.Insert(0, rlf.DualMasterNavPage);
             ((Page)newValue).IsVisible = true;
 
             rlf._navBarPage.TitleText = ((Page)newValue).Title;
@@ -373,9 +373,9 @@ namespace Provider.Infrastructure
                 _navBarPage.Layout(new Rectangle(0, 0, width, 64));
             }
 
-            if (_detailPageNavigationPage != null)
+            if (DualMasterNavPage != null)
             {
-                _detailPageNavigationPage.Layout(new Rectangle(x, 0, width, height));
+                DualMasterNavPage.Layout(new Rectangle(x, 0, width, height));
             }
 
             // Set a width for the 

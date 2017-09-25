@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Xamarin.Auth;
 
@@ -95,27 +96,87 @@ namespace Provider.Infrastructure
 		//}
 	}
 
-	public class FacebookProfile
+	//public class FacebookProfile
+	//{
+	//	public string Name { get; set; }
+	//	public Picture Picture { get; set; }
+	//	public string Locale { get; set; }
+	//	public string Link { get; set; }
+	//	public Cover Cover { get; set; }
+	//	[JsonProperty("age_range")]
+	//	public AgeRange AgeRange { get; set; }
+	//	public Device[] Devices { get; set; }
+	//	[JsonProperty("first_name")]
+	//	public string FirstName { get; set; }
+	//	[JsonProperty("last_name")]
+	//	public string LastName { get; set; }
+	//	public string Gender { get; set; }
+	//	public bool IsVerified { get; set; }
+	//	public string Id { get; set; }
+	//	public string email { get; set; }
+	//	public string mobile { get; set; }
+	//	public string access_token { get; set; }
+	//	public string refresh_token { get; set; }
+	//}
+
+	//public class Picture
+	//{
+	//	public Data Data { get; set; }
+	//}
+
+	//public class Data
+	//{
+	//	public bool IsSilhouette { get; set; }
+	//	public string Url { get; set; }
+	//}
+
+	//public class Cover
+	//{
+	//	public string Id { get; set; }
+	//	public int OffsetY { get; set; }
+	//	public string Source { get; set; }
+	//}
+
+	//public class AgeRange
+	//{
+	//	public int Min { get; set; }
+	//}
+
+	//public class Device
+	//{
+	//	public string Os { get; set; }
+	//}
+
+	public class Datum
 	{
+		public string Access_Token { get; set; }
+		public string Category { get; set; }
 		public string Name { get; set; }
-		public Picture Picture { get; set; }
-		public string Locale { get; set; }
-		public string Link { get; set; }
-		public Cover Cover { get; set; }
-		[JsonProperty("age_range")]
-		public AgeRange AgeRange { get; set; }
-		public Device[] Devices { get; set; }
-		[JsonProperty("first_name")]
-		public string FirstName { get; set; }
-		[JsonProperty("last_name")]
-		public string LastName { get; set; }
-		public string Gender { get; set; }
-		public bool IsVerified { get; set; }
 		public string Id { get; set; }
-		public string email { get; set; }
-		public string mobile { get; set; }
-		public string access_token { get; set; }
-		public string refresh_token { get; set; }
+		public List<string> Perms { get; set; }
+	}
+
+	public class Cursors
+	{
+		public string Before { get; set; }
+		public string After { get; set; }
+	}
+
+	public class Paging
+	{
+		public Cursors Cursors { get; set; }
+	}
+
+	public class Accounts
+	{
+		public List<Datum> Data { get; set; }
+		public Paging Paging { get; set; }
+	}
+
+	public class Data
+	{
+		public bool Issilhouette { get; set; }
+		public string Url { get; set; }
 	}
 
 	public class Picture
@@ -123,26 +184,17 @@ namespace Provider.Infrastructure
 		public Data Data { get; set; }
 	}
 
-	public class Data
+	public class FacebookProfileData
 	{
-		public bool IsSilhouette { get; set; }
-		public string Url { get; set; }
-	}
-
-	public class Cover
-	{
+		public string Name { get; set; }
+		public string Birthday { get; set; }
+		public Accounts Accounts { get; set; }
+		public string First_Name { get; set; }
+		public string Last_Name { get; set; }
+		public string Locale { get; set; }
+		public Picture Picture { get; set; }
+		public string Email { get; set; }
+		public string Gender { get; set; }
 		public string Id { get; set; }
-		public int OffsetY { get; set; }
-		public string Source { get; set; }
-	}
-
-	public class AgeRange
-	{
-		public int Min { get; set; }
-	}
-
-	public class Device
-	{
-		public string Os { get; set; }
 	}
 }

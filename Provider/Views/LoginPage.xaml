@@ -34,12 +34,13 @@
             </Grid>
             <Grid Grid.Row="1" Margin="25" VerticalOptions="EndAndExpand" >
                 <controls:ImageButton
-                    Grid.Row="0"
+                    Grid.Row="0" 
                     FillColor="#3b5998" BorderColor="#3b5998" BorderRadius="3"
                     BorderThickness="2" SourceImage="facebook.png" Text="Facebook"
                     TextColor="White" TapCommand="{Binding FbLoginCommand}"/>
+                <!-- Currently commented as not required by the user -->
                 <controls:ImageButton x:Name="btnGoogle"
-                    Grid.Row="1"
+                    Grid.Row="1" IsVisible="false"
                     FillColor="#d34836" BorderColor="#d34836" BorderRadius="3"
                     BorderThickness="2" SourceImage="google.png" Text="Google"
                     TextColor="White" TapCommand="{Binding GoogleLoginCommand}"/>
