@@ -8,8 +8,9 @@ namespace Provider.Controls
         public ExtendedEntry entry;
         public RoundedEntry()
         {
-            this.Padding = new Thickness(5);
+            //this.Padding = new Thickness(this.BorderRadius,5);
             entry = new ExtendedEntry();
+            entry.Margin = new Thickness(15, 5);
             Children.Add(entry);
         }
 

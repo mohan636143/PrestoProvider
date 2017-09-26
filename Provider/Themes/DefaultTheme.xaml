@@ -71,9 +71,19 @@
 
             <Style TargetType="{x:Type controls:RoundedView}" x:Key="RoundedEntryStyle">
                 <Setter Property="BorderColor" Value="Gray" />
-                <Setter Property="BorderRadius" Value="3" />
+                <Setter Property="BorderRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="30" iOS="25"/>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="BorderThickness" Value="2" />
-                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" Android="60" iOS="50"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FillColor" Value="White" />
+                <Setter Property="IsClippedToBounds" Value="True" />
             </Style>
 
             <Style TargetType="{x:Type Editor}" x:Key="DefaultEditorStyle">

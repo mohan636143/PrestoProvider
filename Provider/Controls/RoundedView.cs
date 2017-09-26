@@ -2,70 +2,93 @@
 using Xamarin.Forms;
 namespace Provider.Controls
 {
-	public class RoundedView : Grid
-	{
+    public class RoundedView : Grid
+    {
 
-		#region CornerRadius
+        #region CornerRadius
 
-		public static BindableProperty BorderRadiusProperty = BindableProperty.Create(nameof(BorderRadius), typeof(int),
-																					 typeof(RoundedView), defaultValue: 0);
+        public static BindableProperty BorderRadiusProperty = BindableProperty.Create(nameof(BorderRadius), typeof(int),
+                                                                                     typeof(RoundedView), defaultValue: 0);
 
-		public int BorderRadius
-		{
-			get
-			{
-				return (int)GetValue(BorderRadiusProperty);
-			}
-			set
-			{
-				SetValue(BorderRadiusProperty, value);
-			}
-		}
+        public int BorderRadius
+        {
+            get
+            {
+                return (int)GetValue(BorderRadiusProperty);
+            }
+            set
+            {
+                SetValue(BorderRadiusProperty, value);
+            }
+        }
 
-		#endregion CornerRadius
+        #endregion CornerRadius
 
-		#region BorderThickness
+        #region BorderThickness
 
-		public static BindableProperty BorderThicknessProperty = BindableProperty.Create(nameof(BorderThickness), typeof(int),
-																					 typeof(RoundedView), defaultValue: 0);
-		public int BorderThickness
-		{
-			get
-			{
-				return (int)GetValue(BorderThicknessProperty);
-			}
-			set
-			{
-				SetValue(BorderThicknessProperty, value);
-			}
-		}
+        public static BindableProperty BorderThicknessProperty = BindableProperty.Create(nameof(BorderThickness), typeof(int),
+                                                                                     typeof(RoundedView), defaultValue: 0);
+        public int BorderThickness
+        {
+            get
+            {
+                return (int)GetValue(BorderThicknessProperty);
+            }
+            set
+            {
+                SetValue(BorderThicknessProperty, value);
+            }
+        }
 
-		#endregion BorderThickness
+        #endregion BorderThickness
 
-		#region BorderColor
+        #region BorderColor
 
-		public static BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), typeof(Color),
-																					 typeof(RoundedView), defaultValue: Color.Transparent,
-																					 propertyChanged: OnBorderColorPropertyChanged);
-		public Color BorderColor
-		{
-			get
-			{
-				return (Color)GetValue(BorderColorProperty);
-			}
-			set
-			{
-				SetValue(BorderColorProperty, value);
-			}
-		}
+        public static BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), typeof(Color),
+                                                                                     typeof(RoundedView), defaultValue: Color.Transparent,
+                                                                                     propertyChanged: OnBorderColorPropertyChanged);
+        public Color BorderColor
+        {
+            get
+            {
+                return (Color)GetValue(BorderColorProperty);
+            }
+            set
+            {
+                SetValue(BorderColorProperty, value);
+            }
+        }
 
-		public static void OnBorderColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-		{
+        public static void OnBorderColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
 
-		}
+        }
 
-		#endregion BorderColor
+        #endregion BorderColor
 
+        #region FillColor
 
-	}
+        public static BindableProperty FillColorProperty = BindableProperty.Create(nameof(FillColor), typeof(Color),
+                                                                                   typeof(RoundedView), defaultValue: Color.White,
+                                                                                     propertyChanged: OnBorderColorPropertyChanged);
+        public Color FillColor
+        {
+            get
+            {
+                return (Color)GetValue(FillColorProperty);
+            }
+            set
+            {
+                SetValue(FillColorProperty, value);
+            }
+        }
+
+        public static void OnFillColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+
+        }
+
+        #endregion
+
+    }
 }

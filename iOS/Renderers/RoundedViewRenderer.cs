@@ -3,6 +3,7 @@ using Provider.Controls;
 using Provider.iOS.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using UIKit;
 
 [assembly: ExportRenderer(typeof(RoundedView), typeof(RoundedViewRenderer))]
 namespace Provider.iOS.Renderers
@@ -36,7 +37,7 @@ namespace Provider.iOS.Renderers
 		{
 			base.Draw(rect);
 
-			this.LayoutIfNeeded();
+			//this.LayoutIfNeeded();
 
 			RoundedView rcv = (RoundedView)Element;
 			//rcv.HasShadow = false;
@@ -45,8 +46,8 @@ namespace Provider.iOS.Renderers
 			//this.BackgroundColor = rcv.FillColor.ToUIColor();
 			this.ClipsToBounds = true;
 			this.Layer.MasksToBounds = true;
-			this.Layer.BackgroundColor = rcv.BackgroundColor.ToCGColor();
-			this.Layer.CornerRadius = (nfloat)rcv.BorderRadius;
+            this.Layer.BackgroundColor = rcv.FillColor.ToCGColor();
+            this.Layer.CornerRadius = (nfloat)ConvertPixelstoDp(rcv.BorderRadius);
 			this.Layer.BorderWidth = 0;
 
 			if (rcv.BorderThickness > 0 && rcv.BorderColor.A > 0.0)
@@ -56,5 +57,16 @@ namespace Provider.iOS.Renderers
 			}
 
 		}
+
+		private float ConvertPixelstoDp(float pixelInput)
+		{
+			float outputVal = 0.0f;
+            //if (pixelInput > (float)(this.Element.HeightRequest / 2))
+            //  pixelInput = (float)(this.Element.HeightRequest / 2);
+
+            outputVal = pixelInput * (float)UIScreen.MainScreen.Scale;
+			return pixelInput;
+		}
+
 	}
 }

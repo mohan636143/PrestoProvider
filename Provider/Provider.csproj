@@ -126,6 +126,7 @@
       <DependentUpon>ProviderSkillsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ProviderSkillsPageViewModel.cs" />
+    <Compile Include="Utility\ProfileCreationUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
