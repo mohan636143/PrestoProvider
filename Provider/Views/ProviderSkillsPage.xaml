@@ -8,60 +8,67 @@
         <vm:ProviderSkillsPageViewModel/>
     </ContentPage.BindingContext>
 	<ContentPage.Content>
-        <StackLayout Margin="10" Padding="10" Spacing="5" BackgroundColor="White">
-            <Label 
-                Style="{StaticResource SignUpPageLabelStyle}"
-                Text="Please provide your channel link "
-                LineBreakMode="WordWrap"/>
-            <controls:RoundedEntry 
-                Text="{Binding YoutubeLink}"
-                Style="{StaticResource RoundedEntryStyle}"
-                EntryStyle="{StaticResource SignUpPageEntryStyle}"/>
-            
-            <Label 
-                Margin="0,10,0,0"
-                Style="{StaticResource SignUpPageLabelStyle}"
-                Text="About Me"/>
-            <controls:RoundedView
-                BorderColor="Gray" BorderRadius="3" BorderThickness="2">
-                <Editor 
-                    Style="{StaticResource DefaultEditorStyle}"
-                    Text="{Binding AboutMe}" 
-                />
+         <Grid Margin="0">
+            <Image Source="LoginBG.png" Aspect="Fill"/>
+                <ScrollView BackgroundColor="Transparent">
+                    <StackLayout Margin="10" Padding="10" Spacing="5" >
+                        <Label 
+                            Style="{StaticResource SignUpPageLabelStyle}"
+                            Text="Please provide your channel link "
+                            LineBreakMode="WordWrap"/>
+                        <controls:RoundedEntry 
+                            Text="{Binding YoutubeLink}" 
+                            EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                            Style="{StaticResource RoundedEntryStyle}"
+                            VerticalOptions="FillAndExpand"/>
+                        
+                        <Label 
+                            Margin="0,10,0,0"
+                            Style="{StaticResource SignUpPageLabelStyle}"
+                            Text="About Me"/>
+                        <controls:RoundedView
+                            BorderColor="Gray" BorderRadius="6" BorderThickness="2">
+                            <Editor 
+                                Style="{StaticResource DefaultEditorStyle}"
+                                Text="{Binding AboutMe}" 
+                            />
 
-            </controls:RoundedView>
-             <Label 
-                Margin="0,10,0,0"
-                Style="{StaticResource SignUpPageLabelStyle}"
-                Text="Skills"/>
-            <controls:RoundedView
-                BorderColor="Gray" BorderRadius="3" BorderThickness="2">
-                <Editor 
-                    Style="{StaticResource DefaultEditorStyle}"
-                    Text="{Binding Skills}" 
-                />
-            </controls:RoundedView>
-            
-            <Label 
-            Margin="0,10,0,0"
-            Style="{StaticResource SignUpPageLabelStyle}"
-            Text="Awards and Recogntions"/>
-            <controls:RoundedView
-                BorderColor="Gray" BorderRadius="3" BorderThickness="2">
-                <Editor 
-                    Style="{StaticResource DefaultEditorStyle}"
-                    Text="{Binding Awards}" 
-                />
-            </controls:RoundedView>
+                        </controls:RoundedView>
+                         <Label 
+                            Margin="0,10,0,0"
+                            Style="{StaticResource SignUpPageLabelStyle}"
+                            Text="Skills"/>
+                        <controls:RoundedView
+                            BorderColor="Gray" BorderRadius="6" BorderThickness="2">
+                            <Editor 
+                                Style="{StaticResource DefaultEditorStyle}"
+                                Text="{Binding Skills}" 
+                            />
+                        </controls:RoundedView>
+                        
+                        <Label 
+                        Margin="0,10,0,0"
+                        Style="{StaticResource SignUpPageLabelStyle}"
+                        Text="Awards and Recogntions"/>
+                        <controls:RoundedView
+                            BorderColor="Gray" BorderRadius="6" BorderThickness="2">
+                            <Editor 
+                                Style="{StaticResource DefaultEditorStyle}"
+                                Text="{Binding Awards}" 
+                            />
+                        </controls:RoundedView>
 
-            <Label Style="{StaticResource SignUpPageLabelStyle}"
-                Text="Next >>" HorizontalOptions="End" HorizontalTextAlignment="End">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding NextCommand}"/>
-                </Label.GestureRecognizers>
-            </Label>
-            
-            
-        </StackLayout>
+                         <controls:RoundedView Style="{StaticResource RoundedEntryStyle}" 
+                        HeightRequest="40" BorderColor="Black" FillColor="Black" BorderRadius="20" BorderThickness="2" IsClippedToBounds="true">
+                        <Button
+                            HeightRequest="40" 
+                            TextColor="White" FontSize="16" BackgroundColor="Black"
+                            Text="Next" Command="{Binding NextCommand}"
+                            HorizontalOptions="FillAndExpand" />
+                    </controls:RoundedView>
+                
+            </StackLayout>
+                </ScrollView>
+         </Grid>
 	</ContentPage.Content>
 </ContentPage>

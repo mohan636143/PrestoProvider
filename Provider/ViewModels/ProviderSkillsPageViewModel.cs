@@ -1,6 +1,9 @@
 ﻿using System;
 
 using Provider.Infrastructure;
+using System.Windows.Input;
+using Xamarin.Forms;
+using Provider.Utility;
 
 namespace Provider.ViewModels
 {
@@ -23,52 +26,87 @@ namespace Provider.ViewModels
             }
         }
 
-		private string _aboutMe;
-		public string AboutMe
-		{
-			get
-			{
+        private string _aboutMe;
+        public string AboutMe
+        {
+            get
+            {
                 return _aboutMe;
-			}
-			set
-			{
+            }
+            set
+            {
                 _aboutMe = value;
-				OnPropertyChanged("AboutMe");
-			}
-		}
+                OnPropertyChanged("AboutMe");
+            }
+        }
 
-		private string _skills;
-		public string Skills
-		{
-			get
-			{
+        private string _skills;
+        public string Skills
+        {
+            get
+            {
                 return _skills;
-			}
-			set
-			{
+            }
+            set
+            {
                 _skills = value;
-				OnPropertyChanged("Skills");
-			}
-		}
+                OnPropertyChanged("Skills");
+            }
+        }
 
-		private string _awards;
-		public string Awards
-		{
-			get
-			{
+        private string _awards;
+        public string Awards
+        {
+            get
+            {
                 return _awards;
-			}
-			set
-			{
+            }
+            set
+            {
                 _awards = value;
-				OnPropertyChanged("Awards");
-			}
-		}
+                OnPropertyChanged("Awards");
+            }
+        }
+
+        private UserProfile SavedProfile { get; set; }
 
         #endregion
 
+        #region Commands
+
+        public ICommand NextCommand { get; set; }
+
+        #endregion
+
+        #region Constructor
+
         public ProviderSkillsPageViewModel()
         {
+            NextCommand = new Command((obj) => HandldeNext());
+            SavedProfile = ProfileCreationUtility.ProfileData;
         }
+
+        #endregion
+
+        #region Methods
+
+        private void HandldeNext()
+        {
+            UpdateProfileData();
+            NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
+            //navPage.PushAsync(new ProviderSkillsPage());
+        }
+
+        private void UpdateProfileData()
+        {
+            SavedProfile.Channel = YoutubeLink;
+            SavedProfile.Description = AboutMe;
+            SavedProfile.Skills = Skills;
+            SavedProfile.Awards = Awards;
+
+        }
+
+        #endregion
+
     }
 }

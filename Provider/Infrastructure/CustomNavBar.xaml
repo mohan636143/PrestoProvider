@@ -17,7 +17,7 @@
         
         <Label
           x:Name="titleLabel"
-          FontSize="30" Text="Presto" TextColor="Black"
+          FontSize="30" TextColor="Black"
           VerticalOptions="FillAndExpand"
           HorizontalOptions="FillAndExpand"
           VerticalTextAlignment="Center"

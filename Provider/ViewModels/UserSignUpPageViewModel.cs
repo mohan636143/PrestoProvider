@@ -126,6 +126,21 @@ namespace Provider.ViewModels
             }
         }
 
+        public UserProfile StoredUserProfileData { get; set; }
+
+        private bool _enableNotify;
+        public bool EnableNotify
+        {
+            get
+            {
+                return _enableNotify;
+            }
+            set
+            {
+                _enableNotify = value;
+                OnPropertyChanged("EnableNotify");
+            }
+        }
 
         #endregion
 
@@ -143,14 +158,8 @@ namespace Provider.ViewModels
             if (StoredAcc == null)
                 StoredAcc = App.Store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
             UpdateData(StoredAcc);
-
+            StoredUserProfileData = new UserProfile();
             NextCommand = new Command((obj) => LoadNextPage());
-        }
-
-        private void LoadNextPage()
-        {
-            NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
-            navPage.PushAsync(new ProviderSkillsPage());
         }
 
         #endregion
@@ -181,6 +190,25 @@ namespace Provider.ViewModels
             //Location
             storedAcc.Properties.TryGetValue(AccProperties.Location, out tempData);
             Location = tempData;
+        }
+
+
+
+		private void LoadNextPage()
+		{
+            UpdateProfileData(StoredUserProfileData);
+			NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
+			navPage.PushAsync(new ProviderSkillsPage());
+		}
+
+        private void UpdateProfileData(UserProfile profileData)
+        {
+            profileData.ProfilePic = ProfilePic;
+            profileData.FirstName = FirstName;
+            profileData.LastName = LastName;
+            profileData.Email = Email;
+            profileData.Age = Age;
+            profileData.Location = Location;
         }
 
         #endregion

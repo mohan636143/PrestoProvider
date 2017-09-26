@@ -8,95 +8,105 @@
     <ContentPage.BindingContext>
         <vm:UserSignUpPageViewModel/>
     </ContentPage.BindingContext>
-	<ContentPage.Content>
-        <ScrollView BackgroundColor="White">
-            <StackLayout  Spacing="0">
-                
-               <Grid >
-                    <controls:RoundedView 
-                        Margin="10" HorizontalOptions="Center" 
-                        HeightRequest="100" WidthRequest="100" 
-                        BorderColor="Gray" BorderThickness="2">
-                        <controls:RoundedView.BorderRadius>
-                            <OnPlatform x:TypeArguments="x:Int32" Android="100" iOS="50" />
-                        </controls:RoundedView.BorderRadius>
-                        <controls:FitImage ImgSource="{Binding ProfilePic}" Size="100" />
+	<ContentPage.Content> 
+        <Grid Margin="0">
+            <Image Source="LoginBG.png" Aspect="Fill"/>
+            <ScrollView BackgroundColor="Transparent" Padding="10">
+                  <StackLayout  Spacing="20" Margin="30,10" >
+                        
+                        <Grid >
+                            <controls:RoundedView 
+                                Margin="10" HorizontalOptions="Center" 
+                                HeightRequest="100" WidthRequest="100" 
+                                BorderColor="Gray" BorderThickness="2">
+                                <controls:RoundedView.BorderRadius>
+                                    <OnPlatform x:TypeArguments="x:Int32" Android="100" iOS="50" />
+                                </controls:RoundedView.BorderRadius>
+                                <controls:FitImage ImgSource="{Binding ProfilePic}" Size="100" />
+                            </controls:RoundedView>
+                        </Grid>
+                        
+                        <Grid Padding="10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!--<Label 
+                                Grid.Row="0" Grid.Column="0"
+                                Style="{StaticResource SignUpPageLabelStyle}"
+                                Text="First Name"/>-->
+                            <controls:RoundedEntry 
+                                Grid.Row="0" Grid.Column="1" 
+                            Placeholder="First Name" Text="{Binding FirstName}" 
+                            EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                            Style="{StaticResource RoundedEntryStyle}"/>
+                            <!--<Label 
+                                Grid.Row="1" Grid.Column="0"
+                                Style="{StaticResource SignUpPageLabelStyle}"
+                                Text="Last Name"/>-->
+                             <controls:RoundedEntry 
+                                Grid.Row="1" Grid.Column="1"
+                            Placeholder="Last Name" Text="{Binding LastName}" 
+                            EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                            Style="{StaticResource RoundedEntryStyle}"/>
+                           <!-- <Label 
+                                Grid.Row="2" Grid.Column="0"
+                                Style="{StaticResource SignUpPageLabelStyle}"
+                                Text="Email"/>-->
+                             <controls:RoundedEntry 
+                                Grid.Row="2" Grid.Column="1"
+                            Placeholder="Email" Text="{Binding Email}" 
+                            EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                            Style="{StaticResource RoundedEntryStyle}"/>
+                           <!-- <Label 
+                                Grid.Row="3" Grid.Column="0"
+                                Style="{StaticResource SignUpPageLabelStyle}"
+                                Text="Mobile"/>-->
+                             <controls:RoundedEntry 
+                                Grid.Row="3" Grid.Column="1"
+                            Placeholder="Mobile" Text="{Binding Mobile}" 
+                            EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                            Style="{StaticResource RoundedEntryStyle}"/>
+                            <!--<Label 
+                                Grid.Row="4" Grid.Column="0"
+                                Style="{StaticResource SignUpPageLabelStyle}"
+                                Text="Age"/>-->
+                             <controls:RoundedEntry 
+                                Grid.Row="4" Grid.Column="1"
+                            Placeholder="Age" Text="{Binding Age}" 
+                            EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                            Style="{StaticResource RoundedEntryStyle}"/>
+                           <!-- <Label 
+                                Grid.Row="5" Grid.Column="0"
+                                Style="{StaticResource SignUpPageLabelStyle}"
+                                Text="Zip Code"/>-->
+                             <controls:RoundedEntry 
+                                Grid.Row="5" Grid.Column="1"
+                            Placeholder="Zip Code" Text="{Binding Location}" 
+                            EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                            Style="{StaticResource RoundedEntryStyle}"/>
+                            <Label 
+                                Grid.Row="6" Grid.Column="1"
+                                Style="{StaticResource SignUpPageLabelStyle}"
+                                HorizontalOptions="Start" HorizontalTextAlignment="Start"
+                                Text="Notifications" TextColor="Black" />
+                            <Switch 
+                                Grid.Row="6" Grid.Column="1"
+                                HorizontalOptions="End"
+                                IsToggled="{Binding EnableNotify}"
+                                />
+                        </Grid>
+
+                    <controls:RoundedView Style="{StaticResource RoundedEntryStyle}" 
+                        HeightRequest="40" BorderColor="Black" FillColor="Black" BorderRadius="20" BorderThickness="2" IsClippedToBounds="true">
+                        <Button
+                            HeightRequest="40" 
+                            TextColor="White" FontSize="16" BackgroundColor="Black"
+                            Text="Next" Command="{Binding NextCommand}"
+                            HorizontalOptions="FillAndExpand" />
                     </controls:RoundedView>
-                </Grid>
-                
-                <BoxView HeightRequest="1" Color="Black"/>
-                
-                <Grid Padding="10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label 
-                        Grid.Row="0" Grid.Column="0"
-                        Style="{StaticResource SignUpPageLabelStyle}"
-                        Text="First Name"/>
-                    <controls:RoundedEntry 
-                        Grid.Row="0" Grid.Column="1" 
-                    Placeholder="First Name" Text="{Binding FirstName}" 
-                    EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                    Style="{StaticResource RoundedEntryStyle}"/>
-                    <Label 
-                        Grid.Row="1" Grid.Column="0"
-                        Style="{StaticResource SignUpPageLabelStyle}"
-                        Text="Last Name"/>
-                     <controls:RoundedEntry 
-                        Grid.Row="1" Grid.Column="1"
-                    Placeholder="Last Name" Text="{Binding LastName}" 
-                    EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                    Style="{StaticResource RoundedEntryStyle}"/>
-                    <Label 
-                        Grid.Row="2" Grid.Column="0"
-                        Style="{StaticResource SignUpPageLabelStyle}"
-                        Text="Email"/>
-                     <controls:RoundedEntry 
-                        Grid.Row="2" Grid.Column="1"
-                    Placeholder="Email" Text="{Binding Email}" 
-                    EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                    Style="{StaticResource RoundedEntryStyle}"/>
-                    <Label 
-                        Grid.Row="3" Grid.Column="0"
-                        Style="{StaticResource SignUpPageLabelStyle}"
-                        Text="Mobile"/>
-                     <controls:RoundedEntry 
-                        Grid.Row="3" Grid.Column="1"
-                    Placeholder="Mobile" Text="{Binding Mobile}" 
-                    EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                    Style="{StaticResource RoundedEntryStyle}"/>
-                    <Label 
-                        Grid.Row="4" Grid.Column="0"
-                        Style="{StaticResource SignUpPageLabelStyle}"
-                        Text="Age"/>
-                     <controls:RoundedEntry 
-                        Grid.Row="4" Grid.Column="1"
-                    Placeholder="Age" Text="{Binding Age}" 
-                    EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                    Style="{StaticResource RoundedEntryStyle}"/>
-                    <Label 
-                        Grid.Row="5" Grid.Column="0"
-                        Style="{StaticResource SignUpPageLabelStyle}"
-                        Text="Zip Code"/>
-                     <controls:RoundedEntry 
-                        Grid.Row="5" Grid.Column="1"
-                    Placeholder="Zip Code" Text="{Binding Location}" 
-                    EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                    Style="{StaticResource RoundedEntryStyle}"/>
-                </Grid>
-                
-                <Label 
-                    Style="{StaticResource SignUpPageLabelStyle}"
-                    TextColor="Black" FontSize="16"
-                    Text="Next >>"
-                    HorizontalOptions="End" HorizontalTextAlignment="End">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NextCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
-        </ScrollView>
+                    </StackLayout>
+            </ScrollView>
+        </Grid>
 	</ContentPage.Content>
 </ContentPage>
