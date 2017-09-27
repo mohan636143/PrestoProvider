@@ -73,7 +73,7 @@
                 <Setter Property="BorderColor" Value="Gray" />
                 <Setter Property="BorderRadius">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32" Android="30" iOS="25"/>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="35" iOS="25"/>
                     </Setter.Value>
                 </Setter>
                 <Setter Property="BorderThickness" Value="2" />
@@ -84,6 +84,11 @@
                 </Setter>
                 <Setter Property="FillColor" Value="White" />
                 <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness" Android="20,0" iOS="10,0"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
             <Style TargetType="{x:Type Editor}" x:Key="DefaultEditorStyle">

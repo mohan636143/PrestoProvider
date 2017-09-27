@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:RoundedView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:utility="clr-namespace:Provider.Utility"
+    x:Class="Provider.Controls.DescriptionEntry"
+    x:Name="descriptionEntry" Margin="0" >
+    
+    <Grid BindingContext="{x:Reference descriptionEntry}"         
+      Margin="0" RowSpacing="0">
+
+            <!--<Grid.Padding>
+                <OnPlatform x:TypeArguments="Thickness" iOS="5" />
+            </Grid.Padding>-->
+
+     <Label
+         x:Name="lblPlaceHolder"
+         Text="{Binding EntryPlaceholderText}"
+         FontSize="{Binding FontSize}"
+         VerticalOptions="Center"
+         VerticalTextAlignment="Center"
+         Grid.Column="0"
+
+         FontFamily="{x:Static utility:FontFamilyName.Calibri}"
+         HorizontalOptions="StartAndExpand" />
+
+      <controls:ExtendedEntry
+            x:Name="entrycontrol"
+            Text="{Binding EntryText}"
+            Style="{Binding EntryStyle}"
+            FontFamily="{x:Static utility:FontFamilyName.Calibri}"
+            TextChanged="OnUnderLinedEntryChanged"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="End"
+
+            EntryBorderStyle="NoBorderStyle"
+            HorizontalTextAlignment="Start"
+            EntryVerticalTextAlignment="Center"
+            Grid.Column="0"
+            Unfocused="OnEntryUnfocused"
+            Focused="OnEntryFocused"
+            Completed="OnEntryCompleted"/>
+        <!--<controls:ExtendedEntry.Margin>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="6,6" Android="3,7,5,0"/>
+                </controls:ExtendedEntry.Margin>-->
+<!--    </controls:ExtendedEntry>-->
+    </Grid>
+  </controls:RoundedView>

@@ -63,6 +63,9 @@
     <EmbeddedResource Include="Views\ProviderSkillsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DescriptionEntry.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -127,6 +130,9 @@
     </Compile>
     <Compile Include="ViewModels\ProviderSkillsPageViewModel.cs" />
     <Compile Include="Utility\ProfileCreationUtility.cs" />
+    <Compile Include="Controls\DescriptionEntry.xaml.cs">
+      <DependentUpon>DescriptionEntry.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
