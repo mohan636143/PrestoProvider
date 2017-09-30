@@ -11,6 +11,7 @@ namespace Provider.Controls
             //this.Padding = new Thickness(this.BorderRadius,5);
             entry = new ExtendedEntry();
             entry.Margin = new Thickness(15, 5);
+            entry.VerticalOptions = LayoutOptions.CenterAndExpand;
             Children.Add(entry);
         }
 

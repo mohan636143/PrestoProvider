@@ -10,7 +10,7 @@
     </ContentPage.BindingContext>
 	<ContentPage.Content> 
         <Grid Margin="0">
-            <Image Source="LoginBG.png" Aspect="Fill"/>
+            <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>
             <ScrollView BackgroundColor="Transparent" Padding="10">
                   <StackLayout  Spacing="20" Margin="30,10" >
                         
@@ -35,61 +35,61 @@
                                 Grid.Row="0" Grid.Column="0"
                                 Style="{StaticResource SignUpPageLabelStyle}"
                                 Text="First Name"/>-->
-                            <controls:RoundedEntry 
+                            <controls:DescriptionEntry 
                                 Grid.Row="0" Grid.Column="1" 
-                            Placeholder="First Name" Text="{Binding FirstName}" 
+                            EntryPlaceholderText="First Name" EntryText="{Binding FirstName}" 
                             EntryStyle="{StaticResource SignUpPageEntryStyle}"
                             Style="{StaticResource RoundedEntryStyle}"/>
                             <!--<Label 
                                 Grid.Row="1" Grid.Column="0"
                                 Style="{StaticResource SignUpPageLabelStyle}"
                                 Text="Last Name"/>-->
-                             <controls:RoundedEntry 
+                             <controls:DescriptionEntry 
                                 Grid.Row="1" Grid.Column="1"
-                            Placeholder="Last Name" Text="{Binding LastName}" 
+                            EntryPlaceholderText="Last Name" EntryText="{Binding LastName}" 
                             EntryStyle="{StaticResource SignUpPageEntryStyle}"
                             Style="{StaticResource RoundedEntryStyle}"/>
                            <!-- <Label 
                                 Grid.Row="2" Grid.Column="0"
                                 Style="{StaticResource SignUpPageLabelStyle}"
                                 Text="Email"/>-->
-                             <controls:RoundedEntry 
+                             <controls:DescriptionEntry 
                                 Grid.Row="2" Grid.Column="1"
-                            Placeholder="Email" Text="{Binding Email}" 
+                            EntryPlaceholderText="Email" EntryText="{Binding Email}" 
                             EntryStyle="{StaticResource SignUpPageEntryStyle}"
                             Style="{StaticResource RoundedEntryStyle}"/>
                            <!-- <Label 
                                 Grid.Row="3" Grid.Column="0"
                                 Style="{StaticResource SignUpPageLabelStyle}"
                                 Text="Mobile"/>-->
-                             <controls:RoundedEntry 
+                             <controls:DescriptionEntry 
                                 Grid.Row="3" Grid.Column="1"
-                            Placeholder="Mobile" Text="{Binding Mobile}" 
+                            EntryPlaceholderText="Mobile" EntryText="{Binding Mobile}" 
                             EntryStyle="{StaticResource SignUpPageEntryStyle}"
                             Style="{StaticResource RoundedEntryStyle}"/>
                             <!--<Label 
                                 Grid.Row="4" Grid.Column="0"
                                 Style="{StaticResource SignUpPageLabelStyle}"
                                 Text="Age"/>-->
-                             <controls:RoundedEntry 
+                             <controls:DescriptionEntry 
                                 Grid.Row="4" Grid.Column="1"
-                            Placeholder="Age" Text="{Binding Age}" 
+                            EntryPlaceholderText="Age" EntryText="{Binding Age}" 
                             EntryStyle="{StaticResource SignUpPageEntryStyle}"
                             Style="{StaticResource RoundedEntryStyle}"/>
                            <!-- <Label 
                                 Grid.Row="5" Grid.Column="0"
                                 Style="{StaticResource SignUpPageLabelStyle}"
                                 Text="Zip Code"/>-->
-                             <controls:RoundedEntry 
+                             <controls:DescriptionEntry 
                                 Grid.Row="5" Grid.Column="1"
-                            Placeholder="Zip Code" Text="{Binding Location}" 
+                            EntryPlaceholderText="Zip Code" EntryText="{Binding Location}" 
                             EntryStyle="{StaticResource SignUpPageEntryStyle}"
                             Style="{StaticResource RoundedEntryStyle}"/>
                             <Label 
                                 Grid.Row="6" Grid.Column="1"
                                 Style="{StaticResource SignUpPageLabelStyle}"
                                 HorizontalOptions="Start" HorizontalTextAlignment="Start"
-                                Text="Notifications" TextColor="Black" />
+                                Text="Notifications" FontSize="16" />
                             <Switch 
                                 Grid.Row="6" Grid.Column="1"
                                 HorizontalOptions="End"
