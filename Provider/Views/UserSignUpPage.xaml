@@ -4,7 +4,8 @@
     xmlns:controls="clr-namespace:Provider.Controls"
     xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:utility="clr-namespace:Provider.Utility"
-    x:Class="Provider.Views.UserSignUpPage">
+    x:Class="Provider.Views.UserSignUpPage"
+    Title="Profile">
     <ContentPage.BindingContext>
         <vm:UserSignUpPageViewModel/>
     </ContentPage.BindingContext>
@@ -31,6 +32,20 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
                             <!--<Label 
                                 Grid.Row="0" Grid.Column="0"
                                 Style="{StaticResource SignUpPageLabelStyle}"
@@ -85,7 +100,7 @@
                             EntryPlaceholderText="Zip Code" EntryText="{Binding Location}" 
                             EntryStyle="{StaticResource SignUpPageEntryStyle}"
                             Style="{StaticResource RoundedEntryStyle}"/>
-                            <Label 
+                           <!-- <Label 
                                 Grid.Row="6" Grid.Column="1"
                                 Style="{StaticResource SignUpPageLabelStyle}"
                                 HorizontalOptions="Start" HorizontalTextAlignment="Start"
@@ -94,7 +109,32 @@
                                 Grid.Row="6" Grid.Column="1"
                                 HorizontalOptions="End"
                                 IsToggled="{Binding EnableNotify}"
-                                />
+                                />-->
+                        <Label
+                            Grid.Row="6" Grid.Column="1"
+                            HorizontalOptions="Start" HorizontalTextAlignment="Start"
+                            Style="{StaticResource SignUpPageLabelStyle}"
+                            Text="About Me"/>
+                         <controls:RoundedView
+                            Grid.Column="1" Grid.Row="7"
+                            BorderColor="Gray" BorderRadius="6" BorderThickness="2">
+                            <Editor 
+                                Style="{StaticResource DefaultEditorStyle}"
+                                Text="{Binding AboutMe}" 
+                            />
+                        </controls:RoundedView>
+                        <controls:CheckBox 
+                            Grid.Row="8" Grid.Column="1"
+                            IsChecked="{Binding AccessFriends}"
+                            DescriptionLabel="Access Facebook Friendlist"
+                            DescriptionLabelStyle="{StaticResource DefaultCheckBoxDescStyle}"
+                            />
+                        <controls:CheckBox 
+                            Grid.Row="9" Grid.Column="1"
+                            IsChecked="{Binding AddPosts}"
+                            DescriptionLabel="Add posts to Facebook"
+                            DescriptionLabelStyle="{StaticResource DefaultCheckBoxDescStyle}"
+                            />
                         </Grid>
 
                     <controls:RoundedView Style="{StaticResource RoundedEntryStyle}" 

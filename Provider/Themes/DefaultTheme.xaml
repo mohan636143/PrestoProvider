@@ -42,8 +42,11 @@
             </Style>-->
 
             <Style TargetType="{x:Type controls:RoundedView}" x:Key="DefRoundedViewStyle">
-                    <Setter Property="BorderColor" Value="Transparent"/>
-                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderColor" Value="Gray"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="BorderRadius" Value="20"/>     
+                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="Padding" Value="6"/>
             </Style>
             
             <Style TargetType="{x:Type Label}" x:Key="ProfilPageDescStyle">
@@ -95,6 +98,29 @@
                 <Setter Property="HeightRequest" Value="180" />
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+            </Style>
+
+            <Style TargetType="{x:Type Label}" x:Key="DefaultCheckBoxDescStyle">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+            </Style>
+
+            <Style TargetType="{x:Type Label}" x:Key="CusineAndDishesPageLabelStyle">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+            </Style>
+
+            <Style TargetType="{x:Type controls:SelectLabel}" x:Key="SelectLabelDefStyle">
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="BorderRadius" Value="20" />
+                <Setter Property="BorderColor" Value="Gray" />
+                <Setter Property="BorderThickness" Value="3" />
+                <Setter Property="FillColor" Value="White" />
+                <Setter Property="SelectedFillColor" Value="Teal" />
+                <Setter Property="SelectedLabelColor" Value="White" />
+                <Setter Property="LabelStyle" Value="{StaticResource SignUpPageLabelStyle}" />
             </Style>
             
         </ResourceDictionary>

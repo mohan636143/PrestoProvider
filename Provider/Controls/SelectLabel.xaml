@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:RoundedView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Provider.Controls"
+    x:Class="Provider.Controls.SelectLabel"
+    x:Name="roundedLabel"
+    Style="{StaticResource DefRoundedViewStyle}">
+	<Label x:Name="toggleLabel"
+        Text="{Binding Source={x:Reference roundedLabel}, LabelText}"
+        Style="{Binding Source={x:Reference roundedLabel}, LabelStyle}"
+        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+        VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+    />
+</controls:RoundedView>

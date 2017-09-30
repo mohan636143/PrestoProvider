@@ -142,6 +142,48 @@ namespace Provider.ViewModels
             }
         }
 
+        private string _aboutMe;
+        public string AboutMe
+        {
+            get
+            {
+                return _aboutMe;
+            }
+            set
+            {
+                _aboutMe = value;
+                OnPropertyChanged("AboutMe");
+            }
+        }
+
+		private bool _accessFriends;
+		public bool AccessFriends
+		{
+			get
+			{
+				return _accessFriends;
+			}
+			set
+			{
+				_accessFriends = value;
+				OnPropertyChanged("AccessFriends");
+			}
+		}
+
+		private bool _addPosts;
+		public bool AddPosts
+		{
+			get
+			{
+				return _addPosts;
+			}
+			set
+			{
+				_addPosts = value;
+				OnPropertyChanged("AddPosts");
+			}
+		}
+
         #endregion
 
         #region Commands
@@ -197,8 +239,13 @@ namespace Provider.ViewModels
 		private void LoadNextPage()
 		{
             UpdateProfileData(StoredUserProfileData);
-			NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
-			navPage.PushAsync(new ProviderSkillsPage());
+            //NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
+            //navPage.PushAsync(new CuisindAndDishesPage());
+
+            DualMasterPage mainPage = App.Current.MainPage as DualMasterPage;
+            if (mainPage != null)
+                mainPage.Detail = new CuisindAndDishesPage();
+
 		}
 
         private void UpdateProfileData(UserProfile profileData)

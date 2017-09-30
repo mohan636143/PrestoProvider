@@ -168,11 +168,11 @@ namespace Provider.Controls
 
 		void OnUnderLinedEntryChanged(object sender, TextChangedEventArgs args)
 		{
-			var eventHandler = this.UnderLinedEntryChanged;
-			if (eventHandler != null)
-			{
-				eventHandler(this, args);
-			}
+			//var eventHandler = this.UnderLinedEntryChanged;
+			//if (eventHandler != null)
+			//{
+			//	eventHandler(this, args);
+			//}
 			if (!string.IsNullOrEmpty(args.NewTextValue))
 			{
 				MinimizePlaceHolderIfRequired(false);

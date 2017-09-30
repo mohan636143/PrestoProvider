@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Provider.Controls"
+    x:Class="Provider.Controls.CheckBox"
+    x:Name="checkbox"
+    ColumnSpacing="15" Margin="10,5">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+	<controls:FitImage
+        x:Name="toggleimage" Size="20" 
+        Grid.Column="0"/>
+    <Label 
+        Text="{Binding Source={x:Reference checkbox},DescriptionLabel}"
+        Style="{Binding Source={x:Reference checkbox}, DescriptionLabelStyle}"
+        Grid.Column="1"/>
+</Grid>

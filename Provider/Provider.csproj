@@ -66,6 +66,18 @@
     <EmbeddedResource Include="Controls\DescriptionEntry.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CheckBox.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CuisindAndDishesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SelectLabel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CapsuleLabel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -133,6 +145,21 @@
     <Compile Include="Controls\DescriptionEntry.xaml.cs">
       <DependentUpon>DescriptionEntry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CheckBox.xaml.cs">
+      <DependentUpon>CheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CuisindAndDishesPage.xaml.cs">
+      <DependentUpon>CuisindAndDishesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectLabel.xaml.cs">
+      <DependentUpon>SelectLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CapsuleLabel.xaml.cs">
+      <DependentUpon>CapsuleLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WrapView.cs" />
+    <Compile Include="ViewModels\CusinesAndDishesPageViewModel.cs" />
+    <Compile Include="Models\SelectLabelModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

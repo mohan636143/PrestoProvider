@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:RoundedView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Provider.Controls.CapsuleLabel"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    Style="{StaticResource DefRoundedViewStyle}"
+    HeightRequest="60"
+    x:Name="capsuleLabel">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Label 
+        x:Name="descriptionLabel" Grid.Row="0" Margin="5,1"
+        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+        HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+        Text="{Binding Source={x:Reference capsuleLabel}, Description}"
+        BackgroundColor="{Binding Source={x:Reference capsuleLabel}, DescriptionBackground}"
+        Style="{Binding Source={x:Reference capsuleLabel}, DescriptionLabelStyle}"
+        />
+    <Label 
+        x:Name="valueLabel" Grid.Row="1" Margin="5,1"
+        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+        HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+        Text="{Binding Source={x:Reference capsuleLabel}, Value}"
+        BackgroundColor="{Binding Source={x:Reference capsuleLabel}, ValueBackground}"
+        Style="{Binding Source={x:Reference capsuleLabel}, ValueLabelStyle}"
+        />
+</controls:RoundedView>
