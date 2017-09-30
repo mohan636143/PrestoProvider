@@ -9,7 +9,7 @@
     </ContentPage.BindingContext>
 	<ContentPage.Content>
          <Grid Margin="0">
-            <Image Source="LoginBG.png" Aspect="Fill"/>
+            <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>
                 <ScrollView BackgroundColor="Transparent">
                     <StackLayout Margin="10" Padding="10" Spacing="5" >
                         <Label 
@@ -61,7 +61,7 @@
                          <controls:RoundedView Style="{StaticResource RoundedEntryStyle}" 
                         HeightRequest="40" BorderColor="Black" FillColor="Black" BorderRadius="20" BorderThickness="2" IsClippedToBounds="true">
                         <Button
-                            HeightRequest="40" 
+                            HeightRequest="40"  Margin="0,15,0,0"
                             TextColor="White" FontSize="16" BackgroundColor="Black"
                             Text="Next" Command="{Binding NextCommand}"
                             HorizontalOptions="FillAndExpand" />
