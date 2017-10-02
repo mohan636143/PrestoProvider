@@ -5,25 +5,28 @@
     xmlns:controls="clr-namespace:Provider.Controls"
     Style="{StaticResource DefRoundedViewStyle}"
     HeightRequest="60"
-    x:Name="capsuleLabel">
-    <Grid.RowDefinitions>
-        <RowDefinition Height="*"/>
-        <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
-    <Label 
-        x:Name="descriptionLabel" Grid.Row="0" Margin="5,1"
-        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-        HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-        Text="{Binding Source={x:Reference capsuleLabel}, Description}"
-        BackgroundColor="{Binding Source={x:Reference capsuleLabel}, DescriptionBackground}"
-        Style="{Binding Source={x:Reference capsuleLabel}, DescriptionLabelStyle}"
-        />
-    <Label 
-        x:Name="valueLabel" Grid.Row="1" Margin="5,1"
-        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-        HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-        Text="{Binding Source={x:Reference capsuleLabel}, Value}"
-        BackgroundColor="{Binding Source={x:Reference capsuleLabel}, ValueBackground}"
-        Style="{Binding Source={x:Reference capsuleLabel}, ValueLabelStyle}"
-        />
+    x:Name="capsuleLabel"
+    Margin="0" Padding="0">
+    <Grid RowSpacing="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label 
+            x:Name="descriptionLabel" Grid.Row="0" 
+            HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+            Text="{Binding Source={x:Reference capsuleLabel}, Description}"
+            BackgroundColor="{Binding Source={x:Reference capsuleLabel}, DescriptionBackground}"
+            Style="{Binding Source={x:Reference capsuleLabel}, DescriptionLabelStyle}"
+            />
+       <Label 
+            x:Name="valueLabel" Grid.Row="1" 
+            HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+            Text="{Binding Source={x:Reference capsuleLabel}, Value}"
+            BackgroundColor="{Binding Source={x:Reference capsuleLabel}, ValueBackground}"
+            Style="{Binding Source={x:Reference capsuleLabel}, ValueLabelStyle}"
+            />
+        </Grid>
 </controls:RoundedView>

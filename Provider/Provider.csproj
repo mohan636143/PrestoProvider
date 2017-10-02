@@ -78,6 +78,21 @@
     <EmbeddedResource Include="Controls\CapsuleLabel.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DishesAndMainMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TermsAndConditionsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderDescriptionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -160,6 +175,27 @@
     <Compile Include="Controls\WrapView.cs" />
     <Compile Include="ViewModels\CusinesAndDishesPageViewModel.cs" />
     <Compile Include="Models\SelectLabelModel.cs" />
+    <Compile Include="Views\DishesAndMainMenuPage.xaml.cs">
+      <DependentUpon>DishesAndMainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DishesAndMainMenuPageViewModel.cs" />
+    <Compile Include="ViewModels\TermsAndConditonsPageViewModel.cs" />
+    <Compile Include="Views\TermsAndConditionsPage.xaml.cs">
+      <DependentUpon>TermsAndConditionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CapsuleLabelModel.cs" />
+    <Compile Include="ViewModels\OrderListPageViewModel.cs" />
+    <Compile Include="Views\OrderListPage.xaml.cs">
+      <DependentUpon>OrderListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrderDescriptionPageViewModel.cs" />
+    <Compile Include="Views\OrderDescriptionPage.xaml.cs">
+      <DependentUpon>OrderDescriptionPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="Provider.Views.CuisindAndDishesPage"
+    x:Class="Provider.Views.DishesAndMainMenuPage"
     xmlns:controls="clr-namespace:Provider.Controls"
     xmlns:vm="clr-namespace:Provider.ViewModels"
     Title="Profile">
     <ContentPage.BindingContext>
-        <vm:CusinesAndDishesPageViewModel/>
+        <vm:DishesAndMainMenuPageViewModel/>
     </ContentPage.BindingContext>
-	<ContentPage.Content>
+    <ContentPage.Content>
          <Grid Margin="0">
             <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>
         <Grid RowSpacing="15" Margin="30,10">
@@ -19,11 +19,11 @@
             <ScrollView Grid.Row="0">
                 <StackLayout>
                     <Label 
-                        Text="Cuisine"
+                        Text="Dishes"
                         Style="{StaticResource CusineAndDishesPageLabelStyle}"
                         HorizontalTextAlignment="Start"/>
                     <controls:WrapView
-                        ItemsSource="{Binding Cuisines}">
+                        ItemsSource="{Binding Dishes}">
                         <controls:WrapView.Columns>
                             <OnIdiom x:TypeArguments="x:Int32" Phone="3" Tablet="5"/>
                         </controls:WrapView.Columns>
@@ -35,11 +35,11 @@
                         </controls:WrapView.ItemTemplate>
                     </controls:WrapView>
                     <Label 
-                        Text="Dishes"
+                        Text="MainMenu"
                         Style="{StaticResource CusineAndDishesPageLabelStyle}"
                         HorizontalTextAlignment="Start"/>
                     <controls:WrapView
-                        ItemsSource="{Binding Dishes}">
+                        ItemsSource="{Binding MainMenu}">
                         <controls:WrapView.Columns>
                             <OnIdiom x:TypeArguments="x:Int32" Phone="3" Tablet="5"/>
                         </controls:WrapView.Columns>
@@ -63,5 +63,6 @@
             </controls:RoundedView>
         </Grid>
             </Grid>
-	</ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>
+

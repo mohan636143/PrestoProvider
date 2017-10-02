@@ -42,6 +42,12 @@ namespace Provider
                 MainPage = new ProviderLaunchPage() { Detail = new UserSignUpPage() };
         }
 
+        public static void SetPage(Page newPage)
+        {
+            DualMasterPage mainPage = App.Current.MainPage as DualMasterPage;
+            mainPage.Detail = newPage;
+        }
+
         protected override void OnStart()
         {
             // Handle when your app starts

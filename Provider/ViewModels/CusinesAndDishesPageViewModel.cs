@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Input;
 using Provider.Infrastructure;
 using Provider.Models;
+using Provider.Views;
 using Xamarin.Forms;
 
 namespace Provider.ViewModels
@@ -74,6 +75,8 @@ namespace Provider.ViewModels
         {
             var selectedCuisines = Cuisines.Where(c => c.Selected == true);
             var selectedDishes = Dishes.Where(c => c.Selected == true);
+
+            App.SetPage(new DishesAndMainMenuPage());
         }
 
         #endregion

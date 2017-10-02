@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Provider.Controls
@@ -106,6 +107,35 @@ namespace Provider.Controls
 			}
 		}
 
+        public static BindableProperty TapCommandProperty = BindableProperty.Create(nameof(TapCommand), typeof(Command), typeof(SelectLabel));
+
+        public Command TapCommand
+		{
+			get
+			{
+                return (Command)GetValue(TapCommandProperty);
+			}
+			set
+			{
+				SetValue(TapCommandProperty, value);
+			}
+		}
+
+		public static BindableProperty ResetOnTapProperty = BindableProperty.Create(nameof(ResetOnTap), typeof(bool), typeof(SelectLabel),
+                                                                                    defaultValue: false, defaultBindingMode: BindingMode.TwoWay);
+
+		public bool ResetOnTap
+		{
+			get
+			{
+				return (bool)GetValue(ResetOnTapProperty);
+			}
+			set
+			{
+				SetValue(ResetOnTapProperty, value);
+			}
+		}
+
 
         #endregion
 
@@ -122,7 +152,11 @@ namespace Provider.Controls
         private void HandleTapped(object sender, EventArgs e)
         {
             SelectLabel sl = sender as SelectLabel;
-            sl.IsSelected = !sl.IsSelected;
+            if (!sl.ResetOnTap)
+                sl.IsSelected = !sl.IsSelected;
+            else if(sl.ResetOnTap)
+            sl.IsSelected = false;
+            sl.TapCommand?.Execute(sl.BindingContext);
         }
     }
 }

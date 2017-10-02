@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Provider.Views.OrderDescriptionPage"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:OrderDescriptionPageViewModel/>
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <Grid Margin="0">
+            <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>
+            <ScrollView>
+                    <StackLayout Padding="30,15">
+                   <Label 
+                            Text="{Binding OrderNum, StringFormat='Order {0}'}"
+                            Style="{StaticResource DefLabelStyle}"
+                            HorizontalTextAlignment="Start" HorizontalOptions="Center"/>
+                    <Label 
+                            Text="{Binding Status}"
+                            Style="{StaticResource DefLabelStyle}"
+                            HorizontalTextAlignment="Start" HorizontalOptions="Center"/>
+                    
+                        <Label 
+                            Text="Items"
+                            Style="{StaticResource CusineAndDishesPageLabelStyle}"
+                            HorizontalTextAlignment="Start"/>
+                      <controls:WrapView
+                            ItemsSource="{Binding Items}">
+                            <controls:WrapView.Columns>
+                                <OnIdiom x:TypeArguments="x:Int32" Phone="3" Tablet="5"/>
+                            </controls:WrapView.Columns>
+                            <controls:WrapView.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:SelectLabel IsEnabled="false" LabelText="{Binding Item}" IsSelected="{Binding Selected}" 
+                                    Style="{StaticResource SelectLabelDefStyle}"/>
+                                </DataTemplate>
+                            </controls:WrapView.ItemTemplate>
+                        </controls:WrapView>
+
+                       <Label  
+                            Text="{Binding Cost,StringFormat='Total Cost : {0:F2}'}"
+                            Style="{StaticResource DefLabelStyle}"
+                            HorizontalTextAlignment="Start"/>
+
+                        <Label  
+                            Text="Address "
+                            Style="{StaticResource CusineAndDishesPageLabelStyle}"
+                            HorizontalTextAlignment="Start"/>
+                        <controls:RoundedView
+                        BorderColor="Gray" BorderRadius="6" BorderThickness="3"
+                        HeightRequest="120" FillColor="#F5F5F5" Padding="10,5">
+                        <Label
+                            Text="{Binding Address}" 
+                            Style="{StaticResource DefLabelStyle}"/>
+                       </controls:RoundedView>
+                    </StackLayout>
+            </ScrollView>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

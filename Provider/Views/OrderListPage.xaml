@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Provider.Views.OrderListPage"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    Title="Order List"
+    x:Name="thisPage">
+    <ContentPage.BindingContext>
+        <vm:OrderListPageViewModel/>
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <Grid RowSpacing="15">
+            <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>
+            <ScrollView Grid.Row="0">
+                <StackLayout Margin="30,15">
+                    <Label 
+                        Text="New"
+                        Style="{StaticResource CusineAndDishesPageLabelStyle}"
+                        HorizontalTextAlignment="Start"/>
+                    <controls:WrapView
+                        ItemsSource="{Binding NewOrders}">
+                        <controls:WrapView.Columns>
+                            <OnIdiom x:TypeArguments="x:Int32" Phone="3" Tablet="5"/>
+                        </controls:WrapView.Columns>
+                        <controls:WrapView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:SelectLabel 
+                                    LabelText="{Binding Item}" IsSelected="{Binding Selected}" 
+                                    Style="{StaticResource SelectLabelDefStyle}" ResetOnTap="true" 
+                                    TapCommand="{Binding Source={x:Reference thisPage},Path=BindingContext.OrderDesCommand}"/>
+                            </DataTemplate>
+                        </controls:WrapView.ItemTemplate>
+                    </controls:WrapView>
+                    <Label 
+                        Text="In Progress"
+                        Style="{StaticResource CusineAndDishesPageLabelStyle}"
+                        HorizontalTextAlignment="Start"/>
+                    <controls:WrapView
+                        ItemsSource="{Binding ProgressOrders}">
+                        <controls:WrapView.Columns>
+                            <OnIdiom x:TypeArguments="x:Int32" Phone="3" Tablet="5"/>
+                        </controls:WrapView.Columns>
+                        <controls:WrapView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:SelectLabel 
+                                    LabelText="{Binding Item}" IsSelected="{Binding Selected}"
+                                    Style="{StaticResource SelectLabelDefStyle}" ResetOnTap="true"
+                                    TapCommand="{Binding Source={x:Reference thisPage},Path=BindingContext.OrderDesCommand}"/>
+                            </DataTemplate>
+                        </controls:WrapView.ItemTemplate>
+                    </controls:WrapView>
+                    <Label 
+                        Text="Completed"
+                        Style="{StaticResource CusineAndDishesPageLabelStyle}"
+                        HorizontalTextAlignment="Start"/>
+                    <controls:WrapView
+                        ItemsSource="{Binding CompletedOrders}">
+                        <controls:WrapView.Columns>
+                            <OnIdiom x:TypeArguments="x:Int32" Phone="3" Tablet="5"/>
+                        </controls:WrapView.Columns>
+                        <controls:WrapView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:SelectLabel 
+                                    LabelText="{Binding Item}" IsSelected="{Binding Selected}"
+                                    Style="{StaticResource SelectLabelDefStyle}" ResetOnTap="true"
+                                    TapCommand="{Binding Source={x:Reference thisPage},Path=BindingContext.OrderDesCommand}"/>
+                            </DataTemplate>
+                        </controls:WrapView.ItemTemplate>
+                    </controls:WrapView>            
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

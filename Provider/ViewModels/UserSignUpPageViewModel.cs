@@ -242,9 +242,10 @@ namespace Provider.ViewModels
             //NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
             //navPage.PushAsync(new CuisindAndDishesPage());
 
-            DualMasterPage mainPage = App.Current.MainPage as DualMasterPage;
-            if (mainPage != null)
-                mainPage.Detail = new CuisindAndDishesPage();
+            //DualMasterPage mainPage = App.Current.MainPage as DualMasterPage;
+            //if (mainPage != null)
+                //mainPage.Detail = new CuisindAndDishesPage();
+            App.SetPage(new CuisindAndDishesPage());
 
 		}
 

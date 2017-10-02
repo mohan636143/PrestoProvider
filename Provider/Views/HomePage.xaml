@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Provider.Views.HomePage"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    Title="Home">
+    <ContentPage.BindingContext>
+        <vm:HomePageViewModel/>
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+         <Grid Margin="0">
+            <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>
+             <Grid RowSpacing="15" Margin="30,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ScrollView>
+                    <StackLayout  >
+                        <Label
+                            Style="{StaticResource CusineAndDishesPageLabelStyle}"
+                            Text="Total Orders"/>
+                        <controls:WrapView ItemsSource="{Binding Orders}">
+                            <controls:WrapView.Columns>
+                                <OnIdiom x:TypeArguments="x:Int32" Phone="2" Tablet="3"/>
+                            </controls:WrapView.Columns>
+                            <controls:WrapView.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:CapsuleLabel 
+                                    DescriptionBackground="Teal" ValueBackground="Silver"
+                                    ValueLabelStyle="{StaticResource CapsuleLabelValueStyle}"
+                                    DescriptionLabelStyle="{StaticResource CapsuleLabelDescStyle}"
+                                    Description="{Binding Descritpion}"
+                                    Value="{Binding Value}"/>
+                                </DataTemplate>
+                            </controls:WrapView.ItemTemplate>
+                        </controls:WrapView>
+
+                        <Label Margin="0,10"
+                            Style="{StaticResource CusineAndDishesPageLabelStyle}"
+                            Text="Total Revenue"/>
+                        <controls:WrapView ItemsSource="{Binding Revenue}">
+                            <controls:WrapView.Columns>
+                                <OnIdiom x:TypeArguments="x:Int32" Phone="2" Tablet="3"/>
+                            </controls:WrapView.Columns>
+                            <controls:WrapView.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:CapsuleLabel 
+                                    DescriptionBackground="Teal" ValueBackground="Silver"
+                                    DescriptionLabelStyle="{StaticResource CapsuleLabelDescStyle}"
+                                    ValueLabelStyle="{StaticResource CapsuleLabelValueStyle}"
+                                    Description="{Binding Descritpion}"
+                                    Value="{Binding Value}"/>
+                                </DataTemplate>
+                            </controls:WrapView.ItemTemplate>
+                        </controls:WrapView>
+
+                        <Label Margin="0,10"
+                            Style="{StaticResource CusineAndDishesPageLabelStyle}"
+                            Text="Items Sold"/>
+                        <controls:WrapView ItemsSource="{Binding Sales}">
+                            <controls:WrapView.Columns>
+                                <OnIdiom x:TypeArguments="x:Int32" Phone="2" Tablet="3"/>
+                            </controls:WrapView.Columns>
+                            <controls:WrapView.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:CapsuleLabel 
+                                    DescriptionBackground="Teal" ValueBackground="Silver"
+                                    ValueLabelStyle="{StaticResource CapsuleLabelValueStyle}"
+                                    DescriptionLabelStyle="{StaticResource CapsuleLabelDescStyle}"
+                                    Description="{Binding Descritpion}"
+                                    Value="{Binding Value}"/>
+                                </DataTemplate>
+                            </controls:WrapView.ItemTemplate>
+                        </controls:WrapView>
+                        
+                    </StackLayout>
+                </ScrollView>
+                <controls:RoundedView Style="{StaticResource RoundedEntryStyle}" Grid.Row="1"
+                HeightRequest="40" BorderColor="Black" FillColor="Black" BorderRadius="20" BorderThickness="2" 
+                IsClippedToBounds="true">
+                    <Button
+                        HeightRequest="40" 
+                        TextColor="White" FontSize="16" BackgroundColor="Black"
+                        Text="Next" Command="{Binding OrderListCommand}"
+                        HorizontalOptions="FillAndExpand" />
+                </controls:RoundedView>
+            </Grid>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

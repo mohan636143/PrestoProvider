@@ -122,6 +122,17 @@
                 <Setter Property="SelectedLabelColor" Value="White" />
                 <Setter Property="LabelStyle" Value="{StaticResource SignUpPageLabelStyle}" />
             </Style>
+
+            <Style TargetType="{x:Type Label}" x:Key="CapsuleLabelDescStyle">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="{x:Type Label}" x:Key="CapsuleLabelValueStyle">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+            </Style>
             
         </ResourceDictionary>
     </ContentPage.Resources>

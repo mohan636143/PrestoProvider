@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace Provider.Controls
 {
@@ -28,10 +29,7 @@ namespace Provider.Controls
 
         private static void AddItems(BindableObject bindable, object oldValue,object newValue)
         {
-            WrapView view = bindable as WrapView;
-            IList list = view.ItemsSource;
-            DataTemplate template = view.ItemTemplate;
-            view.PopulateItems(view as Grid,list, template);
+            PrepareItems(bindable);
         }
 
         public static BindableProperty ItemTemplateProperty = BindableProperty.Create(nameof(ItemTemplate), typeof(DataTemplate), typeof(WrapView),
@@ -52,10 +50,36 @@ namespace Provider.Controls
 
         private static void OnItemTemplateSet(BindableObject bindable , object oldValue, object newValue)
         {
-			WrapView view = bindable as WrapView;
-			IList list = view.ItemsSource;
-			DataTemplate template = view.ItemTemplate;
-			view.PopulateItems(view as Grid, list, template);
+			PrepareItems(bindable);
+        }
+
+		public static BindableProperty ColumnsProperty = BindableProperty.Create(nameof(Columns), typeof(int), typeof(WrapView),
+                                                                                 defaultValue: 0,propertyChanged:OnColumnsSet);
+
+		public int Columns
+		{
+			get
+			{
+                return (int)GetValue(ColumnsProperty);
+			}
+			set
+			{
+                SetValue(ColumnsProperty, value);
+			}
+		}
+
+		private static void OnColumnsSet(BindableObject bindable, object oldValue, object newValue)
+        {
+            PrepareItems(bindable);
+        }
+
+        private static void PrepareItems(BindableObject bindable)
+        {
+            WrapView view = bindable as WrapView;
+            IList list = view.ItemsSource;
+            DataTemplate template = view.ItemTemplate;
+            int cols = (bindable as WrapView).Columns;
+            view.PopulateItems(view as Grid, list, template, cols);
         }
 
         #endregion
@@ -66,17 +90,12 @@ namespace Provider.Controls
             RowSpacing = 15;
         }
 
-        public void PopulateItems(Grid mainGrid,IList items, DataTemplate template)
+        public void PopulateItems(Grid mainGrid,IList items, DataTemplate template,int columns)
         {
-            if (items == null)
+            if (items == null || columns == 0 || template == null)
                 return;
             if(mainGrid.Children == null || mainGrid.Children.Count == 0 )
             {
-                int columns = 0;
-                if (Device.Idiom == TargetIdiom.Phone)
-                    columns = 3;
-                else if (Device.Idiom == TargetIdiom.Tablet)
-                    columns = 5;
                 for (int col = 1; col <= columns; col++)
                     mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
                 int colCount = 0;
@@ -93,6 +112,7 @@ namespace Provider.Controls
                     {
                         rowCount++;
                         colCount = 0;
+                        if(items[items.Count -1] != tmp)
                         mainGrid.RowDefinitions.Add(new RowDefinition());
 					}
 					mainGrid.Children.Add(child);
