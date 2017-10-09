@@ -55,6 +55,8 @@
             
             <Style TargetType="{x:Type Label}" x:Key="DefLabelStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+                <Setter Property="TextColor" Value="Teal" />
+<!--                <Setter Property="FontSize" Value="22" />-->
             </Style>
 
             <Style TargetType="{x:Type Label}" x:Key="SignUpPageLabelStyle">

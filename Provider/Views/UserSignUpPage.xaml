@@ -4,6 +4,7 @@
     xmlns:controls="clr-namespace:Provider.Controls"
     xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:utility="clr-namespace:Provider.Utility"
+    xmlns:resx="clr-namespace:Provider.Resources"
     x:Class="Provider.Views.UserSignUpPage"
     Title="Profile">
     <ContentPage.BindingContext>
@@ -11,17 +12,27 @@
     </ContentPage.BindingContext>
 	<ContentPage.Content> 
         <Grid Margin="0">
-            <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>
-            <Grid RowSpacing="15" Margin="30,10">
+<!--            <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>-->
+            <Grid BackgroundColor="White" RowSpacing="15" Padding="30,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <ScrollView BackgroundColor="Transparent" Padding="10">
-                      <StackLayout  Spacing="20" >
+                      <StackLayout BackgroundColor="White" Spacing="20" >
                             
                             <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                                <Label 
+                                    Grid.Row="0"
+                                    Text="{x:Static resx:PrestoResources.txtUserSignUpPageTopMsg}"
+                                    Style="{StaticResource DefLabelStyle}"
+                                    FontSize="20"/>
                                 <controls:RoundedView 
+                                    Grid.Row="1"
                                     Margin="10" HorizontalOptions="Center" 
                                     HeightRequest="100" WidthRequest="100" 
                                     BorderColor="Gray" BorderThickness="2">
@@ -32,7 +43,7 @@
                                 </controls:RoundedView>
                             </Grid>
                             
-                            <Grid Padding="10" >
+                            <Grid Padding="30,10" RowSpacing="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
@@ -44,12 +55,12 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
+                                <!--<RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>-->
                             </Grid.RowDefinitions>
                                 <!--<Label 
                                     Grid.Row="0" Grid.Column="0"
@@ -83,7 +94,7 @@
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Mobile"/>-->
                                  <controls:DescriptionEntry 
-                                    Grid.Row="3" Grid.Column="1"
+                                    Grid.Row="4" Grid.Column="1"
                                 EntryPlaceholderText="Mobile" EntryText="{Binding Mobile}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource RoundedEntryStyle}"/>
@@ -92,7 +103,7 @@
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Age"/>-->
                                  <controls:DescriptionEntry 
-                                    Grid.Row="4" Grid.Column="1"
+                                    Grid.Row="3" Grid.Column="1"
                                 EntryPlaceholderText="Age" EntryText="{Binding Age}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource RoundedEntryStyle}"/>
@@ -100,11 +111,11 @@
                                     Grid.Row="5" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Zip Code"/>-->
-                                 <controls:DescriptionEntry 
+                                <!-- <controls:DescriptionEntry IsVisible="false"
                                     Grid.Row="5" Grid.Column="1"
                                 EntryPlaceholderText="Zip Code" EntryText="{Binding Location}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource RoundedEntryStyle}"/>
+                                Style="{StaticResource RoundedEntryStyle}"/>-->
                                <!-- <Label 
                                     Grid.Row="6" Grid.Column="1"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -115,7 +126,7 @@
                                     HorizontalOptions="End"
                                     IsToggled="{Binding EnableNotify}"
                                     />-->
-                            <Label
+                           <!-- <Label
                                 Grid.Row="6" Grid.Column="1"
                                 HorizontalOptions="Start" HorizontalTextAlignment="Start"
                                 Style="{StaticResource SignUpPageLabelStyle}"
@@ -127,8 +138,8 @@
                                     Style="{StaticResource DefaultEditorStyle}"
                                     Text="{Binding AboutMe}" 
                                 />
-                            </controls:RoundedView>
-                            <controls:CheckBox 
+                            </controls:RoundedView>-->
+                            <!--<controls:CheckBox 
                                 Grid.Row="8" Grid.Column="1"
                                 IsChecked="{Binding AccessFriends}"
                                 DescriptionLabel="Access Facebook Friendlist"
@@ -139,7 +150,12 @@
                                 IsChecked="{Binding AddPosts}"
                                 DescriptionLabel="Add posts to Facebook"
                                 DescriptionLabelStyle="{StaticResource DefaultCheckBoxDescStyle}"
-                                />
+                                />-->
+                                <Label 
+                                Grid.Row="5" Grid.Column="1"
+                                Text="{x:Static resx:PrestoResources.txtUserSignUpPageBtmMsg}"
+                                Style="{StaticResource DefLabelStyle}"/>
+                            
                             </Grid>
                         </StackLayout>
                 </ScrollView>
@@ -148,7 +164,7 @@
                     <Button
                         HeightRequest="40" 
                         TextColor="White" FontSize="16" BackgroundColor="Black"
-                        Text="Next" Command="{Binding NextCommand}"
+                        Text="Continue" Command="{Binding NextCommand}"
                         HorizontalOptions="FillAndExpand" />
                 </controls:RoundedView>
             </Grid>
