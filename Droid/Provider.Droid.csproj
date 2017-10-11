@@ -138,6 +138,7 @@
     <Compile Include="CustomUrlSchemeInterceptorActivity.cs" />
     <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
     <Compile Include="Renderers\ExtendedEditorRenderer.cs" />
+    <Compile Include="Renderers\VideoSplashRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -166,6 +167,7 @@
     <AndroidResource Include="Resources\drawable\chef1.png" />
     <AndroidResource Include="Resources\drawable\SelectedCB.png" />
     <AndroidResource Include="Resources\drawable\UnselectedCB.png" />
+    <AndroidResource Include="Resources\drawable\PrestoLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -176,6 +178,8 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Lato-Regular.ttf" />
     <AndroidAsset Include="Assets\Calibri.ttf" />
+    <AndroidAsset Include="Assets\Videos\Provider_Video.mp4" />
+    <AndroidAsset Include="Assets\Videos\animated_coffee.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
