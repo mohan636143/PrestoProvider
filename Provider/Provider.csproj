@@ -97,6 +97,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PrestoResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RoundedButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfileStepOnePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -204,6 +210,12 @@
       <DependentUpon>PrestoResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Controls\VideoSplash.cs" />
+    <Compile Include="Controls\RoundedButton.xaml.cs">
+      <DependentUpon>RoundedButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileStepOnePage.xaml.cs">
+      <DependentUpon>ProfileStepOnePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

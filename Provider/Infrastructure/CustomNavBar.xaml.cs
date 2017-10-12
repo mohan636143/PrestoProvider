@@ -192,7 +192,7 @@ namespace Provider.Infrastructure
 						((Label)enmr.Current).TextColor = value;
 					}
 				}
-				//this.titleLabel.TextColor = value;
+				this.titleLabel.TextColor = value;
 			}
 		}
 

@@ -18,7 +18,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ScrollView BackgroundColor="Transparent" Padding="10">
+                <ScrollView BackgroundColor="Transparent" >
                       <StackLayout BackgroundColor="White" Spacing="20" >
                             
                             <Grid >
@@ -159,14 +159,11 @@
                             </Grid>
                         </StackLayout>
                 </ScrollView>
-                 <controls:RoundedView Grid.Row="1" Style="{StaticResource RoundedEntryStyle}" 
-                    HeightRequest="40" BorderColor="Black" FillColor="Black" BorderRadius="20" BorderThickness="2" IsClippedToBounds="true">
-                    <Button
-                        HeightRequest="40" 
-                        TextColor="White" FontSize="16" BackgroundColor="Black"
-                        Text="Continue" Command="{Binding NextCommand}"
-                        HorizontalOptions="FillAndExpand" />
-                </controls:RoundedView>
+                 <controls:RoundedButton 
+                    Grid.Row="1"
+                    Style="{StaticResource DefRoundedBtnStyle}" 
+                    LabelText="Continue"
+                    TapCommand="{Binding NextCommand}"/>
             </Grid>
         </Grid>
 	</ContentPage.Content>

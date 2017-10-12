@@ -135,6 +135,26 @@
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
             </Style>
+
+             <Style TargetType="{x:Type Label}" x:Key="DefRoundedBtnLabelStyle">
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+                <Setter Property="TextColor" Value="Teal" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style TargetType="{x:Type controls:RoundedButton}" x:Key="DefRoundedBtnStyle">   
+<!--                    <Setter Property="HeightRequest" Value="40"/>-->
+                    <Setter Property="BorderColor" Value="Teal"/>
+                    <Setter Property="BorderThickness" Value="6"/>
+                    <Setter Property="BorderRadius" Value="6"/>  
+                    <Setter Property="Padding" Value="6"/>
+                    <Setter Property="FillColor" Value="White"/>
+                    <Setter Property="BorderRadius" Value="6"/>  
+                    <Setter Property="Padding" Value="6"/>
+                    <Setter Property="LabelStyle" Value="{StaticResource DefRoundedBtnLabelStyle}" />
+            </Style>
             
         </ResourceDictionary>
     </ContentPage.Resources>

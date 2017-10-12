@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:resx="clr-namespace:Provider.Resources"
+    x:Class="Provider.Views.ProfileStepOnePage"
+    Title="Profile">
+	<ContentPage.Content>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Text="Kitchen Name"
+                        Style="{StaticResource SignUpPageLabelStyle}"
+                        Grid.Row="0" Grid.Column="0"/>
+                    <controls:DescriptionEntry 
+                        EntryText="{Binding KitchenName}"
+                        Grid.Row="0" Grid.Column="1"
+                        EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                        BorderColor="Gray" BorderRadius="6" BorderThickness="2"/>
+                    <Label 
+                        Text="{x:Static resx:PrestoResources.txtProfileStepOneKitchenDesc}"
+                        Style="{StaticResource SignUpPageLabelStyle}"
+                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <controls:RoundedView
+                        BorderColor="Gray" BorderRadius="6" BorderThickness="2"
+                        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Editor 
+                            Text="{Binding About}"
+                            Style="{StaticResource DefaultEditorStyle}"/>
+                    </controls:RoundedView>
+                    <Label
+                        Text="Youtube Channel Name"
+                        Style="{StaticResource SignUpPageLabelStyle}"
+                        Grid.Row="3" Grid.Column="0"/>
+                    <controls:DescriptionEntry 
+                        EntryText="{Binding Channel}"
+                        Grid.Row="3" Grid.Column="1"
+                        VerticalOptions="Center"
+                        EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                        BorderColor="Gray" BorderRadius="6" BorderThickness="2"/>
+                    <Label
+                        Text="Accept Catering Orders"
+                        Style="{StaticResource SignUpPageLabelStyle}"
+                        Grid.Row="4" Grid.Column="0"/>
+
+
+                    <!-- Add a new switch here -->
+
+                    <Label
+                        Text="Minimum time you need for Catering Order"
+                        Style="{StaticResource SignUpPageLabelStyle}"
+                        Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                    <!-- Add a extended picker here -->
+                    
+                </Grid>
+            </ScrollView>
+            <controls:RoundedButton
+                Grid.Row="1"
+                LabelText="Continue"
+                Style="{StaticResource DefRoundedBtnStyle}"
+                TapCommand="{Binding NextCommand}"/>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

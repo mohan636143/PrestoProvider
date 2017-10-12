@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:RoundedView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    x:Class="Provider.Controls.RoundedButton"
+    x:Name="roundedButton"
+    Style="{StaticResource DefRoundedBtnStyle}" 
+    HeightRequest="40" 
+    IsClippedToBounds="true">
+    <Label
+    Text="{Binding Source={x:Reference roundedButton}, LabelText}"
+    Style="{Binding Source={x:Reference roundedButton}, LabelStyle}"
+    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+    VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+	
+</controls:RoundedView>

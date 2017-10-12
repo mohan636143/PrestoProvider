@@ -39,7 +39,7 @@ namespace Provider
                 MainPage = new LoginPage();
             else
                 //MainPage = new ProviderLaunchPage() { Detail = new ProfilePage()};
-                MainPage = new ProviderLaunchPage() { Detail = new UserSignUpPage() };
+                MainPage = new ProviderLaunchPage() { Detail = new UserSignUpPage() , BarBackgroundColor = Color.Black, BarTintColor = Color.White };
         }
 
         public static void SetPage(Page newPage)

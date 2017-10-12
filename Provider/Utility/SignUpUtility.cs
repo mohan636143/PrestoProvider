@@ -4,12 +4,13 @@ using Xamarin.Auth;
 using Provider.Views;
 using System.Linq;
 using System.Collections.Generic;
+using Xamarin.Forms;
 
 namespace Provider.Utility
 {
     public static class AccountUtility
     {
-        internal async static void AddUserDatatoStore(Account account, AccTypes accType)
+        public async static void AddUserDatatoStore(Account account, AccTypes accType)
         {
             if (accType == AccTypes.Google)
                 App.Store.Save(account, Constants.GoogleAuth);
@@ -24,11 +25,11 @@ namespace Provider.Utility
 
                 if(CheckUserExistence(email))
                 {
-                    nextPage = new ProviderLaunchPage() { Detail = new ProfilePage() };
+                    nextPage = new ProviderLaunchPage() { Detail = new ProfilePage() ,BarBackgroundColor = Color.Black, BarTintColor = Color.White};
                 }
                 else
                 {
-                    nextPage = new ProviderLaunchPage() { Detail = new UserSignUpPage() };
+                    nextPage = new ProviderLaunchPage() { Detail = new UserSignUpPage() , BarBackgroundColor = Color.Black , BarTintColor = Color.White };
                 }
                 if (accType == AccTypes.Facebook)
                     await App.Current.MainPage.Navigation.PopModalAsync();
@@ -36,7 +37,7 @@ namespace Provider.Utility
             }
         }
 
-        internal static bool CheckUserExistence(string Email)
+        public static bool CheckUserExistence(string Email)
         {
             bool isExistingUser = false;
 

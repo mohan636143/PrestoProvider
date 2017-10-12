@@ -245,7 +245,7 @@ namespace Provider.ViewModels
             //DualMasterPage mainPage = App.Current.MainPage as DualMasterPage;
             //if (mainPage != null)
                 //mainPage.Detail = new CuisindAndDishesPage();
-            App.SetPage(new CuisindAndDishesPage());
+            App.SetPage(new ProfileStepOnePage());
 
 		}
 
