@@ -6,7 +6,7 @@
     x:Class="Provider.Views.ProfileStepOnePage"
     Title="Profile">
 	<ContentPage.Content>
-        <Grid Padding="10">
+        <Grid Padding="30,15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
@@ -24,7 +24,7 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label
                         Text="Kitchen Name"
@@ -33,6 +33,7 @@
                     <controls:DescriptionEntry 
                         EntryText="{Binding KitchenName}"
                         Grid.Row="0" Grid.Column="1"
+                        VerticalOptions="Center"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         BorderColor="Gray" BorderRadius="6" BorderThickness="2"/>
                     <Label 
@@ -60,10 +61,11 @@
                         Text="Accept Catering Orders"
                         Style="{StaticResource SignUpPageLabelStyle}"
                         Grid.Row="4" Grid.Column="0"/>
-
-
-                    <!-- Add a new switch here -->
-
+                    <controls:ToggleSwitch
+                        HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                        Grid.Row="4" Grid.Column="1"
+                        SwitchColor="Green" 
+                        IsToggled="{Binding PreOrder}"/>
                     <Label
                         Text="Minimum time you need for Catering Order"
                         Style="{StaticResource SignUpPageLabelStyle}"

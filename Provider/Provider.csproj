@@ -103,6 +103,9 @@
     <EmbeddedResource Include="Views\ProfileStepOnePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToggleSwitch.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -215,6 +218,9 @@
     </Compile>
     <Compile Include="Views\ProfileStepOnePage.xaml.cs">
       <DependentUpon>ProfileStepOnePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToggleSwitch.xaml.cs">
+      <DependentUpon>ToggleSwitch.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -22,7 +22,7 @@ namespace Share.Droid.Renderers
 
 		}
 
-		protected override bool DrawChild(Canvas canvas, global::Android.Views.View child, long drawingTime)
+        protected override bool DrawChild(Canvas canvas, global::Android.Views.View child, long drawingTime)
 		{
 			if (Element == null) return false;
 
@@ -56,10 +56,12 @@ namespace Share.Droid.Renderers
 				canvas.Save();
 				canvas.ClipPath(path);
 
-				Paint p = new Paint();
-				p.Color = rcv.FillColor.ToAndroid();
-				canvas.DrawPaint(p);
-
+                if (rcv.FillColor != Xamarin.Forms.Color.Transparent)
+                {
+                    Paint p = new Paint();
+                    p.Color = rcv.FillColor.ToAndroid();
+                    canvas.DrawPaint(p);
+                }
 				// Draw the child first so that the border shows up above it.
 				var result = base.DrawChild(canvas, child, drawingTime);
 
