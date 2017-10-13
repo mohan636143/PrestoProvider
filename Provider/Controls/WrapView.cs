@@ -107,14 +107,29 @@ namespace Provider.Controls
                     child.BindingContext = tmp;
                     Grid.SetRow(child, rowCount);
                     Grid.SetColumn(child,colCount);
-                    colCount++;
-                    if (colCount % columns == 0 && mainGrid.Children.Count != 0)
+                    //if (columns == 1)
+                    //    colCount = 0;
+                    //else
+                        //colCount ++;
+                    if (columns == 1)
                     {
                         rowCount++;
                         colCount = 0;
-                        if(items[items.Count -1] != tmp)
-                        mainGrid.RowDefinitions.Add(new RowDefinition());
-					}
+                        if (items[items.Count - 1] != tmp)
+                            mainGrid.RowDefinitions.Add(new RowDefinition());
+
+                    }
+                    else
+                    {
+                        colCount++;
+                        if (colCount % columns == 0 && mainGrid.Children.Count != 0)
+                        {
+                            rowCount++;
+                            colCount = 0;
+                            if (items[items.Count - 1] != tmp)
+                                mainGrid.RowDefinitions.Add(new RowDefinition());
+                        }
+                    }
 					mainGrid.Children.Add(child);
                 }
             }

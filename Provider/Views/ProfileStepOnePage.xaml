@@ -2,9 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:resx="clr-namespace:Provider.Resources"
     x:Class="Provider.Views.ProfileStepOnePage"
     Title="Profile">
+    <ContentPage.BindingContext>
+        <vm:ProfileStepOnePageViewModel/>
+    </ContentPage.BindingContext>
 	<ContentPage.Content>
         <Grid Padding="30,15">
             <Grid.RowDefinitions>
@@ -62,24 +66,28 @@
                         Style="{StaticResource SignUpPageLabelStyle}"
                         Grid.Row="4" Grid.Column="0"/>
                     <controls:ToggleSwitch
-                        HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                        Style="{StaticResource DefToggleSwitchStyleStyle}"
                         Grid.Row="4" Grid.Column="1"
-                        SwitchColor="Green" 
+                        HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
                         IsToggled="{Binding PreOrder}"/>
                     <Label
                         Text="Minimum time you need for Catering Order"
                         Style="{StaticResource SignUpPageLabelStyle}"
                         Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
-
-                    <!-- Add a extended picker here -->
-                    
+                    <controls:CustomPicker 
+                        Grid.Row="6" Grid.Column="0"
+                        Style="{StaticResource PickerStyle}"
+                        PickerText="Select" PickerAnchor="&#x25bc;"
+                        PickerTextColor="Gray" PickerAnchorColor="Gray"
+                        ItemsSource="{Binding CateringTimes}"/>
                 </Grid>
             </ScrollView>
             <controls:RoundedButton
                 Grid.Row="1"
                 LabelText="Continue"
                 Style="{StaticResource DefRoundedBtnStyle}"
-                TapCommand="{Binding NextCommand}"/>
+                TapCommand="{Binding NextCommand}"
+                VerticalOptions="Center"/>
         </Grid>
 	</ContentPage.Content>
 </ContentPage>
