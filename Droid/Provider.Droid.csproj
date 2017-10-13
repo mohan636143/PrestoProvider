@@ -169,6 +169,10 @@
     <AndroidResource Include="Resources\drawable\UnselectedCB.png" />
     <AndroidResource Include="Resources\drawable\PrestoLogo.png" />
     <AndroidResource Include="Resources\drawable\Logo.png" />
+    <AndroidResource Include="Resources\drawable\filledCircle.png" />
+    <AndroidResource Include="Resources\drawable\add.png" />
+    <AndroidResource Include="Resources\drawable\pizza.png" />
+    <AndroidResource Include="Resources\drawable\greentick.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

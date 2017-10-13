@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    xmlns:resx="clr-namespace:Provider.Resources"
+    x:Class="Provider.Views.ProfileStepFivePage"
+    Title="Profile">
+	<ContentPage.BindingContext>
+        <vm:ProfileStepFivePageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Padding="30,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0">
+              <StackLayout Spacing="20" >
+                            
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label 
+                            Grid.Row="0"
+                            Text="Lets Add items to your menu"
+                            Style="{StaticResource DefLabelStyle}"
+                        />
+                        <controls:RoundedView 
+                            Grid.Row="1"
+                            Margin="10" HorizontalOptions="Center" 
+                            HeightRequest="80" WidthRequest="80" 
+                            BorderColor="Gray" BorderThickness="2">
+                            <controls:RoundedView.BorderRadius>
+                                <OnPlatform x:TypeArguments="x:Int32" Android="80" iOS="40" />
+                            </controls:RoundedView.BorderRadius>
+                            <controls:FitImage ImgSource="pizza.png" Size="80" />
+                        </controls:RoundedView>
+                    </Grid>
+                            
+                    <Grid RowSpacing="15" ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                         <Label 
+                            Grid.Row="0" Grid.Column="0"
+                            Text="Item Name"
+                            Style="{StaticResource ItemAddLabelStyle}"
+                        />
+                        <controls:DescriptionEntry 
+                            Grid.Row="0" Grid.Column="1" 
+                        EntryPlaceholderText="" EntryText="{Binding FirstName}" 
+                        EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                        Style="{StaticResource RoundedEntryStyle}"/>
+                        <Label 
+                            Grid.Row="1" Grid.Column="0"
+                            Text="Description"
+                            Style="{StaticResource ItemAddLabelStyle}"
+                        />
+                        <controls:RoundedView
+                            Grid.Row="1" Grid.Column="1"
+                            BorderColor="Gray" BorderRadius="6" BorderThickness="1">
+                            <Editor
+                            Style="{StaticResource DefaultEditorStyle}"/>
+                        </controls:RoundedView>
+                        <Label 
+                            Grid.Row="2" Grid.Column="0"
+                            Text="Food Category"
+                            Style="{StaticResource ItemAddLabelStyle}"
+                        />
+                         <controls:CustomPicker 
+                         Grid.Row="2" Grid.Column="1"
+                         PickerText="Select" PickerAnchor="&#x25bc;"
+                         PickerTextColor="Gray" PickerAnchorColor="Gray"
+                         Style="{StaticResource PickerStyle}"/>
+                         <Label 
+                            Grid.Row="3" Grid.Column="0"
+                            Text="Price"
+                            Style="{StaticResource ItemAddLabelStyle}"
+                        />
+                         <controls:DescriptionEntry 
+                            Grid.Row="3" Grid.Column="1"
+                        EntryPlaceholderText="" EntryText="{Binding Mobile}" 
+                        EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                        Style="{StaticResource RoundedEntryStyle}"/>
+
+                         <Label 
+                            Grid.Row="4" Grid.Column="0"
+                            Text="Available Quantity"
+                            Style="{StaticResource ItemAddLabelStyle}"
+                        />
+                         <controls:DescriptionEntry 
+                            Grid.Row="4" Grid.Column="1"
+                        EntryPlaceholderText="" EntryText="{Binding Mobile}" 
+                        EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                        Style="{StaticResource RoundedEntryStyle}"/>
+                       <Label 
+                            Grid.Row="5" Grid.Column="0"
+                            Text="Ingredients"
+                            Style="{StaticResource ItemAddLabelStyle}"
+                        />
+                        <controls:RoundedView
+                            Grid.Row="5" Grid.Column="1"
+                            BorderColor="Gray" BorderRadius="6" BorderThickness="1">
+                            <Editor
+                            Style="{StaticResource DefaultEditorStyle}"/>
+                        </controls:RoundedView>
+                            
+                    </Grid>
+                    <StackLayout>
+                        <Label 
+                            Text="Select all that applies"
+                            Style="{StaticResource ItemAddLabelStyle}"
+                        />
+                        <controls:WrapView
+                        ItemsSource="{Binding Types}">
+                        <controls:WrapView.Columns>
+                            <OnIdiom x:TypeArguments="x:Int32" Phone="3" Tablet="5"/>
+                        </controls:WrapView.Columns>
+                        <controls:WrapView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:SelectLabel LabelText="{Binding Item}" IsSelected="{Binding Selected}" 
+                                Style="{StaticResource SelectLabelDefStyle}"/>
+                            </DataTemplate>
+                        </controls:WrapView.ItemTemplate>
+                    </controls:WrapView>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <controls:RoundedButton
+                Grid.Row="1"
+                LabelText="Add Item"
+                Style="{StaticResource DefRoundedBtnStyle}"
+                TapCommand="{Binding NextCommand}"
+                VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -103,6 +103,27 @@
     <EmbeddedResource Include="Views\ProfileStepOnePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToggleSwitch.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfileStepTwoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfileStepThreePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfileStepFourPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfileStepFivePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CodePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegSuccessPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -215,6 +236,33 @@
     </Compile>
     <Compile Include="Views\ProfileStepOnePage.xaml.cs">
       <DependentUpon>ProfileStepOnePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToggleSwitch.xaml.cs">
+      <DependentUpon>ToggleSwitch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ProfileStepOnePageViewModel.cs" />
+    <Compile Include="Views\ProfileStepTwoPage.xaml.cs">
+      <DependentUpon>ProfileStepTwoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ProfileStepTwoPageViewModel.cs" />
+    <Compile Include="Views\ProfileStepThreePage.xaml.cs">
+      <DependentUpon>ProfileStepThreePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ProfileStepThreePageViewModel.cs" />
+    <Compile Include="Views\ProfileStepFourPage.xaml.cs">
+      <DependentUpon>ProfileStepFourPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileStepFivePage.xaml.cs">
+      <DependentUpon>ProfileStepFivePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ProfileStepFourPageViewModel.cs" />
+    <Compile Include="ViewModels\ProfileStepFivePageViewModel.cs" />
+    <Compile Include="Views\CodePage.xaml.cs">
+      <DependentUpon>CodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CodePageViewModel.cs" />
+    <Compile Include="Views\RegSuccessPage.xaml.cs">
+      <DependentUpon>RegSuccessPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    x:Class="Provider.Views.CodePage">
+    <ContentPage.BindingContext>
+        <vm:CodePageViewModel/>
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <StackLayout Padding="30,15">
+            <Label 
+                Text="Enter your code"
+                Style="{StaticResource DefLabelStyle}"
+            />
+            <controls:RoundedView 
+                BorderColor="Gray" BorderRadius="6" BorderThickness="1"
+                Padding="2">
+                <controls:ExtendedEntry 
+                Style="{StaticResource SignUpPageEntryStyle}"
+                IsPassword="true"/>
+            </controls:RoundedView>
+             <Label 
+                Text="Send new code"
+                Style="{StaticResource DefLabelStyle}"
+            />
+            <Label 
+                Text="Tap button below to accept Presto's Terms, Data Policy, Cookie use and Privacy Policy"
+                Style="{StaticResource DefLabelStyle}"
+            />
+            <controls:RoundedButton 
+                LabelText="Submit"
+                TapCommand="{Binding SubmitCodeCommand}"
+            />
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

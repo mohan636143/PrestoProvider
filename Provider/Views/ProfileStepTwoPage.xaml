@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    xmlns:resx="clr-namespace:Provider.Resources"
+    x:Class="Provider.Views.ProfileStepTwoPage"
+    Title="Profile">
+    <ContentPage.BindingContext>
+        <vm:ProfileStepTwoPageViewModel/>
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <Grid Padding="30,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                        Text="How many people can you cater up to ?"
+                        Style="{StaticResource DefLabelStyle}"
+                    />
+                    <controls:CustomPicker
+                        Grid.Row="1" Grid.Column="0" 
+                        PickerText="Select" PickerAnchor="&#x25bc;"
+                        PickerTextColor="Gray" PickerAnchorColor="Gray"
+                        ItemsSource="{Binding PeopleCount}"
+                    />
+                    <Label 
+                        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                        Text="Tell us about your Business hours"
+                        Style="{StaticResource DefLabelStyle}"
+                    />
+                    <Label 
+                        Grid.Row="3" Grid.Column="0" 
+                        Text="Open All Week"
+                        Style="{StaticResource DefLabelStyle}"
+                    />
+                    <controls:ToggleSwitch 
+                        Grid.Row="3" Grid.Column="1"
+                        Style="{StaticResource DefToggleSwitchStyleStyle}"
+                        HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                        IsToggled="{Binding OpenAllWeek}"
+                    />
+                    <Label 
+                        Grid.Row="4" Grid.Column="0" 
+                        Text="Start Time"
+                        Style="{StaticResource DefLabelStyle}"
+                    />
+                    <Label 
+                        Grid.Row="4" Grid.Column="1" 
+                        Text="End Time"
+                        Style="{StaticResource DefLabelStyle}"
+                    />
+                    <controls:CustomPicker
+                        Grid.Row="5" Grid.Column="0" 
+                        PickerText="Select" PickerAnchor="&#x25bc;"
+                        PickerTextColor="Gray" PickerAnchorColor="Gray"
+                        ItemsSource="{Binding TimeSlots}"
+                    />
+                    <controls:CustomPicker
+                        Grid.Row="5" Grid.Column="1" 
+                        PickerText="Select" PickerAnchor="&#x25bc;"
+                        PickerTextColor="Gray" PickerAnchorColor="Gray"
+                        ItemsSource="{Binding TimeSlots}"
+                    />
+                    <Label 
+                        Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" 
+                        Text="If you are not open on all days or hours vary, please pick your schedule on each day below"
+                        Style="{StaticResource DefLabelStyle}"
+                    />
+                    <Grid 
+                        Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Label 
+                            Grid.Row="0" Grid.Column="0" 
+                            Text="Sunday"
+                            Style="{StaticResource DefLabelStyle}"
+                        />
+                        <controls:ToggleSwitch 
+                            Grid.Row="0" Grid.Column="1"
+                        Style="{StaticResource DefToggleSwitchStyleStyle}"
+                            HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
+                            IsToggled="{Binding OpenAllWeek}"
+                        />
+                        <Label 
+                            Grid.Row="1" Grid.Column="0" 
+                            Text="Start Time"
+                            Style="{StaticResource DefLabelStyle}"
+                        />
+                        <Label 
+                            Grid.Row="1" Grid.Column="1" 
+                            Text="End Time"
+                            Style="{StaticResource DefLabelStyle}"
+                        />
+                         <controls:CustomPicker
+                        Grid.Row="2" Grid.Column="0" 
+                        PickerText="Select" PickerAnchor="&#x25bc;"
+                        PickerTextColor="Gray" PickerAnchorColor="Gray"
+                        ItemsSource="{Binding TimeSlots}"
+                    />
+                    <controls:CustomPicker
+                        Grid.Row="2" Grid.Column="1" 
+                        PickerText="Select" PickerAnchor="&#x25bc;"
+                        PickerTextColor="Gray" PickerAnchorColor="Gray"
+                        ItemsSource="{Binding TimeSlots}"
+                    />
+                    </Grid>
+                </Grid>
+            </ScrollView>
+            <controls:RoundedButton
+                Grid.Row="1"
+                LabelText="Continue"
+                Style="{StaticResource DefRoundedBtnStyle}"
+                TapCommand="{Binding NextCommand}"
+                VerticalOptions="Center"/>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

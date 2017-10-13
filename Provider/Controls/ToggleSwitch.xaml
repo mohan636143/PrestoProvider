@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:RoundedView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:Provider.Controls"
+    x:Class="Provider.Controls.ToggleSwitch"
+    x:Name="toggleSwitch"
+    HorizontalOptions="Fill" VerticalOptions="Fill"
+    HeightRequest="30" WidthRequest="50"
+    BorderColor="Gray" BorderThickness="2"
+    Margin="3">
+    <controls:RoundedView.GestureRecognizers>
+        <TapGestureRecognizer Tapped="Handle_Tapped"/>
+    </controls:RoundedView.GestureRecognizers>
+    <controls:RoundedView.BorderRadius>
+        <OnPlatform x:TypeArguments="x:Int32" Android="30" iOS="15"/>
+    </controls:RoundedView.BorderRadius>
+  <!--<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>-->
+     <!--<controls:RoundedView
+        x:Name="toogleButton" 
+        HorizontalOptions="End" VerticalOptions="Center"
+        HeightRequest="20" WidthRequest="20"
+        BorderColor="Black" BorderThickness="2"
+        FillColor="Blue" >
+        <controls:RoundedView.BorderRadius>
+            <OnPlatform x:TypeArguments="x:Int32" Android="24" iOS="12"/>
+        </controls:RoundedView.BorderRadius>
+    </controls:RoundedView>-->
+<!--   </Grid>-->
+    <controls:FitImage Padding="0" Margin="0"
+        x:Name="toggleButton"
+        Size="30" HorizontalOptions="End" VerticalOptions="Center"
+        ImgSource="filledCircle.png" />
+</controls:RoundedView>

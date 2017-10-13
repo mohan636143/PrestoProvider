@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    xmlns:resx="clr-namespace:Provider.Resources"
+    x:Class="Provider.Views.ProfileStepFourPage"
+    Title="Profile">
+    <ContentPage.BindingContext>
+        <vm:ProfileStepFourPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Padding="30,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label 
+                        Grid.Row="0" 
+                        Text="Ola!! Lets Create your Menu"
+                        Style="{StaticResource DefLabelStyle}"
+                        HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                    />
+                    <Label 
+                        Grid.Row="1" 
+                        Text="Please select or create food category"
+                        Style="{StaticResource DefLabelStyle}"
+                        HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                    />
+                    <controls:WrapView
+                        Grid.Row="2" RowSpacing="10"
+                        ItemsSource="{Binding Cuisines}">
+                        <controls:WrapView.Columns>
+                            <OnIdiom x:TypeArguments="x:Int32" Phone="1" Tablet="2"/>
+                        </controls:WrapView.Columns>
+                        <controls:WrapView.ItemTemplate>
+                            <DataTemplate>
+                                <controls:SelectLabel LabelText="{Binding Item}" IsSelected="{Binding Selected}" 
+                                Style="{StaticResource SelectLabelDefStyle}"/>
+                            </DataTemplate>
+                        </controls:WrapView.ItemTemplate>
+                    </controls:WrapView>
+                     <controls:RoundedView 
+                        Grid.Row="3" Padding="10,0"
+                        BorderColor="Gray" BorderRadius="6" BorderThickness="1">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <controls:ExtendedEntry 
+                                Placeholder="Create you own Category"
+                                Style="{StaticResource SignUpPageEntryStyle}"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="Center"
+                            />
+                            <controls:FitImage 
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Size="24" ImgSource="add.png"
+                            />
+                        </StackLayout>
+                    </controls:RoundedView>
+                </Grid>
+            </ScrollView>
+            <controls:RoundedButton
+                Grid.Row="1"
+                LabelText="Continue"
+                Style="{StaticResource DefRoundedBtnStyle}"
+                TapCommand="{Binding NextCommand}"
+                VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
