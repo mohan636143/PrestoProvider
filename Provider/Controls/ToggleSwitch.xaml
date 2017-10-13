@@ -8,7 +8,7 @@
     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
     HeightRequest="30" WidthRequest="50"
     BorderColor="Gray" BorderThickness="2"
-    FillColor="Transparent" Margin="3">
+    Margin="3">
     <controls:RoundedView.GestureRecognizers>
         <TapGestureRecognizer Tapped="Handle_Tapped"/>
     </controls:RoundedView.GestureRecognizers>
@@ -20,7 +20,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>-->
-     <controls:RoundedView
+     <!--<controls:RoundedView
         x:Name="toogleButton" 
         HorizontalOptions="End" VerticalOptions="Center"
         HeightRequest="20" WidthRequest="20"
@@ -29,6 +29,10 @@
         <controls:RoundedView.BorderRadius>
             <OnPlatform x:TypeArguments="x:Int32" Android="24" iOS="12"/>
         </controls:RoundedView.BorderRadius>
-    </controls:RoundedView>
+    </controls:RoundedView>-->
 <!--   </Grid>-->
+    <controls:FitImage 
+        x:Name="toggleButton"
+        Size="30" HorizontalOptions="End" 
+        ImgSource="filledCircle.png" />
 </controls:RoundedView>

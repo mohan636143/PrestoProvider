@@ -44,15 +44,17 @@ namespace Provider.Controls
 
         private static void OnToggled(BindableObject bindable, object oldValue, object newValue)
         {
-            //ToggleSwitch tSwitch = (bindable as ToggleSwitch);
-            //if((bool)newValue)
-            //{
-            //    //tSwitch.toogleButton.HorizontalOptions = LayoutOptions.End;
-            //}
-            //else
-            //{
-            //    //tSwitch.toogleButton.HorizontalOptions = LayoutOptions.End;
-            //}
+            ToggleSwitch tSwitch = (bindable as ToggleSwitch);
+            if((bool)newValue)
+            {
+                tSwitch.toggleButton.HorizontalOptions = LayoutOptions.End;
+                tSwitch.FillColor = tSwitch.SwitchColor;
+            }
+            else
+            {
+                tSwitch.toggleButton.HorizontalOptions = LayoutOptions.Start;
+                tSwitch.FillColor = Color.Gray;
+            }
                 
         }
 
@@ -62,34 +64,7 @@ namespace Provider.Controls
         public ToggleSwitch()
         {
             InitializeComponent();
-   //         RoundedView tSwitch = new RoundedView()
-   //         {
-   //             BorderColor = Color.Gray,
-   //             BorderRadius = 25,
-   //             BorderThickness = 1,
-   //             HeightRequest = 30,
-   //             WidthRequest = 50,
-   //             FillColor = Color.Green
-   //         };
-			//RoundedView toggleButton = new RoundedView()
-			//{
-			//	BorderColor = Color.Gray,
-			//	BorderRadius = 20,
-			//	BorderThickness = 1,
-			//	HeightRequest = 20,
-   //             WidthRequest = 20,
-			//	FillColor = Color.White,
-   //             HorizontalOptions = LayoutOptions.End
-			//};
-   //         Grid.SetRow(tSwitch, 0);
-   //         Grid.SetColumn(tSwitch, 0);
-   //         Grid.SetColumnSpan(tSwitch,2);
-
-			//Grid.SetRow(toggleButton, 0);
-			//Grid.SetColumn(toggleButton, 1);
-
-			//this.Children.Add(tSwitch);
-			//this.Children.Add(toggleButton);
+            FillColor = SwitchColor;
         }
 
         void Handle_Tapped(object sender, TappedEventArgs e)
