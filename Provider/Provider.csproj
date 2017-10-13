@@ -118,6 +118,12 @@
     <EmbeddedResource Include="Views\ProfileStepFivePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\CodePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegSuccessPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -251,6 +257,13 @@
     </Compile>
     <Compile Include="ViewModels\ProfileStepFourPageViewModel.cs" />
     <Compile Include="ViewModels\ProfileStepFivePageViewModel.cs" />
+    <Compile Include="Views\CodePage.xaml.cs">
+      <DependentUpon>CodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CodePageViewModel.cs" />
+    <Compile Include="Views\RegSuccessPage.xaml.cs">
+      <DependentUpon>RegSuccessPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
