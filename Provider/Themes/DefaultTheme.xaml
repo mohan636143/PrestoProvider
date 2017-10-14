@@ -148,7 +148,7 @@
             <Style TargetType="{x:Type controls:RoundedButton}" x:Key="DefRoundedBtnStyle">   
 <!--                    <Setter Property="HeightRequest" Value="40"/>-->
                     <Setter Property="BorderColor" Value="Teal"/>
-                    <Setter Property="BorderThickness" Value="6"/>
+                    <Setter Property="BorderThickness" Value="2"/>
                     <Setter Property="BorderRadius" Value="6"/>  
                     <Setter Property="Padding" Value="6"/>
                     <Setter Property="FillColor" Value="White"/>
