@@ -155,6 +155,9 @@
                     <Setter Property="BorderRadius" Value="6"/>  
                     <Setter Property="Padding" Value="6"/>
                     <Setter Property="LabelStyle" Value="{StaticResource DefRoundedBtnLabelStyle}" />
+                    <Setter Property="WidthRequest" Value="250"/>
+                    <Setter Property="HorizontalOptions" Value="Center"/>
+                    <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
             <Style TargetType="{x:Type controls:ToggleSwitch}" x:Key="DefToggleSwitchStyleStyle">   
 <!--                    <Setter Property="HeightRequest" Value="40"/>-->

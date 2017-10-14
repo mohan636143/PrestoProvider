@@ -18,10 +18,10 @@
             <ScrollView Grid.Row="0">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Label 
                         Grid.Row="0" 
@@ -51,7 +51,7 @@
                      <controls:RoundedView 
                         Grid.Row="3" Padding="10,0"
                         BorderColor="Gray" BorderRadius="6" BorderThickness="1">
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" >
                             <controls:ExtendedEntry 
                                 Placeholder="Create you own Category"
                                 Style="{StaticResource SignUpPageEntryStyle}"
