@@ -194,9 +194,12 @@ namespace Provider.Controls
 		{
 			if (string.IsNullOrEmpty(entrycontrol.Text) && isPlaceholderTextMinimized)
 			{
-				await lblPlaceHolder.TranslateTo(0, 0, 100, Easing.Linear);
-				lblPlaceHolder.TranslationX = 0;
-				lblPlaceHolder.FontSize += 2;
+				//await lblPlaceHolder.TranslateTo(0, 0, 100, Easing.Linear);
+				//lblPlaceHolder.TranslationX = 0;
+				//lblPlaceHolder.FontSize += 2;
+
+                lblPlaceHolder.VerticalOptions = LayoutOptions.Center;
+                lblPlaceHolder.FontSize += 3;
 
 				isPlaceholderTextMinimized = false;
 			}
@@ -206,20 +209,22 @@ namespace Provider.Controls
 		{
 			if (!isPlaceholderTextMinimized)
 			{
-				lblPlaceHolder.FontSize -= 2;
-				//lblPlaceHolder.VerticalTextAlignment = TextAlignment.Start;
-				//lblPlaceHolder.VerticalOptions = LayoutOptions.Start;
-				double factor = (Device.OS == TargetPlatform.Android) ? 2.25 : 1.8;
-				if (withAnimation)
-				{
-                    await lblPlaceHolder.TranslateTo(this.BorderRadius *2, -this.BorderRadius/2, 100, Easing.Linear);
-				}
-				else
-				{
-                    await lblPlaceHolder.TranslateTo(this.BorderRadius *2, -this.BorderRadius/2, 0);
-				}
-				lblPlaceHolder.TranslationX = 0;
+				//lblPlaceHolder.FontSize -= 2;
+                //lblPlaceHolder.VerticalTextAlignment = TextAlignment.Start;
+                //lblPlaceHolder.VerticalOptions = LayoutOptions.Start;
+                //double factor = (Device.OS == TargetPlatform.Android) ? 2.25 : 1.8;
+                //if (withAnimation)
+                //{
+                //                await lblPlaceHolder.TranslateTo(this.BorderRadius *2, -this.BorderRadius/2, 100, Easing.Linear);
+                //}
+                //else
+                //{
+                //                await lblPlaceHolder.TranslateTo(this.BorderRadius *2, -this.BorderRadius/2, 0);
+                //}
+                //lblPlaceHolder.TranslationX = 0;
 
+                lblPlaceHolder.VerticalOptions = LayoutOptions.Start;
+                lblPlaceHolder.FontSize -= 3;
 				isPlaceholderTextMinimized = true;
 			}
 		}

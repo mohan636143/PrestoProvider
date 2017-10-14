@@ -24,6 +24,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Label 
+                        Margin="0,15,0,0"
                         Grid.Row="0"
                         Text="What Cuisines do you serve ?"
                         Style="{StaticResource DefLabelStyle}"
@@ -42,6 +43,7 @@
                         </controls:WrapView.ItemTemplate>
                     </controls:WrapView>
                     <Label 
+                        Margin="0,15,0,0"
                         Grid.Row="2"
                         Text="Didn't find your cuisine? You can create/add one below"
                         Style="{StaticResource DefLabelStyle}"

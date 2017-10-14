@@ -8,7 +8,7 @@
     x:Name="descriptionEntry" Margin="0" >
     
     <Grid BindingContext="{x:Reference descriptionEntry}"         
-      Margin="0" RowSpacing="0">
+      Margin="3" RowSpacing="0">
 
             <!--<Grid.Padding>
                 <OnPlatform x:TypeArguments="Thickness" iOS="5" />
@@ -17,10 +17,9 @@
      <Label
          x:Name="lblPlaceHolder"
          Text="{Binding EntryPlaceholderText}"
-         FontSize="{Binding FontSize}"
+         FontSize="14"
          VerticalOptions="Center"
          VerticalTextAlignment="Center"
-         Grid.Column="0"
 
          FontFamily="{x:Static utility:FontFamilyName.Calibri}"
          HorizontalOptions="StartAndExpand" />
@@ -32,12 +31,11 @@
             FontFamily="{x:Static utility:FontFamilyName.Calibri}"
             TextChanged="OnUnderLinedEntryChanged"
             HorizontalOptions="FillAndExpand"
-            VerticalOptions="End"
+            VerticalOptions="Center"
 
             EntryBorderStyle="NoBorderStyle"
             HorizontalTextAlignment="Start"
             EntryVerticalTextAlignment="Center"
-            Grid.Column="0"
             Unfocused="OnEntryUnfocused"
             Focused="OnEntryFocused"
             Completed="OnEntryCompleted"/>
