@@ -88,6 +88,7 @@ namespace Provider.Controls
         {
             ColumnSpacing = 15;
             RowSpacing = 15;
+            Padding = new Thickness(2);
         }
 
         public void PopulateItems(Grid mainGrid,IList items, DataTemplate template,int columns)
