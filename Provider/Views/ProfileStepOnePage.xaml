@@ -39,7 +39,8 @@
                         Grid.Row="0" Grid.Column="1"
                         VerticalOptions="Center"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                        BorderColor="Gray" BorderRadius="6" BorderThickness="2"/>
+                        Style="{StaticResource NoLabelRoundedEntryStyle}"
+                        />
                     <Label 
                         Text="{x:Static resx:PrestoResources.txtProfileStepOneKitchenDesc}"
                         Style="{StaticResource SignUpPageLabelStyle}"
@@ -60,7 +61,8 @@
                         Grid.Row="3" Grid.Column="1"
                         VerticalOptions="Center"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                        BorderColor="Gray" BorderRadius="6" BorderThickness="2"/>
+                        Style="{StaticResource NoLabelRoundedEntryStyle}"
+                        />
                     <Label
                         Text="Accept Catering Orders"
                         Style="{StaticResource SignUpPageLabelStyle}"

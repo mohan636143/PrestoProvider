@@ -127,6 +127,20 @@ namespace Provider.Controls
 
 		#endregion
 
+		#region AutoHidePlaceholder
+
+		public static readonly BindableProperty AutoHidePlaceholderProperty = BindableProperty.Create(nameof(AutoHidePlaceholder), typeof(bool),
+                                                                                                typeof(DescriptionEntry), false);
+
+		public bool AutoHidePlaceholder
+		{
+			get { return (bool)GetValue(AutoHidePlaceholderProperty); }
+			set { SetValue(AutoHidePlaceholderProperty, value); }
+		}
+		
+
+		#endregion
+
 		public ExtendedEntry ExposedEntry;
 
 		public DescriptionEntry()
@@ -200,13 +214,16 @@ namespace Provider.Controls
 
                 lblPlaceHolder.VerticalOptions = LayoutOptions.Center;
                 lblPlaceHolder.FontSize += 3;
-
+                this.lblPlaceHolder.IsVisible = true;
 				isPlaceholderTextMinimized = false;
 			}
 		}
 
 		private async void MinimizePlaceHolderIfRequired(bool withAnimation = true)
 		{
+            if (this.AutoHidePlaceholder)
+                this.lblPlaceHolder.IsVisible = false;
+
 			if (!isPlaceholderTextMinimized)
 			{
 				//lblPlaceHolder.FontSize -= 2;

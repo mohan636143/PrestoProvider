@@ -13,13 +13,11 @@
                 Text="Enter your code"
                 Style="{StaticResource DefLabelStyle}"
             />
-            <controls:RoundedView 
-                BorderColor="Gray" BorderRadius="6" BorderThickness="1"
-                Padding="2">
-                <controls:ExtendedEntry 
-                Style="{StaticResource SignUpPageEntryStyle}"
-                IsPassword="true"/>
-            </controls:RoundedView>
+            <controls:DescriptionEntry 
+                        VerticalOptions="Fill"
+                        EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                        Style="{StaticResource NoLabelRoundedEntryStyle}"
+                        />
              <Label 
                 Text="Send new code"
                 Style="{StaticResource DefLabelStyle}"

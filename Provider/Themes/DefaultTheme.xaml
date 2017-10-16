@@ -93,7 +93,30 @@
                 <Setter Property="IsClippedToBounds" Value="True" />
                 <Setter Property="Padding">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="Thickness" Android="20,0" iOS="10,0"/>
+                        <OnPlatform x:TypeArguments="Thickness" Android="20,0" iOS="20,0"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="{x:Type controls:RoundedView}" x:Key="NoLabelRoundedEntryStyle">
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" Android="45" iOS="35"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="BorderColor" Value="Gray" />
+                <Setter Property="BorderRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="6" iOS="6"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="FillColor" Value="White" />
+                <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness" Android="10,0" iOS="10,0"/>
                     </Setter.Value>
                 </Setter>
             </Style>

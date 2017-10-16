@@ -52,11 +52,13 @@
                         Grid.Row="3" Padding="10,0"
                         BorderColor="Gray" BorderRadius="6" BorderThickness="1">
                         <StackLayout Orientation="Horizontal" >
-                            <controls:ExtendedEntry 
-                                Placeholder="Cuisine Name"
-                                Style="{StaticResource SignUpPageEntryStyle}"
-                                HorizontalOptions="StartAndExpand"
+                            <controls:DescriptionEntry 
+                                EntryPlaceholderText="Cuisine Name"
+                                EntryStyle="{StaticResource SignUpPageEntryStyle}"
+                                Style="{StaticResource NoLabelRoundedEntryStyle}"
+                                HorizontalOptions="FillAndExpand"
                                 VerticalOptions="Center"
+                                AutoHidePlaceholder="true" BorderColor="Transparent"
                             />
                             <controls:FitImage 
                                 HorizontalOptions="End"
