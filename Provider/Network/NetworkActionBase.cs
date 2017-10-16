@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Provider.Network
 {
-    public class BaseNetworkAction<T> : INetworkAction, IActionResponse<T>
+    public class NetworkActionBase<T> : INetworkAction
     {
         public virtual bool MakeNetworkCall
         {
@@ -152,8 +152,20 @@ namespace Provider.Network
 
         }
 
-        private WeakReference<IActionResponse<T>> _actionDelegate;
+        private WeakReference<IActionResponse> _actionDelegate;
 
         protected string actionName;
+
+		public interface IActionResponse
+		{
+			void OnActionSuccess(T data, string actionIdentifier);
+			void OnActionError(String message, string actionIdentifier);
+		}
+
+		public NetworkActionBase(IActionResponse _actionResponse)
+		{
+			_actionDelegate = new WeakReference<IActionResponse>(_actionResponse);
+			this.actionName = this.GetType().Name;
+		}
     }
 }
