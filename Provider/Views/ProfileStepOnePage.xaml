@@ -81,7 +81,8 @@
                         Style="{StaticResource PickerStyle}"
                         PickerText="Select" PickerAnchor="&#x25bc;"
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
-                        ItemsSource="{Binding CateringTimes}"/>
+                        ItemsSource="{Binding CateringTimes}"
+                        SelectedIndex="{Binding SelectedTime}"/>
                 </Grid>
             </ScrollView>
             <controls:RoundedButton

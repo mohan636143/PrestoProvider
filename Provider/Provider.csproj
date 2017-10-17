@@ -124,6 +124,12 @@
     <EmbeddedResource Include="Views\RegSuccessPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ItemsSummaryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Accordion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -269,6 +275,16 @@
     <Compile Include="Network\NetworkEngine.cs" />
     <Compile Include="Models\ProviderProfile.cs" />
     <Compile Include="Actions\SaveProfileAction.cs" />
+    <Compile Include="Views\ItemsSummaryPage.xaml.cs">
+      <DependentUpon>ItemsSummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ItemsSummaryPageViewModel.cs" />
+    <Compile Include="Controls\Accordion.xaml.cs">
+      <DependentUpon>Accordion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppModel.cs" />
+    <Compile Include="Models\ProviderResponse.cs" />
+    <Compile Include="Actions\GetProfileAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

@@ -135,7 +135,7 @@ namespace Provider.ViewModels
 
 				account = new Account(Constants.GoogleAuth, userEnumerable as IDictionary<string, string>);
 
-                AccountUtility.AddUserDatatoStore(account, AccTypes.Google);
+                AccountUtility.Instance.AddUserDatatoStore(account, AccTypes.Google);
 				
 			}
 		}

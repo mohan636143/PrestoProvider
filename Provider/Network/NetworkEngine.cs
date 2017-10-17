@@ -58,18 +58,18 @@ namespace Provider.Network
          */
 		async private void PerformAction(INetworkAction action)
 		{
-            if (action.MakeNetworkCall)
+            if (action.MakeNetworkCall())
 			{
 				HttpClient client = new HttpClient(new NativeMessageHandler());
 
 				// Get the HTTP Method.
-				HTTPMethod httpMethod = action.Method;
+				HTTPMethod httpMethod = action.GetMethod();
 
 				// Adding the common headers.
 				client.DefaultRequestHeaders.Add("Accept", "application/json");
 
 				// Get the Headers
-				Dictionary<String, String> headers = action.Headers;
+                Dictionary<String, String> headers = action.GetHeaders();
 
 				if (headers != null)
 				{
@@ -85,11 +85,11 @@ namespace Provider.Network
 
 				//client.DefaultRequestHeaders.Add("Referer", name);
 
-                String url = (action.ServerAddress ?? this.serverAddress) + action.URL;
+                String url = (action.GetServerAddress() ?? this.serverAddress) + action.GetURL();
 				//url = string.Concat(App.ApiKey + url);
 
 				// Get the Query Params.
-				Dictionary<String, String> qp = action.Parameters;
+				Dictionary<String, String> qp = action.GetParameters();
 				if (qp != null && (qp.Count > 0))
 				{   // Ideally this will be null for POST and PATCH.
 

@@ -4,6 +4,8 @@ using Provider.Themes;
 using Xamarin.Auth;
 using Provider.Infrastructure;
 using System.Linq;
+using Provider.Models;
+using Provider.Network;
 
 namespace Provider
 {
@@ -19,19 +21,20 @@ namespace Provider
             this.Resources = new DefaultTheme().Resources;
             Store = AccountStore.Create();
 
-			//App.LoginAccount = App.Store.FindAccountsForService(Constants.GoogleAuth).FirstOrDefault();
-			//if (App.LoginAccount == null)
-			//{
-			//	App.LoginAccount = App.Store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
+            //App.LoginAccount = App.Store.FindAccountsForService(Constants.GoogleAuth).FirstOrDefault();
+            //if (App.LoginAccount == null)
+            //{
+            //	App.LoginAccount = App.Store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
             //   if(App.LoginAccount != null)
-			//	App.Store.Delete(App.LoginAccount, Constants.FacebookAuth);
-			//}
-			//else
-			//{
-			//	App.Store.Delete(App.LoginAccount, Constants.GoogleAuth);
-			//}
+            //	App.Store.Delete(App.LoginAccount, Constants.FacebookAuth);
+            //}
+            //else
+            //{
+            //	App.Store.Delete(App.LoginAccount, Constants.GoogleAuth);
+            //}
 
-
+            AppModel.AppDataInstance.ProviderData = new ProviderProfileModel();
+            NetworkEngine.Instance.SetServer("http://18.220.124.43/Presto/Provider/");
             LoginAccount = Store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
             if(LoginAccount == null)
                 LoginAccount = Store.FindAccountsForService(Constants.GoogleAuth).FirstOrDefault();

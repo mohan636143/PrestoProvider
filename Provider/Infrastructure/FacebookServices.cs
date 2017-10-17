@@ -58,7 +58,7 @@ namespace Provider.Infrastructure
 
                 account = new Account(Constants.FacebookAuth, userEnumerable as IDictionary<string, string>);
 
-                AccountUtility.AddUserDatatoStore(account, AccTypes.Facebook);
+                AccountUtility.Instance.AddUserDatatoStore(account, AccTypes.Facebook);
                 return facebookProfile;
             }
             catch(Exception ex)

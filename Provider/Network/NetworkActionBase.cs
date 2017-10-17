@@ -8,9 +8,9 @@ namespace Provider.Network
 {
     public class NetworkActionBase<T> : INetworkAction
     {
-        public virtual bool MakeNetworkCall
+        public virtual bool MakeNetworkCall()
         {
-            get; set;
+            return true;   
         }
 
         public virtual string GetDummyData()
@@ -18,39 +18,39 @@ namespace Provider.Network
             return string.Empty;
         }
 
-        public virtual string URL
+        public virtual string GetURL()
         {
-            get; set;
+            return string.Empty;
         }
-        public virtual string ServerAddress
+        public virtual string GetServerAddress()
+		{
+            return null;
+		}
+
+        public virtual NetworkEngine.HTTPMethod GetMethod()
         {
-            get; set;
+            return NetworkEngine.HTTPMethod.GET;
         }
 
-        public virtual NetworkEngine.HTTPMethod Method
-        {
-            get; set;
-        }
+        public virtual Dictionary<String, String> GetHeaders()
+		{
+            return null;
+		}
 
-        public virtual Dictionary<String, String> Headers
-        {
-            get; set;
-        }
-
-        public virtual Dictionary<String, String> Parameters
-        {
-            get; set;
-        }
+        public virtual Dictionary<String, String> GetParameters()
+		{
+            return null;
+		}
 
         public virtual HttpContent GetBody()
         {
             return null;
         }
 
-        public virtual DataType ResponseDataType
-        {
-            get; set;
-        }
+        public virtual DataType GetResponseDataType()
+		{
+            return DataType.JSON;
+		}
 
 		public virtual void HandleResponse(String responseData)
 		{
@@ -63,7 +63,7 @@ namespace Provider.Network
 			}
 			else
 			{
-                switch (ResponseDataType)
+                switch (GetResponseDataType())
 				{
 					case DataType.JSON:
 
@@ -87,11 +87,11 @@ namespace Provider.Network
                 {
                     if (isValid)
                     {
-                        this.OnActionSuccess(data, this.actionName);
+                        this.actionResponse.OnActionSuccess(data, this.actionName);
                     }
                     else
                     {
-                        this.OnActionError("Invalid response", this.actionName);
+                        this.actionResponse.OnActionError("Invalid response", this.actionName);
                     }
                 });
             }
@@ -112,11 +112,11 @@ namespace Provider.Network
 				{
 					if (message == null)
 					{
-                        this.OnActionError("NETWORK_TIMEOUT", this.actionName);
+                        this.actionResponse.OnActionError("NETWORK_TIMEOUT", this.actionName);
 					}
 					else
 					{
-						this.OnActionError(message, this.actionName);
+						this.actionResponse.OnActionError(message, this.actionName);
 					}
 				});
 			}
@@ -166,6 +166,19 @@ namespace Provider.Network
 		{
 			_actionDelegate = new WeakReference<IActionResponse>(_actionResponse);
 			this.actionName = this.GetType().Name;
+		}
+
+        protected IActionResponse actionResponse
+		{
+			get
+			{
+				IActionResponse resp = null;
+				if (_actionDelegate != null && _actionDelegate.TryGetTarget(out resp))
+				{
+					return resp;
+				}
+				return null;
+			}
 		}
     }
 }

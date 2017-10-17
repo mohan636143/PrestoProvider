@@ -12,23 +12,23 @@ namespace Provider.Network
 
     public interface INetworkAction
     {
-        bool MakeNetworkCall { get; set; }
+        bool MakeNetworkCall();
 
 		string GetDummyData();
 
-        String URL { get; set; }
+        String GetURL();
 
-        String ServerAddress { get; set; }
+        String GetServerAddress();
 
-        NetworkEngine.HTTPMethod Method { get; set; }
+        NetworkEngine.HTTPMethod GetMethod();
 
-        Dictionary<String, String> Headers { get; set; }
+        Dictionary<String, String> GetHeaders();
 
-        Dictionary<String, String> Parameters { get; set; }
+        Dictionary<String, String> GetParameters();
 
 		HttpContent GetBody();
 
-        DataType ResponseDataType { get; set; }
+        DataType GetResponseDataType();
 
         void HandleResponse(String responseData);
 

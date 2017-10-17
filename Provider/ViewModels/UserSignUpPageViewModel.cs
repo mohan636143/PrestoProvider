@@ -6,6 +6,7 @@ using System.Linq;
 using Xamarin.Forms;
 using System.Windows.Input;
 using Provider.Views;
+using Provider.Models;
 
 namespace Provider.ViewModels
 {
@@ -244,7 +245,10 @@ namespace Provider.ViewModels
 
             //DualMasterPage mainPage = App.Current.MainPage as DualMasterPage;
             //if (mainPage != null)
-                //mainPage.Detail = new CuisindAndDishesPage();
+            //mainPage.Detail = new CuisindAndDishesPage();
+
+            UpdateSingleton();
+
             App.SetPage(new CodePage());
 
 		}
@@ -257,6 +261,17 @@ namespace Provider.ViewModels
             profileData.Email = Email;
             profileData.Age = Age;
             profileData.Location = Location;
+        }
+
+        void UpdateSingleton()
+		{
+            ProviderProfileModel userData = AppModel.AppDataInstance.ProviderData;
+
+			userData.ID = Email;
+			userData.Name = FirstName + " " + LastName;
+            userData.Email = Email;
+            userData.Age = Age;
+            userData.MobNo = Mobile;
         }
 
         #endregion

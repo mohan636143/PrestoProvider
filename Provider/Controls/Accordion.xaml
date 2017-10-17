@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Provider.Controls.Accordion">
+	<ContentView.Content>
+        <Grid Padding="5" RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0" Padding="10,2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="30"/>
+      </Grid.ColumnDefinitions>
+      <Label x:Name="headerLabel" Grid.Column="0" HorizontalOptions="StartAndExpand"
+             VerticalOptions="Center" TextColor="Black"/>
+      <Grid Grid.Column="1" HorizontalOptions="CenterAndExpand" >
+        <Grid.GestureRecognizers>
+          <TapGestureRecognizer Tapped="Toggle" ></TapGestureRecognizer>
+        </Grid.GestureRecognizers>
+        <Label x:Name="collapseToggle" Text="-" FontSize="Medium"  IsVisible="True"/>
+        <Label x:Name="expandToggle" Text="+" FontSize="Medium" IsVisible="False"/>
+      </Grid>
+    </Grid>
+    <Grid x:Name="toggleGrid" Grid.Row="1" Padding="10" BackgroundColor="White"></Grid>
+  </Grid>
+	</ContentView.Content>
+</ContentView>

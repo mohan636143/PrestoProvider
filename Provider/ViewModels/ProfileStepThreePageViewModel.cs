@@ -5,6 +5,7 @@ using Provider.Infrastructure;
 using Provider.Models;
 using Xamarin.Forms;
 using Provider.Views;
+using System.Linq;
 
 namespace Provider.ViewModels
 {
@@ -54,7 +55,16 @@ namespace Provider.ViewModels
 
         private void HandleNext()
         {
+            UpdateSingleton();
             App.SetPage(new ProfileStepFourPage());
+        }
+
+        void UpdateSingleton()
+        {
+            ProviderProfileModel userData = AppModel.AppDataInstance.ProviderData;
+            SelectLabelModel[] tmp = Cuisines.Where(c => (c.Selected == true)).ToArray();
+            string[] cuisines = tmp.Select(c => c.Item).Distinct().ToArray();
+            userData.Cuisine = cuisines;
         }
 
 		#endregion

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    xmlns:resx="clr-namespace:Provider.Resources"
+    x:Class="Provider.Views.ItemsSummaryPage"
+    Title="Profile">
+	<ContentPage.Content>
+        <Grid Padding="30,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0">
+              <StackLayout Spacing="20" >
+                            
+                </StackLayout>
+            </ScrollView>
+            <controls:RoundedButton
+                Grid.Row="1"
+                LabelText="Add Item"
+                Style="{StaticResource DefRoundedBtnStyle}"
+                TapCommand="{Binding NextCommand}"
+                VerticalOptions="Center"/>
+            <controls:RoundedButton
+                Grid.Row="2"
+                LabelText="Continue"
+                Style="{StaticResource DefRoundedBtnStyle}"
+                TapCommand="{Binding ContinueCommand}"
+                VerticalOptions="Center"/>
+        </Grid>
+        
+	</ContentPage.Content>
+</ContentPage>

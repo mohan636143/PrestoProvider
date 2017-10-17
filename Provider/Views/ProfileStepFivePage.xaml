@@ -60,7 +60,7 @@
                         />
                         <controls:DescriptionEntry 
                             Grid.Row="0" Grid.Column="1" 
-                        EntryPlaceholderText="" EntryText="{Binding FirstName}" 
+                        EntryPlaceholderText="" EntryText="{Binding ItemName}" 
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource RoundedEntryStyle}"/>
                         <Label 
@@ -72,7 +72,8 @@
                             Grid.Row="1" Grid.Column="1"
                             BorderColor="Gray" BorderRadius="6" BorderThickness="1">
                             <Editor
-                            Style="{StaticResource DefaultEditorStyle}"/>
+                            Style="{StaticResource DefaultEditorStyle}"
+                            Text="{Binding ItemDesc}"/>
                         </controls:RoundedView>
                         <Label 
                             Grid.Row="2" Grid.Column="0"
@@ -83,7 +84,9 @@
                          Grid.Row="2" Grid.Column="1"
                          PickerText="Select" PickerAnchor="&#x25bc;"
                          PickerTextColor="Gray" PickerAnchorColor="Gray"
-                         Style="{StaticResource PickerStyle}"/>
+                         Style="{StaticResource PickerStyle}"
+                         SelectedIndex="{Binding SelectedCatIndex}"
+                         ItemsSource="{Binding Categories}"/>
                          <Label 
                             Grid.Row="3" Grid.Column="0"
                             Text="Price"
@@ -91,7 +94,7 @@
                         />
                          <controls:DescriptionEntry 
                             Grid.Row="3" Grid.Column="1"
-                        EntryPlaceholderText="" EntryText="{Binding Mobile}" 
+                        EntryPlaceholderText="" EntryText="{Binding Price}" 
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource RoundedEntryStyle}"/>
 
@@ -102,7 +105,7 @@
                         />
                          <controls:DescriptionEntry 
                             Grid.Row="4" Grid.Column="1"
-                        EntryPlaceholderText="" EntryText="{Binding Mobile}" 
+                        EntryPlaceholderText="" EntryText="{Binding Quantity}" 
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource RoundedEntryStyle}"/>
                        <Label 
@@ -114,7 +117,8 @@
                             Grid.Row="5" Grid.Column="1"
                             BorderColor="Gray" BorderRadius="6" BorderThickness="1">
                             <Editor
-                            Style="{StaticResource DefaultEditorStyle}"/>
+                            Style="{StaticResource DefaultEditorStyle}"
+                            Text="{Binding Ingredients}"/>
                         </controls:RoundedView>
                             
                     </Grid>
@@ -142,7 +146,7 @@
                 Grid.Row="1"
                 LabelText="Add Item"
                 Style="{StaticResource DefRoundedBtnStyle}"
-                TapCommand="{Binding NextCommand}"
+                TapCommand="{Binding AddItemCommand}"
                 VerticalOptions="Center"/>
         </Grid>
     </ContentPage.Content>
