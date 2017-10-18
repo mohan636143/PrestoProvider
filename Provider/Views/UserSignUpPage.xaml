@@ -133,7 +133,7 @@
                                 Text="About Me"/>
                              <controls:RoundedView
                                 Grid.Column="1" Grid.Row="7"
-                                BorderColor="Gray" BorderRadius="6" BorderThickness="2">
+                                BorderColor="Teal" BorderRadius="6" BorderThickness="2">
                                 <Editor 
                                     Style="{StaticResource DefaultEditorStyle}"
                                     Text="{Binding AboutMe}" 

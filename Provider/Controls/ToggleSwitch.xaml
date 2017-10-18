@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <controls:RoundedView 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
@@ -7,7 +7,7 @@
     x:Name="toggleSwitch"
     HorizontalOptions="Fill" VerticalOptions="Fill"
     HeightRequest="30" WidthRequest="50"
-    BorderColor="Gray" BorderThickness="2"
+    BorderColor="Teal" BorderThickness="2"
     Margin="3">
     <controls:RoundedView.GestureRecognizers>
         <TapGestureRecognizer Tapped="Handle_Tapped"/>

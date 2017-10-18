@@ -12,6 +12,7 @@
             <Label 
                 Text="Enter your code"
                 Style="{StaticResource DefLabelStyle}"
+                HorizontalOptions="Center"
             />
             <controls:DescriptionEntry 
                         VerticalOptions="Fill"
@@ -21,6 +22,7 @@
              <Label 
                 Text="Send new code"
                 Style="{StaticResource DefLabelStyle}"
+                HorizontalOptions="Center"
             />
             <Label 
                 Text="Tap button below to accept Presto's Terms, Data Policy, Cookie use and Privacy Policy"

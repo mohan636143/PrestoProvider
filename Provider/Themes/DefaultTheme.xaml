@@ -21,7 +21,11 @@
             
             <Style TargetType="{x:Type controls:RoundedView}" x:Key="PickerStyle">
                     <Setter Property="BorderColor" Value="Gray"/>
-                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderThickness" >
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
+                    </Setter.Value>
+                    </Setter>
                     <Setter Property="BorderRadius" Value="6"/>     
                     <Setter Property="HeightRequest" Value="30"/>
                     <Setter Property="Padding" Value="6"/>
@@ -43,8 +47,12 @@
             </Style>-->
 
             <Style TargetType="{x:Type controls:RoundedView}" x:Key="DefRoundedViewStyle">
-                    <Setter Property="BorderColor" Value="Gray"/>
-                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="BorderColor" Value="Teal"/>
+                    <Setter Property="BorderThickness" >
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
+                    </Setter.Value>
+                    </Setter>
                     <Setter Property="BorderRadius" Value="20"/>     
                     <Setter Property="HeightRequest" Value="40"/>
                     <Setter Property="Padding" Value="6"/>
@@ -80,13 +88,13 @@
                 <Setter Property="BorderColor" Value="Gray" />
                 <Setter Property="BorderRadius">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32" Android="60" iOS="25"/>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="55" iOS="25"/>
                     </Setter.Value>
                 </Setter>
                 <Setter Property="BorderThickness" Value="2" />
                 <Setter Property="HeightRequest">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Double" Android="60" iOS="50"/>
+                        <OnPlatform x:TypeArguments="x:Double" Android="55" iOS="50"/>
                     </Setter.Value>
                 </Setter>
                 <Setter Property="FillColor" Value="White" />
@@ -146,8 +154,12 @@
                         <OnPlatform x:TypeArguments="x:Int32" Android="40" iOS="20"/>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="BorderColor" Value="Gray" />
-                <Setter Property="BorderThickness" Value="3" />
+                <Setter Property="BorderColor" Value="Teal" />
+                <Setter Property="BorderThickness" >
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
+                    </Setter.Value>
+                    </Setter>
                 <Setter Property="FillColor" Value="White" />
                 <Setter Property="SelectedFillColor" Value="Teal" />
                 <Setter Property="SelectedLabelColor" Value="White" />
@@ -174,9 +186,13 @@
             </Style>
 
             <Style TargetType="{x:Type controls:RoundedButton}" x:Key="DefRoundedBtnStyle">   
-<!--                    <Setter Property="HeightRequest" Value="40"/>-->
+          <!--                    <Setter Property="HeightRequest" Value="40"/>-->
                     <Setter Property="BorderColor" Value="Teal"/>
-                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="BorderThickness" >
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
+                    </Setter.Value>
+                    </Setter>
                     <Setter Property="BorderRadius" Value="6"/>  
                     <Setter Property="Padding" Value="6"/>
                     <Setter Property="FillColor" Value="White"/>
@@ -191,7 +207,8 @@
 <!--                    <Setter Property="HeightRequest" Value="40"/>-->
                     <Setter Property="HorizontalOptions" Value="End"/>
                     <Setter Property="VerticalOptions" Value="Center"/>
-                    <Setter Property="SwitchColor" Value="Green"/>  
+                    <Setter Property="SwitchColor" Value="Green"/>
+                    <Setter Property="BorderColor" Value="Green"/> 
             </Style>
             <Style TargetType="{x:Type Label}" x:Key="ItemAddLabelStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />

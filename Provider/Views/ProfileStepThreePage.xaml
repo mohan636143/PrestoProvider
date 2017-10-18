@@ -50,7 +50,7 @@
                     />
                     <controls:RoundedView 
                         Grid.Row="3" Padding="10,0"
-                        BorderColor="Gray" BorderRadius="6" BorderThickness="1">
+                        BorderColor="Gray" BorderRadius="6" BorderThickness="2">
                         <StackLayout Orientation="Horizontal" >
                             <controls:DescriptionEntry 
                                 EntryPlaceholderText="Cuisine Name"

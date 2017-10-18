@@ -69,7 +69,7 @@
                         Grid.Row="4" Grid.Column="0"/>
                     <controls:ToggleSwitch
                         Style="{StaticResource DefToggleSwitchStyleStyle}"
-                        Grid.Row="4" Grid.Column="1"
+                        Grid.Row="4" Grid.Column="1" 
                         HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
                         IsToggled="{Binding PreOrder}"/>
                     <Label

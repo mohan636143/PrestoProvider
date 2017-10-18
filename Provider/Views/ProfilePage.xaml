@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Provider.Controls"
@@ -28,7 +28,7 @@
                     Grid.Column="0" Grid.ColumnSpan="3"
                     HorizontalOptions="Center" VerticalOptions="FillAndExpand">
                 <!--<controls:RoundedView 
-                    BorderColor="Gray" BorderThickness="2" BorderRadius="10">-->
+                    BorderColor="Teal" BorderThickness="2" BorderRadius="10">-->
                    <Image RotationX="0" HorizontalOptions="Center" VerticalOptions="Fill"  
                     Source="chef1.png"
                     HeightRequest="100" WidthRequest="100"/>

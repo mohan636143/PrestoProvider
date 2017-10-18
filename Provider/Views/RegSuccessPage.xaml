@@ -11,7 +11,7 @@
                 Style="{StaticResource DefLabelStyle}"
             />
             <controls:RoundedButton 
-                LabelText="Submit">
+                LabelText="Continue">
                 <controls:RoundedButton.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Handle_Tapped"/>
                 </controls:RoundedButton.GestureRecognizers>

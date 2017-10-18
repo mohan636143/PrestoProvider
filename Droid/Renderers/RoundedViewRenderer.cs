@@ -22,7 +22,7 @@ namespace Share.Droid.Renderers
 
 		}
 
-        protected override bool DrawChild(Canvas canvas, global::Android.Views.View child, long drawingTime)
+		protected override bool DrawChild(Canvas canvas, global::Android.Views.View child, long drawingTime)
 		{
 			if (Element == null) return false;
 
@@ -47,21 +47,40 @@ namespace Share.Droid.Renderers
 
 			try
 			{
+                Path path;
 				//Create path to clip the child 
-				var path = new Path();
-				path.AddRoundRect(new RectF(0, 0, Width, Height),
+				if (rcv.BorderThickness > 0)
+				{
+					// Draw a filled circle.
+					path = new Path();
+					path.AddRoundRect(new RectF(0, 0, Width, Height),
+								  new float[] { radius, radius, radius, radius, radius, radius, radius, radius },
+								  Path.Direction.Ccw);
+                    
+					canvas.Save();
+					canvas.ClipPath(path);
+                    if (rcv.BorderColor != Xamarin.Forms.Color.Transparent)
+					{
+						Paint p = new Paint();
+                        p.Color = rcv.BorderColor.ToAndroid();
+						canvas.DrawPaint(p);
+					}
+				}
+                var padding = ConvertPixelstoDp(rcv.BorderThickness);
+				path = new Path();
+                path.AddRoundRect(new RectF(0+padding, 0+padding, Width-padding, Height-padding),
 							  new float[] { radius, radius, radius, radius, radius, radius, radius, radius },
 							  Path.Direction.Ccw);
 
 				canvas.Save();
 				canvas.ClipPath(path);
 
-                if (rcv.FillColor != Xamarin.Forms.Color.Transparent)
-                {
-                    Paint p = new Paint();
-                    p.Color = rcv.FillColor.ToAndroid();
-                    canvas.DrawPaint(p);
-                }
+				if (rcv.FillColor != Xamarin.Forms.Color.Transparent)
+				{
+					Paint p = new Paint();
+					p.Color = rcv.FillColor.ToAndroid();
+					canvas.DrawPaint(p);
+				}
 				// Draw the child first so that the border shows up above it.
 				var result = base.DrawChild(canvas, child, drawingTime);
 
@@ -71,19 +90,19 @@ namespace Share.Droid.Renderers
                  * If a border is specified, we use the same path created above to stroke
                  * with the border color.
                  * */
-				if (rcv.BorderThickness > 0)
-				{
-					// Draw a filled circle.
-					var paint = new Paint();
-					paint.AntiAlias = true;
-					paint.StrokeWidth = rcv.BorderThickness;
-					paint.SetStyle(Paint.Style.Stroke);
-					paint.Color = rcv.BorderColor.ToAndroid();
+				//if (rcv.BorderThickness > 0)
+				//{
+				//	// Draw a filled circle.
+				//	var paint = new Paint();
+				//	paint.AntiAlias = true;
+				//	paint.StrokeWidth = rcv.BorderThickness;
+				//	paint.SetStyle(Paint.Style.Stroke);
+				//	paint.Color = rcv.BorderColor.ToAndroid();
 
-					canvas.DrawPath(path, paint);
+				//	canvas.DrawPath(path, paint);
 
-					paint.Dispose();
-				}
+				//	paint.Dispose();
+				//}
 
 				//Properly dispose
 				path.Dispose();

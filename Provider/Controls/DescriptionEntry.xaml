@@ -8,7 +8,7 @@
     x:Name="descriptionEntry" Margin="0" >
     
     <Grid BindingContext="{x:Reference descriptionEntry}"         
-      Margin="3" RowSpacing="0">
+      Margin="3" RowSpacing="0" >
 
             <!--<Grid.Padding>
                 <OnPlatform x:TypeArguments="Thickness" iOS="5" />

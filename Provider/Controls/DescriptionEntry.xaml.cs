@@ -213,6 +213,7 @@ namespace Provider.Controls
 				//lblPlaceHolder.FontSize += 2;
 
                 lblPlaceHolder.VerticalOptions = LayoutOptions.Center;
+                entrycontrol.VerticalOptions = LayoutOptions.Center;
                 lblPlaceHolder.FontSize += 3;
                 this.lblPlaceHolder.IsVisible = true;
 				isPlaceholderTextMinimized = false;
@@ -241,6 +242,7 @@ namespace Provider.Controls
                 //lblPlaceHolder.TranslationX = 0;
 
                 lblPlaceHolder.VerticalOptions = LayoutOptions.Start;
+                entrycontrol.VerticalOptions = LayoutOptions.End;
                 lblPlaceHolder.FontSize -= 3;
 				isPlaceholderTextMinimized = true;
 			}
