@@ -59,12 +59,17 @@
                                 HorizontalOptions="FillAndExpand"
                                 VerticalOptions="Center"
                                 AutoHidePlaceholder="true" BorderColor="Transparent"
+                                EntryText="{Binding NewCuisine}"
                             />
                             <controls:FitImage 
                                 HorizontalOptions="End"
                                 VerticalOptions="Center"
                                 Size="24" ImgSource="add.png"
-                            />
+                            >
+                                <controls:FitImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddCuisineCommand}"/>
+                                </controls:FitImage.GestureRecognizers>
+                            </controls:FitImage>
                         </StackLayout>
                     </controls:RoundedView>
                 </Grid>

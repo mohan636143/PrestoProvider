@@ -28,11 +28,26 @@ namespace Provider.ViewModels
 			}
 		}
 
+        private string _newCuisine;
+        public string NewCuisine
+        {
+            get
+            {
+                return _newCuisine;
+            }
+            set
+            {
+                _newCuisine = value;
+                OnPropertyChanged("NewCuisine");
+            }
+        }
+
 		#endregion
 
 		#region Commands
 
 		public ICommand NextCommand { get; set; }
+        public ICommand AddCuisineCommand{ get; set; }
 
 		#endregion
 
@@ -42,6 +57,7 @@ namespace Provider.ViewModels
 		{
 
 			NextCommand = new Command(() => HandleNext());
+            AddCuisineCommand = new Command<string>(() => AddCuisine());
 
 			var tmpCuisineList = new List<SelectLabelModel>();
 			for (int i = 0; i <= 15; i++)
@@ -65,6 +81,15 @@ namespace Provider.ViewModels
             SelectLabelModel[] tmp = Cuisines.Where(c => (c.Selected == true)).ToArray();
             string[] cuisines = tmp.Select(c => c.Item).Distinct().ToArray();
             userData.Cuisine = cuisines;
+        }
+
+        void AddCuisine()
+        {
+            if (string.IsNullOrEmpty(NewCuisine))
+                return;
+            List<SelectLabelModel> tmpCuisines = new List<SelectLabelModel>(Cuisines);
+            tmpCuisines.Add(new SelectLabelModel() { Item = NewCuisine, Selected = true });
+            Cuisines = new List<SelectLabelModel>(tmpCuisines);
         }
 
 		#endregion
