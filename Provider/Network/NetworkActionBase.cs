@@ -80,7 +80,7 @@ namespace Provider.Network
 				}
 			}
 
-            if (this._actionDelegate != null)
+            if (this.actionResponse != null)
             {
 
                 Device.BeginInvokeOnMainThread(() =>
@@ -106,7 +106,7 @@ namespace Provider.Network
 		public virtual void HandleError(int code, String message)
 		{
 
-			if (this._actionDelegate != null)
+			if (this.actionResponse != null)
 			{
 				Device.BeginInvokeOnMainThread(() =>
 				{
