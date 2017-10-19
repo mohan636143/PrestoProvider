@@ -13,17 +13,33 @@ namespace Provider.ViewModels
     {
 		#region 
 
-		private List<SelectLabelModel> _cuisines;
-		public List<SelectLabelModel> Cuisines
+        private List<SelectLabelModel> _categories;
+        public List<SelectLabelModel> Categories
 		{
 			get
 			{
-				return _cuisines;
+				return _categories;
 			}
 			set
 			{
-				_cuisines = value;
-				OnPropertyChanged("CuisineList");
+				_categories = value;
+				OnPropertyChanged("Categories");
+			}
+		}
+
+
+
+		private string _newCategory;
+		public string NewCategory
+		{
+			get
+			{
+				return _newCategory;
+			}
+			set
+			{
+				_newCategory = value;
+				OnPropertyChanged("NewCategory");
 			}
 		}
 
@@ -32,6 +48,7 @@ namespace Provider.ViewModels
 		#region Commands
 
 		public ICommand NextCommand { get; set; }
+        public ICommand AddCategoryCommand { get; set; }
 
 		#endregion
 
@@ -41,11 +58,21 @@ namespace Provider.ViewModels
 		{
 
 			NextCommand = new Command(() => HandleNext());
+            AddCategoryCommand = new Command(() => AddCategory());
 
-			var tmpCuisineList = new List<SelectLabelModel>();
-			for (int i = 0; i <= 15; i++)
-				tmpCuisineList.Add(new SelectLabelModel() { Item = "Cuisine " + (i + 1).ToString() });
-			Cuisines = tmpCuisineList;
+			List<string> categories = new List<string>
+									{"Appetizer","Entree","Dessert",
+                                     "Drinks","Soups","Salad",
+									 "Snacks"};
+
+			List<SelectLabelModel> catModels = new List<SelectLabelModel>();
+			foreach (string category in categories)
+			{
+				catModels.Add(new SelectLabelModel(category));
+			}
+
+			Categories = new List<SelectLabelModel>(catModels);
+			catModels = null;
 		}
 
 		#endregion
@@ -61,9 +88,20 @@ namespace Provider.ViewModels
 		void UpdateSingleton()
 		{
 			ProviderProfileModel userData = AppModel.AppDataInstance.ProviderData;
-			SelectLabelModel[] tmp = Cuisines.Where(c => (c.Selected == true)).ToArray();
+			SelectLabelModel[] tmp = Categories.Where(c => (c.Selected == true)).ToArray();
 			string[] cuisines = tmp.Select(c => c.Item).Distinct().ToArray();
             userData.FoodCat = cuisines;
+		}
+
+		void AddCategory()
+		{
+			if (string.IsNullOrEmpty(NewCategory))
+				return;
+			List<SelectLabelModel> tmpCuisines = new List<SelectLabelModel>(Categories);
+            tmpCuisines.Add(new SelectLabelModel(NewCategory, true));
+			//Cuisines = null;
+			Categories = new List<SelectLabelModel>(tmpCuisines);
+			//Cuisines.Add(new SelectLabelModel() { Item = NewCuisine, Selected = true });
 		}
 
 		#endregion

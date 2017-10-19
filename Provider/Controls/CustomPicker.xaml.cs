@@ -132,11 +132,31 @@ namespace Provider.Controls
 
 		#endregion
 
+		#region ResetPickerOnSelect
+
+		public static readonly BindableProperty ResetPickerOnSelectProperty = BindableProperty.Create(nameof(ResetPickerOnSelect),
+                                                                                              typeof(bool), typeof(CustomPicker),
+                                                                                              defaultValue: false);
+		public bool ResetPickerOnSelect
+		{
+			get
+			{
+				return (bool)GetValue(ResetPickerOnSelectProperty);
+			}
+			set
+			{
+				SetValue(ResetPickerOnSelectProperty, value);
+			}
+		}
+
+		#endregion
+
 		#region SelectedIndex
 
 		public static readonly BindableProperty SelectedIndexProperty = BindableProperty.Create(nameof(SelectedIndex),
 																									typeof(int), typeof(CustomPicker),
-																									defaultValue: 0, propertyChanged: OnSelectedIndexChanged);
+                                                                                                    defaultValue: -1, defaultBindingMode:BindingMode.TwoWay,
+                                                                                                    propertyChanged: OnSelectedIndexChanged);
 
 		public int SelectedIndex
 		{
@@ -154,18 +174,37 @@ namespace Provider.Controls
 
 		public static void OnSelectedIndexChanged(BindableObject bindable, object oldValue, object newValue)
 		{
-			if ((bindable as CustomPicker).ItemsSource != null && (int)newValue >= 0)
+            if (!(bindable as CustomPicker).ResetPickerOnSelect)
+            {
+                if ((bindable as CustomPicker).ItemsSource != null && (int)newValue >= 0)
+                {
+                    string val = (bindable as CustomPicker).ItemsSource[(int)newValue];
+                    (bindable as CustomPicker).pickerLabel.Text = val;
+                }
+            }
+		}
+
+        #endregion      
+
+        public static readonly BindableProperty PickerTextStyleProperty = BindableProperty.Create(nameof(PickerTextStyle),
+                                                                                                  typeof(Style), typeof(CustomPicker),
+                                                                                                  defaultValue: null);
+
+		public Style PickerTextStyle
+		{
+			get
 			{
-				string val = (bindable as CustomPicker).ItemsSource[(int)newValue];
-				(bindable as CustomPicker).pickerLabel.Text = val;
+                return (Style)GetValue(PickerTextStyleProperty);
+			}
+			set
+			{
+				SetValue(PickerTextStyleProperty, value);
 			}
 		}
 
-		#endregion
+        #region Methods
 
-		#region Methods
-
-		async void OnCustomPickerTapped(object sender, EventArgs e)
+        async void OnCustomPickerTapped(object sender, EventArgs e)
 		{
 			string selectedVal = await App.Current.MainPage.DisplayActionSheet("", "", "", ItemsSource.ToArray());
 			SelectedIndex = ItemsSource.IndexOf(selectedVal);

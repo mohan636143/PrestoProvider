@@ -37,7 +37,7 @@
                     />
                     <controls:WrapView
                         Grid.Row="2" RowSpacing="10"
-                        ItemsSource="{Binding Cuisines}">
+                        ItemsSource="{Binding Categories}">
                         <controls:WrapView.Columns>
                             <OnIdiom x:TypeArguments="x:Int32" Phone="1" Tablet="2"/>
                         </controls:WrapView.Columns>
@@ -59,12 +59,17 @@
                                 HorizontalOptions="FillAndExpand"
                                 VerticalOptions="Center"
                                 AutoHidePlaceholder="true" BorderColor="Transparent"
+                                EntryText="{Binding NewCategory}"
                             />
                             <controls:FitImage 
                                 HorizontalOptions="End"
                                 VerticalOptions="Center"
                                 Size="24" ImgSource="add.png"
-                            />
+                            >
+                                <controls:FitImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddCategoryCommand}"/>
+                                </controls:FitImage.GestureRecognizers>
+                            </controls:FitImage>
                         </StackLayout>
                     </controls:RoundedView>
                 </Grid>

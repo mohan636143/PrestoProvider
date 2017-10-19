@@ -126,6 +126,49 @@ namespace Provider.ViewModels
             }
         }
 
+		private List<string> _editOptions;
+		public List<string> EditOptions
+		{
+			get
+			{
+				return _editOptions;
+			}
+			set
+			{
+				_editOptions = value;
+				OnPropertyChanged("EditOptions");
+			}
+		}
+
+        private ImageSource _itemImg;
+        public ImageSource ItemImage
+        {
+            get
+            {
+                return _itemImg;
+            }
+            set
+            {
+                _itemImg = value;
+                OnPropertyChanged("ItemImage");
+            }
+        }
+
+        private int _actionIndex = -1;
+        public int ActionIndex
+        {
+            get
+            {
+                return _actionIndex;
+            }
+            set
+            {
+                _actionIndex = value;
+                OnPropertyChanged("ActionIndex");
+                HandleImageAction(value);
+            }
+        }
+
         #endregion
 
         #region Commands
@@ -140,11 +183,29 @@ namespace Provider.ViewModels
         {
 
             AddItemCommand = new Command(() => AddItem());
-            Categories = new List<string> { "Cat 1", "Cat 2", "Cat 3" };
-            var tmpCuisineList = new List<SelectLabelModel>();
-            for (int i = 0; i <= 15; i++)
-                tmpCuisineList.Add(new SelectLabelModel() { Item = "Type " + (i + 1).ToString() });
-            Types = tmpCuisineList;
+            EditOptions = new List<string>() { "Take Photo", "Select Photo", "Remove" };
+            Categories = new List<string>
+                        {"Appetizer","Entree","Dessert",
+                         "Drinks","Soups","Salad",
+                         "Snacks"};
+            GenerateTypeSection();
+        }
+
+        private void GenerateTypeSection()
+        {
+            List<string> types = new List<string>
+                                    {"Vegan","Vegetarian","Low Fat",
+                                     "Low Sodium","Gluten Free","Low Carb",
+                                     "Weight Watchers","Jenny Craig"};
+
+            List<SelectLabelModel> typeModels = new List<SelectLabelModel>();
+            foreach (string type in types)
+            {
+                typeModels.Add(new SelectLabelModel(type));
+            }
+
+            Types = new List<SelectLabelModel>(typeModels);
+            typeModels = null;
         }
 
         #endregion
@@ -160,6 +221,7 @@ namespace Provider.ViewModels
             switch (res)
             {
                 case true:
+                    RefreshUI();
                     break;
                 case false:
                     SaveProfileAction saveAction = new SaveProfileAction(this);
@@ -193,6 +255,32 @@ namespace Provider.ViewModels
             items = null;
             
 		}
+
+        void HandleImageAction(int index)
+        {
+            switch(index)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    ItemImage = null;
+                    break;
+            }
+        }
+
+        void RefreshUI()
+        {
+            ItemImage = null;
+            ItemName = null;
+            ItemDesc = null;
+            SelectedCatIndex = -1;
+            Price = null;
+            Quantity = null;
+            Ingredients = null;
+            GenerateTypeSection();
+        }
 
         public void OnActionSuccess(ProviderResponse data, string actionIdentifier)
         {

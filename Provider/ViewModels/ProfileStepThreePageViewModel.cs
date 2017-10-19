@@ -6,15 +6,17 @@ using Provider.Models;
 using Xamarin.Forms;
 using Provider.Views;
 using System.Linq;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 namespace Provider.ViewModels
 {
     public class ProfileStepThreePageViewModel : ViewModelBase
     {
 
-		#region 
+		#region Properties
 
-		private List<SelectLabelModel> _cuisines;
+        private List<SelectLabelModel> _cuisines;
 		public List<SelectLabelModel> Cuisines
 		{
 			get
@@ -23,8 +25,8 @@ namespace Provider.ViewModels
 			}
 			set
 			{
-				_cuisines = value;
-				OnPropertyChanged("CuisineList");
+                _cuisines = value;
+                OnPropertyChanged("Cuisines");
 			}
 		}
 
@@ -57,12 +59,21 @@ namespace Provider.ViewModels
 		{
 
 			NextCommand = new Command(() => HandleNext());
-            AddCuisineCommand = new Command<string>(() => AddCuisine());
+            AddCuisineCommand = new Command(() => AddCuisine());
 
-			var tmpCuisineList = new List<SelectLabelModel>();
-			for (int i = 0; i <= 15; i++)
-				tmpCuisineList.Add(new SelectLabelModel() { Item = "Cuisine " + (i + 1).ToString() });
-			Cuisines = tmpCuisineList;
+            List<string> cuisines = new List<string>
+                                    {"Thai","Indian","French","American","Mediterranean","Chinese",
+                                     "Vietnamese","Mexican","Greek","Italian","Korean","Spanish",
+                                     "Morrocan","Malaysian","Japanese","Polish","German","Russian",
+                                     "Portuguese","Sri Lankan","Cuban"};
+            List<SelectLabelModel> cuisineModels = new List<SelectLabelModel>();
+            foreach(string cuisine in cuisines)
+            {
+                cuisineModels.Add(new SelectLabelModel(cuisine));
+            }
+
+            Cuisines = new List<SelectLabelModel>(cuisineModels);
+            cuisineModels = null;
 		}
 
         #endregion
@@ -88,9 +99,11 @@ namespace Provider.ViewModels
             if (string.IsNullOrEmpty(NewCuisine))
                 return;
             List<SelectLabelModel> tmpCuisines = new List<SelectLabelModel>(Cuisines);
-            tmpCuisines.Add(new SelectLabelModel() { Item = NewCuisine, Selected = true });
+            tmpCuisines.Add(new SelectLabelModel(NewCuisine, true ));
+            //Cuisines = null;
             Cuisines = new List<SelectLabelModel>(tmpCuisines);
-        }
+            //Cuisines.Add(new SelectLabelModel() { Item = NewCuisine, Selected = true });
+		}
 
 		#endregion
 	}

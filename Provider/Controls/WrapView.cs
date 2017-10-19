@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Provider.Controls
 {
@@ -12,7 +13,7 @@ namespace Provider.Controls
         #region Bindable Properties
 
         public static BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(IList), typeof(WrapView),
-                                                                                     defaultValue: null,
+                                                                                     defaultValue: null,defaultBindingMode:BindingMode.TwoWay,
                                                                                      propertyChanged: AddItems);
 
         public IList ItemsSource
@@ -76,7 +77,7 @@ namespace Provider.Controls
         private static void PrepareItems(BindableObject bindable)
         {
             WrapView view = bindable as WrapView;
-            IList list = view.ItemsSource;
+            IList list = view.ItemsSource as IList;
             DataTemplate template = view.ItemTemplate;
             int cols = (bindable as WrapView).Columns;
             view.PopulateItems(view as Grid, list, template, cols);
@@ -95,6 +96,9 @@ namespace Provider.Controls
         {
             if (items == null || columns == 0 || template == null)
                 return;
+            mainGrid.Children.Clear();
+            mainGrid.ColumnDefinitions.Clear();
+            mainGrid.RowDefinitions.Clear();
             if(mainGrid.Children == null || mainGrid.Children.Count == 0 )
             {
                 for (int col = 1; col <= columns; col++)

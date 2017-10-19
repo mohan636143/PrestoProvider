@@ -33,10 +33,29 @@
                             Margin="10" HorizontalOptions="Center" 
                             HeightRequest="80" WidthRequest="80" 
                             BorderColor="Gray" BorderThickness="2">
+                            <controls:RoundedView.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="0.6*"/>
+                            </controls:RoundedView.RowDefinitions>
                             <controls:RoundedView.BorderRadius>
-                                <OnPlatform x:TypeArguments="x:Int32" Android="80" iOS="40" />
+                                <OnPlatform x:TypeArguments="x:Int32" Android="10" iOS="10" />
                             </controls:RoundedView.BorderRadius>
-                            <controls:FitImage ImgSource="pizza.png" Size="80" />
+                            <controls:FitImage ImgSource="{Binding ItemImage}" Size="80" 
+                                Grid.Row="0" Grid.RowSpan="2"/>
+                            <controls:CustomPicker 
+                                Grid.Row="1" BorderColor="Transparent" BorderRadius="0"
+                                PickerText="Edit" PickerTextColor="White"
+                                FillColor="#50000000"
+                                ItemsSource="{Binding EditOptions}"
+                                SelectedIndex="{Binding ActionIndex}"
+                                ResetPickerOnSelect="true">
+                                <controls:CustomPicker.PickerTextStyle>
+                                    <Style TargetType="{x:Type Label}">
+                                        <Setter Property="FontSize" Value="12"/>
+                                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                                    </Style>
+                                </controls:CustomPicker.PickerTextStyle>
+                            </controls:CustomPicker>
                         </controls:RoundedView>
                     </Grid>
                             
