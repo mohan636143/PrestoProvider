@@ -7,14 +7,16 @@ using Provider.Models;
 using Xamarin.Forms;
 using Provider.Actions;
 using System.Linq;
+using Provider.Interface;
+using System.IO;
 
 namespace Provider.ViewModels
 {
     public class ProfileStepFivePageViewModel : ViewModelBase,SaveProfileAction.IActionResponse
     {
-		#region Properties
+        #region Properties
 
-		private string _itemName;
+        private string _itemName;
 		public string ItemName
 		{
 			get
@@ -163,7 +165,7 @@ namespace Provider.ViewModels
             }
             set
             {
-                _actionIndex = value;
+                _actionIndex = -1;
                 OnPropertyChanged("ActionIndex");
                 HandleImageAction(value);
             }
@@ -174,6 +176,7 @@ namespace Provider.ViewModels
         #region Commands
 
         public ICommand AddItemCommand { get; set; }
+        public ICommand EditCommand { get; set; }
 
         #endregion
 
@@ -183,9 +186,10 @@ namespace Provider.ViewModels
         {
 
             AddItemCommand = new Command(() => AddItem());
+            EditCommand = new Command(() => HandlePictureEdit());
             EditOptions = new List<string>() { "Take Photo", "Select Photo", "Remove" };
             Categories = new List<string>
-                        {"Appetizer","Entree","Dessert",
+                        {"Select","Appetizer","Entree","Dessert",
                          "Drinks","Soups","Salad",
                          "Snacks"};
             GenerateTypeSection();
@@ -256,13 +260,43 @@ namespace Provider.ViewModels
             
 		}
 
-        void HandleImageAction(int index)
+        async void HandlePictureEdit()
         {
+            string res = await App.Current.MainPage.DisplayActionSheet("", "", "", EditOptions.ToArray());
+            HandleImageAction(EditOptions.IndexOf(res));
+        }
+
+        async void HandleImageAction(int index)
+        {
+   //         StoreCameraMediaOptions photoOptions = new StoreCameraMediaOptions()
+   //         {
+   //             DefaultCamera = CameraDevice.Rear,
+   //             CompressionQuality = 50,
+   //             PhotoSize = PhotoSize.Small,
+   //             SaveToAlbum = true,
+   //             CustomPhotoSize = 25,
+                
+			//};
+            MediaFile photo;
             switch(index)
             {
                 case 0:
-                    break;
+                    photo = await DependencyService.Get<IMedia>().TakePhotoAsync(new StoreCameraMediaOptions());
+                    ItemImage = ImageSource.FromStream(() =>
+					{
+                        var stream = photo.GetStream();
+						photo.Dispose();
+						return stream;
+					});
+					break;
                 case 1:
+                    photo = await DependencyService.Get<IMedia>().PickPhotoAsync();
+					ItemImage = ImageSource.FromStream(() =>
+					{
+						var stream = photo.GetStream();
+						photo.Dispose();
+						return stream;
+					});
                     break;
                 case 2:
                     ItemImage = null;

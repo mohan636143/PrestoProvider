@@ -2,8 +2,11 @@
 <AbsoluteLayout xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="Provider.Controls.FitImage"
+    HeightRequest="{Binding Source={x:Reference absLyt},Size}"
+    WidthRequest="{Binding Source={x:Reference absLyt},Size}"
     x:Name="absLyt">
-	<Image x:Name="img" Source="icon.png"
+	<Image x:Name="img" Aspect="Fill"
+    Source="{Binding Source={x:Reference absLyt},ImgSource}"
     AbsoluteLayout.LayoutBounds="1,1,1,1"
     AbsoluteLayout.LayoutFlags="All"/>
 </AbsoluteLayout>

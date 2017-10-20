@@ -285,6 +285,8 @@
     <Compile Include="AppModel.cs" />
     <Compile Include="Models\ProviderResponse.cs" />
     <Compile Include="Actions\GetProfileAction.cs" />
+    <Compile Include="Interface\IMedia.cs" />
+    <Compile Include="Models\MediaFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

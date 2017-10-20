@@ -28,21 +28,23 @@
                             Text="Lets Add items to your menu"
                             Style="{StaticResource DefLabelStyle}"
                         />
-                        <controls:RoundedView 
+                        <controls:RoundedView
                             Grid.Row="1"
-                            Margin="10" HorizontalOptions="Center" 
-                            HeightRequest="80" WidthRequest="80" 
+                            Margin="10" HorizontalOptions="Center"  
                             BorderColor="Gray" BorderThickness="2">
-                            <controls:RoundedView.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="0.6*"/>
-                            </controls:RoundedView.RowDefinitions>
                             <controls:RoundedView.BorderRadius>
                                 <OnPlatform x:TypeArguments="x:Int32" Android="10" iOS="10" />
                             </controls:RoundedView.BorderRadius>
+                            <Grid
+                            HeightRequest="80" WidthRequest="80">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="0.6*"/>
+                            </Grid.RowDefinitions>
+
                             <controls:FitImage ImgSource="{Binding ItemImage}" Size="80" 
                                 Grid.Row="0" Grid.RowSpan="2"/>
-                            <controls:CustomPicker 
+                            <!--<controls:CustomPicker 
                                 Grid.Row="1" BorderColor="Transparent" BorderRadius="0"
                                 PickerText="Edit" PickerTextColor="White"
                                 FillColor="#50000000"
@@ -55,7 +57,18 @@
                                         <Setter Property="HorizontalTextAlignment" Value="Center"/>
                                     </Style>
                                 </controls:CustomPicker.PickerTextStyle>
-                            </controls:CustomPicker>
+                            </controls:CustomPicker>-->
+                            <Label 
+                                Grid.Row="1"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                BackgroundColor="#50000000"
+                                Text="Edit" TextColor="White">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding EditCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            </Grid>
                         </controls:RoundedView>
                     </Grid>
                             
@@ -104,8 +117,8 @@
                          PickerText="Select" PickerAnchor="&#x25bc;"
                          PickerTextColor="Gray" PickerAnchorColor="Gray"
                          Style="{StaticResource PickerStyle}"
-                         SelectedIndex="{Binding SelectedCatIndex}"
-                         ItemsSource="{Binding Categories}"/>
+                         ItemsSource="{Binding Categories}"
+                         SelectedIndex="{Binding SelectedCatIndex}"/>
                          <Label 
                             Grid.Row="3" Grid.Column="0"
                             Text="Price"

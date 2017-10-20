@@ -139,6 +139,8 @@
     <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
     <Compile Include="Renderers\ExtendedEditorRenderer.cs" />
     <Compile Include="Renderers\VideoSplashRenderer.cs" />
+    <Compile Include="Services\MediaPickerService.cs" />
+    <Compile Include="Activities\MediaPickerActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
