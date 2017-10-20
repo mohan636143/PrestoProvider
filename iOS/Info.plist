@@ -38,7 +38,7 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>Fonts provided by Application</key>
 	<array>
-		<string>Fonts/Lobster.otf</string>
+		<string>Fonts/Calibri.ttf</string>
 		<string>Fonts/Lato-Regular.ttf</string>
 	</array>
 	<key>CFBundleURLTypes</key>

@@ -21,7 +21,7 @@ namespace Provider.Droid.Renderers
 				{
 					var FontFamily = e.NewElement.FontFamily;
 
-					Typeface font = Typeface.CreateFromAsset(Forms.Context.Assets, FontFamily + ".otf");
+					Typeface font = Typeface.CreateFromAsset(Forms.Context.Assets, FontFamily + ".ttf");
 					label.Typeface = font;
 				}
 			}
