@@ -152,6 +152,7 @@
     <Compile Include="Renderers\CustomLabelRenderer.cs" />
     <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
     <Compile Include="Renderers\VideoSplashRenderer.cs" />
+    <Compile Include="Renderers\CustomWebViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\avatar.png" />

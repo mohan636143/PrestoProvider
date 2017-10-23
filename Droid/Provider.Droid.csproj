@@ -141,6 +141,7 @@
     <Compile Include="Renderers\VideoSplashRenderer.cs" />
     <Compile Include="Services\MediaPickerService.cs" />
     <Compile Include="Activities\MediaPickerActivity.cs" />
+    <Compile Include="Renderers\CustomWebViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
