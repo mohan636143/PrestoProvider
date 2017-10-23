@@ -36,7 +36,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
-	<key>Fonts provided by Application</key>
+	<key>UIAppFonts</key>
 	<array>
 		<string>Fonts/Calibri.ttf</string>
 		<string>Fonts/Lato-Regular.ttf</string>
