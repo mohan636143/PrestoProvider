@@ -115,13 +115,15 @@
                         Grid.Row="2" Grid.Column="0" 
                         PickerText="Select" PickerAnchor="&#x25bc;"
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
-                        ItemsSource="{Binding SunStartIndex}"
+                        ItemsSource="{Binding TimeSlots}"
+                        SelectedIndex="{Binding SunStartIndex}"
                     />
                     <controls:CustomPicker
                         Grid.Row="2" Grid.Column="1" 
                         PickerText="Select" PickerAnchor="&#x25bc;"
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
-                        ItemsSource="{Binding SunEndIndex}"
+                        ItemsSource="{Binding TimeSlots}"
+                        SelectedIndex="{Binding SunEndIndex}"
                     />
                     </Grid>
                 </Grid>

@@ -147,6 +147,8 @@ namespace Provider.ViewModels
         {
             get
             {
+                if (_itemImg == null)
+                    _itemImg = ImageSource.FromFile("photo.png");;
                 return _itemImg;
             }
             set

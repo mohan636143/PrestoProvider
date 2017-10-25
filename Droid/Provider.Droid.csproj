@@ -176,6 +176,7 @@
     <AndroidResource Include="Resources\drawable\add.png" />
     <AndroidResource Include="Resources\drawable\pizza.png" />
     <AndroidResource Include="Resources\drawable\greentick.png" />
+    <AndroidResource Include="Resources\drawable\photo.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

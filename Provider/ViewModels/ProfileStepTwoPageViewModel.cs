@@ -111,7 +111,8 @@ namespace Provider.ViewModels
 		{
             NextCommand = new Command(() => HandleNext());
             PeopleCount = new List<string>() {"Select", "5","10","15","20","25","50","100","200","500" };
-            TimeSlots = new List<string>() { "Select", "6 am", "7 am", "8 am", "9 am", "10 am", "11 am", "12 am", "1 pm", "2 pm" };
+            TimeSlots = new List<string>() { "Select", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", 
+                                                       "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM" };
 		}
 
 		#endregion
