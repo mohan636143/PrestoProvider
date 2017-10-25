@@ -241,6 +241,7 @@ namespace Provider.ViewModels
             ItemModel item = new ItemModel();
             item.Name = ItemName;
             item.Desc = ItemDesc;
+            if(SelectedCatIndex>= 0)
             item.FoodCategory = Categories[SelectedCatIndex];
             item.Price = Price;
             item.Qty = Quantity;
