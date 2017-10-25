@@ -10,12 +10,12 @@
         <vm:ProfileStepTwoPageViewModel/>
     </ContentPage.BindingContext>
 	<ContentPage.Content>
-        <Grid Padding="30,15">
+        <Grid Padding="0,15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <ScrollView Grid.Row="0">
+            <ScrollView Grid.Row="0" Padding="20,0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

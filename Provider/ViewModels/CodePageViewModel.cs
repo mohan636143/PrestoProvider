@@ -17,8 +17,9 @@ namespace Provider.ViewModels
 
 		private void LoadNextPage()
 		{
-			
-			App.SetPage(new RegSuccessPage());
+
+            //App.SetPage(new RegSuccessPage());
+            App.Current.MainPage = new RegSuccessPage();
 
 		}
     }

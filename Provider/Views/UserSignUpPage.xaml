@@ -13,12 +13,12 @@
 	<ContentPage.Content> 
         <Grid Margin="0">
 <!--            <Image Source="LoginBG.png" Aspect="Fill" Opacity="0.4"/>-->
-            <Grid BackgroundColor="White" RowSpacing="15" Padding="30,10">
+            <Grid BackgroundColor="White" RowSpacing="15" Padding="0,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ScrollView BackgroundColor="Transparent" >
+                <ScrollView BackgroundColor="Transparent" Padding="20,0">
                       <StackLayout BackgroundColor="White" Spacing="20" >
                             
                             <Grid >
@@ -86,7 +86,7 @@
                                     Text="Email"/>-->
                                  <controls:DescriptionEntry 
                                     Grid.Row="2" Grid.Column="1"
-                                EntryPlaceholderText="Email" EntryText="{Binding Email}" 
+                                EntryPlaceholderText="Email ID" EntryText="{Binding Email}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"/>
                                <!-- <Label 

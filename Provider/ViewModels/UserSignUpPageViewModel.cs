@@ -249,7 +249,8 @@ namespace Provider.ViewModels
 
             UpdateSingleton();
 
-            App.SetPage(new CodePage());
+            //App.SetPage(new CodePage());
+            App.Current.MainPage = new CodePage();
 
 		}
 
