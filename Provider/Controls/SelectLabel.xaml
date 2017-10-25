@@ -8,7 +8,8 @@
 	<Label x:Name="toggleLabel"
         Text="{Binding Source={x:Reference roundedLabel}, LabelText}"
         Style="{Binding Source={x:Reference roundedLabel}, LabelStyle}"
-        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+        HorizontalOptions="Center" VerticalOptions="Center"
         VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+        LineBreakMode="CharacterWrap"
     />
 </controls:RoundedView>

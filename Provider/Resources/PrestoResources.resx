@@ -22,12 +22,12 @@
     <value>Just tap the button below to register/login through Facebook. Eh.. we love to keep it simple.</value>
   </data>
 	<data name="txtUserSignUpPageTopMsg" xml:space="preserve">
-    <value>Great!! You are just few steps away from starting a resturant on Presto</value>
+    <value>Great!! You are just few steps away from starting a restaurant on Presto</value>
   </data>
 	<data name="txtUserSignUpPageBtmMsg" xml:space="preserve">
     <value>Tap continue button below to continue.</value>
   </data>
 	<data name="txtProfileStepOneKitchenDesc" xml:space="preserve">
-    <value>In a few words, please describe about you, what you are good at and what your kitchen can offer to your customers. You can chnage this any time. We highly recommend you do best sales pitch here.</value>
+    <value>In a few words, please describe about you, what you are good at and what your kitchen can offer to your customers. You can change this any time. We highly recommend you do best sales pitch here.</value>
   </data>
 </root>

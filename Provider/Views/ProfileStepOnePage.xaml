@@ -66,7 +66,8 @@
                     <Label
                         Text="Accept Catering Orders"
                         Style="{StaticResource SignUpPageLabelStyle}"
-                        Grid.Row="4" Grid.Column="0"/>
+                        Grid.Row="4" Grid.Column="0" 
+                        Grid.ColumnSpan="2" HorizontalOptions="Start"/>
                     <controls:ToggleSwitch
                         Style="{StaticResource DefToggleSwitchStyleStyle}"
                         Grid.Row="4" Grid.Column="1" 

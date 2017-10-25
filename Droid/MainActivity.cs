@@ -47,12 +47,12 @@ namespace Provider.Droid
                 {
                     ActivityCompat.RequestPermissions(this, names.ToArray(), REQUEST_CODE_ASK_PERMISSIONS);
                 }
-
-                global::Xamarin.Forms.Forms.Init(this, bundle);
-                global::Xamarin.Auth.Presenters.XamarinAndroid.AuthenticationConfiguration.Init(this, bundle);
-
-                LoadApplication(new App());
             }
+
+			global::Xamarin.Forms.Forms.Init(this, bundle);
+			global::Xamarin.Auth.Presenters.XamarinAndroid.AuthenticationConfiguration.Init(this, bundle);
+
+			LoadApplication(new App());
         }
     }
 }

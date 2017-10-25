@@ -7,7 +7,7 @@
         <StackLayout Spacing="30" Padding="30,15" VerticalOptions="Center" HorizontalOptions="Center">
             <controls:FitImage Size="24" ImgSource="greentick.png" HorizontalOptions="Center"/>
             <Label 
-                Text="Congratualtions !! Your registration is now complete and few steps away to open your kitchen for business. Tap butoon below to get your profile setup."
+                Text="Congratulations !! Your registration is now complete and few steps away to open your kitchen for business. Tap button below to get your profile setup."
                 Style="{StaticResource DefLabelStyle}"
             />
             <controls:RoundedButton 
