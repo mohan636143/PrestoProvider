@@ -239,7 +239,7 @@ namespace Provider.ViewModels
 
 		private void LoadNextPage()
 		{
-            UpdateProfileData(StoredUserProfileData);
+            //UpdateProfileData(StoredUserProfileData);
             //NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
             //navPage.PushAsync(new CuisindAndDishesPage());
 
@@ -253,15 +253,15 @@ namespace Provider.ViewModels
 
 		}
 
-        private void UpdateProfileData(UserProfile profileData)
-        {
-            profileData.ProfilePic = ProfilePic;
-            profileData.FirstName = FirstName;
-            profileData.LastName = LastName;
-            profileData.Email = Email;
-            profileData.Age = Age;
-            profileData.Location = Location;
-        }
+        //private void UpdateProfileData(UserProfile profileData)
+        //{
+        //    profileData.ProfilePic = ProfilePic;
+        //    profileData.FirstName = FirstName;
+        //    profileData.LastName = LastName;
+        //    profileData.Email = Email;
+        //    profileData.Age = Age;
+        //    profileData.Location = Location;
+        //}
 
         void UpdateSingleton()
 		{

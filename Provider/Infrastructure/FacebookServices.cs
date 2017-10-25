@@ -45,7 +45,7 @@ namespace Provider.Infrastructure
                 userEnumerable.Add(AccProperties.LastName, facebookProfile.Last_Name);
                 if (string.IsNullOrEmpty(facebookProfile.Email))
                 {
-                    facebookProfile.Email = "NAN";
+                    facebookProfile.Email = "";
                 }
                 userEnumerable.Add(AccProperties.Email, facebookProfile.Email);
                 userEnumerable.Add(AccProperties.AccessToken, accessToken);

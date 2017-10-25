@@ -12,12 +12,12 @@ namespace Provider.Controls
 
 		bool isPlaceholderTextMinimized = false;
 
-		#region EntryTextProperty
-		public static readonly BindableProperty EntryTextProperty =
-			BindableProperty.Create<DescriptionEntry, string>
-		(p => p.EntryText,
-			null,
-			defaultBindingMode: BindingMode.TwoWay);
+        Color PrevBorderColor = Color.Default;
+        Color PrevTextColor = Color.Default;
+
+        #region EntryTextProperty
+        public static readonly BindableProperty EntryTextProperty = BindableProperty.Create(nameof(EntryText), typeof(string), typeof(DescriptionEntry),
+                                                                                           defaultValue: null, defaultBindingMode: BindingMode.TwoWay);
 
 		public string EntryText
 		{
@@ -29,82 +29,29 @@ namespace Provider.Controls
 				//  onHandlingFocusOnDefaultText();
 			}
 		}
-		#endregion
+        #endregion
 
-		#region IsEntryPasswordProperty
-
-		public static BindableProperty IsEntryPasswordProperty =
-			BindableProperty.Create<DescriptionEntry, bool>
-			(o => o.IsEntryPassword, false, propertyChanged: OnPasswordValueChanged);
+        #region IsEntryPasswordProperty
+        public static BindableProperty IsEntryPasswordProperty = BindableProperty.Create(nameof(IsEntryPassword), typeof(bool), typeof(DescriptionEntry),
+                                                                                         defaultValue: false, defaultBindingMode: BindingMode.TwoWay);
 
 		public bool IsEntryPassword
 		{
 			get { return (bool)GetValue(IsEntryPasswordProperty); }
 			set { SetValue(IsEntryPasswordProperty, value); }
 		}
-
-		static void OnPasswordValueChanged(BindableObject bindable, bool oldValue, bool newValue)
-		{
-			DescriptionEntry linedEntry = (DescriptionEntry)bindable;
-			linedEntry.entrycontrol.IsPassword = newValue;
-		}
 		#endregion
 
 		#region EntryPlaceholderProperty
-		public static readonly BindableProperty EntryPlaceholderProperty =
-			BindableProperty.Create<DescriptionEntry, string>
-		(p => p.EntryPlaceholderText,
-			null,
-			defaultBindingMode: BindingMode.TwoWay);
-
+        public static readonly BindableProperty EntryPlaceholderProperty = BindableProperty.Create(nameof(EntryPlaceholderText), typeof(string), typeof(DescriptionEntry),
+																						 defaultValue: null, defaultBindingMode: BindingMode.TwoWay);
 
 		public string EntryPlaceholderText
 		{
 			get { return (string)GetValue(EntryPlaceholderProperty); }
 			set { SetValue(EntryPlaceholderProperty, value); }
 		}
-		#endregion
-
-		#region EntryDescriptionProperty
-
-		public static readonly BindableProperty EntryDescriptionProperty =
-			BindableProperty.Create<DescriptionEntry, string>
-		(p => p.EntryDescription,
-			null,
-			defaultBindingMode: BindingMode.TwoWay, propertyChanged: OnEntryDescriptionChanged);
-
-		public string EntryDescription
-		{
-			get { return (string)GetValue(EntryDescriptionProperty); }
-			set { SetValue(EntryDescriptionProperty, value); }
-		}
-
-		static void OnEntryDescriptionChanged(BindableObject bindable, string oldValue, string newValue)
-		{
-			var view = (DescriptionEntry)bindable;
-			//view.lblDescription.Text = newValue;
-		}
-		#endregion
-
-		#region DescriptionTextColorProperty
-		public static BindableProperty DescriptionTextColorProperty =
-			BindableProperty.Create<DescriptionEntry, Color>
-		(p => p.DescriptionTextColor,
-			Color.Default,
-			propertyChanged: OnDescriptionTextColorChanged);
-
-		public Color DescriptionTextColor
-		{
-			get { return (Color)GetValue(DescriptionTextColorProperty); }
-			set { SetValue(DescriptionTextColorProperty, value); }
-		}
-
-		static void OnDescriptionTextColorChanged(BindableObject bindable, Color oldValue, Color newValue)
-		{
-			var view = (DescriptionEntry)bindable;
-			//view.lblDescription.TextColor = newValue;
-		}
-		#endregion
+		#endregion				
 
 		#region EntryStyle
 
@@ -137,9 +84,67 @@ namespace Provider.Controls
 			get { return (bool)GetValue(AutoHidePlaceholderProperty); }
 			set { SetValue(AutoHidePlaceholderProperty, value); }
 		}
-		
+
 
 		#endregion
+
+		#region ValidateEmptyString
+
+		public static readonly BindableProperty ValidateEmptyStringProperty = BindableProperty.Create(nameof(ValidateEmptyString), typeof(bool),
+                                                                                                       typeof(DescriptionEntry), false);
+
+        public bool ValidateEmptyString
+        {
+            get
+            {
+                return (bool)GetValue(ValidateEmptyStringProperty);
+            }
+            set
+            {
+                SetValue(ValidateEmptyStringProperty, value);
+            }
+        }
+
+		#endregion
+
+		#region IsEntryValid
+
+		public static readonly BindableProperty IsEntryValidProperty = BindableProperty.Create(nameof(IsEntryValid), typeof(bool),
+																							   typeof(DescriptionEntry), true,
+                                                                                               BindingMode.OneWayToSource);
+
+		public bool IsEntryValid
+		{
+			get
+			{
+				return (bool)GetValue(IsEntryValidProperty);
+			}
+			set
+			{
+				SetValue(IsEntryValidProperty, value);
+			}
+		}
+
+		#endregion
+
+		//#region ValidateEmpty
+
+  //      public static readonly BindableProperty EntryBehaviorsProperty = BindableProperty.Create(nameof(EntryBehaviors), typeof(IList<Behavior>),
+		//																							   typeof(DescriptionEntry), null);
+
+		//public IList<Behavior> EntryBehaviors
+		//{
+		//	get
+		//	{
+		//		return (IList<Behavior>)GetValue(EntryBehaviorsProperty);
+		//	}
+		//	set
+		//	{
+		//		SetValue(EntryBehaviorsProperty, value);
+		//	}
+		//}
+
+		//#endregion
 
 		public ExtendedEntry ExposedEntry;
 
@@ -191,6 +196,22 @@ namespace Provider.Controls
 			{
 				MinimizePlaceHolderIfRequired(false);
 			}
+            if(ValidateEmptyString )
+            {
+                if (string.IsNullOrEmpty(args.NewTextValue))
+                {
+                    PrevBorderColor = BorderColor;
+                    BorderColor = Color.Red;
+                    IsEntryValid = false;
+                }
+                else
+                {
+                    if (PrevBorderColor != Color.Default)
+                        BorderColor = PrevBorderColor;
+                    IsEntryValid = true;
+                }
+            }
+
 		}
 
 		public void InvokeCompleted()

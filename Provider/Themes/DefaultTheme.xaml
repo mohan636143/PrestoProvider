@@ -106,7 +106,30 @@
                 </Setter>
             </Style>
 
-            <Style TargetType="{x:Type controls:RoundedView}" x:Key="NoLabelRoundedEntryStyle">
+            <Style TargetType="{x:Type controls:DescriptionEntry}" x:Key="DescriptionEntryDefStyle">
+                <Setter Property="BorderColor" Value="Gray" />
+                <Setter Property="BorderRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="55" iOS="25"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" Android="55" iOS="50"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="FillColor" Value="White" />
+                <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness" Android="20,0" iOS="20,0"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ValidateEmptyString" Value="True"/>
+            </Style>
+
+            <Style TargetType="{x:Type controls:DescriptionEntry}" x:Key="NoLabelRoundedEntryStyle">
                 <Setter Property="BorderColor" Value="Transparent" />
                 <Setter Property="HeightRequest">
                     <Setter.Value>
@@ -127,6 +150,7 @@
                         <OnPlatform x:TypeArguments="Thickness" Android="10,0" iOS="10,0"/>
                     </Setter.Value>
                 </Setter>
+                <Setter Property="ValidateEmptyString" Value="True"/>
             </Style>
 
             <Style TargetType="{x:Type Editor}" x:Key="DefaultEditorStyle">

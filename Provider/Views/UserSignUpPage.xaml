@@ -70,16 +70,16 @@
                                     Grid.Row="0" Grid.Column="1" 
                                 EntryPlaceholderText="First Name" EntryText="{Binding FirstName}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource RoundedEntryStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"/>
                                 <!--<Label 
                                     Grid.Row="1" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Last Name"/>-->
-                                 <controls:DescriptionEntry 
+                                 <controls:DescriptionEntry  
                                     Grid.Row="1" Grid.Column="1"
                                 EntryPlaceholderText="Last Name" EntryText="{Binding LastName}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource RoundedEntryStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"/>
                                <!-- <Label 
                                     Grid.Row="2" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -88,7 +88,7 @@
                                     Grid.Row="2" Grid.Column="1"
                                 EntryPlaceholderText="Email" EntryText="{Binding Email}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource RoundedEntryStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"/>
                                <!-- <Label 
                                     Grid.Row="3" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -97,7 +97,7 @@
                                     Grid.Row="4" Grid.Column="1"
                                 EntryPlaceholderText="Mobile" EntryText="{Binding Mobile}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource RoundedEntryStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"/>
                                 <!--<Label 
                                     Grid.Row="4" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -106,7 +106,7 @@
                                     Grid.Row="3" Grid.Column="1"
                                 EntryPlaceholderText="Age" EntryText="{Binding Age}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource RoundedEntryStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"/>
                                <!-- <Label 
                                     Grid.Row="5" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -115,7 +115,7 @@
                                     Grid.Row="5" Grid.Column="1"
                                 EntryPlaceholderText="Zip Code" EntryText="{Binding Location}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource RoundedEntryStyle}"/>-->
+                                Style="{StaticResource DescriptionEntryDefStyle}"/>-->
                                <!-- <Label 
                                     Grid.Row="6" Grid.Column="1"
                                     Style="{StaticResource SignUpPageLabelStyle}"

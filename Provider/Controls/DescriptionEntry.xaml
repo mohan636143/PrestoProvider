@@ -38,7 +38,8 @@
             EntryVerticalTextAlignment="Center"
             Unfocused="OnEntryUnfocused"
             Focused="OnEntryFocused"
-            Completed="OnEntryCompleted"/>
+            Completed="OnEntryCompleted"
+            IsPassword="{Binding IsEntryPassword}"/>
         <!--<controls:ExtendedEntry.Margin>
                     <OnPlatform x:TypeArguments="Thickness" iOS="6,6" Android="3,7,5,0"/>
                 </controls:ExtendedEntry.Margin>-->
