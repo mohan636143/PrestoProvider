@@ -56,6 +56,7 @@ namespace Provider.Behaviors
         void ValidateString(ExtendedEntry eEntry,string regex)
         {
 			var entry = ((ExtendedEntry)eEntry);
+            dEntry.IsEntryValid = true;
             //string regexFormat = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";//@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$";
             if(dEntry.ValidateEmptyString && string.IsNullOrEmpty(eEntry.Text))
             {

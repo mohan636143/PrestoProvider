@@ -40,6 +40,8 @@
                         VerticalOptions="Center"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
+                        ValidateEmptyString="true"
+                        IsEntryValid="{Binding IsKitchenNameValid}"
                         />
                     <Label 
                         Text="{x:Static resx:PrestoResources.txtProfileStepOneKitchenDesc}"
@@ -62,6 +64,8 @@
                         VerticalOptions="Center"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
+                        ValidateEmptyString="true"
+                        IsEntryValid="{Binding IsChannelValid}"
                         />
                     <Label
                         Text="Accept Catering Orders"

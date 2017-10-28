@@ -99,6 +99,9 @@ namespace Provider.ViewModels
             }
         }
 
+        public bool IsKitchenNameValid { get; set; }
+        public bool IsChannelValid { get; set; }
+
         #endregion
 
         #region Commands
@@ -111,6 +114,7 @@ namespace Provider.ViewModels
 
         public ProfileStepOnePageViewModel()
         {
+            IsKitchenNameValid = IsChannelValid = false;
             CateringTimes = new List<string>() { "Select", "15 mins", "30 mins", "60 mins", "90 mins", "2 hours", "3 hours" };
             NextCommand = new Command(() => ProceedtoNextPage());
         }
@@ -121,8 +125,13 @@ namespace Provider.ViewModels
 
         private void ProceedtoNextPage()
         {
-            UpdateSingleton();
-            App.SetPage(new ProfileStepTwoPage());
+            if (ValidateData())
+            {
+                UpdateSingleton();
+                App.SetPage(new ProfileStepTwoPage());
+            }
+            else
+                App.Current.MainPage.DisplayAlert("Error", "Please correct data and try again.", "OK");
         }
 
         private void UpdateSingleton()
@@ -134,6 +143,14 @@ namespace Provider.ViewModels
             userData.YouTubeCh = Channel;
             userData.IsPreOrder = PreOrder;
             userData.MinLeadTime = CateringTimes[SelectedTime];
+        }
+
+        bool ValidateData()
+        {
+            if (IsKitchenNameValid && IsChannelValid && SelectedTime > 0)
+                return true;
+            else
+                return false;
         }
 
         #endregion

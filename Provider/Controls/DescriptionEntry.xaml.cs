@@ -14,6 +14,7 @@ namespace Provider.Controls
 
         Color PrevBorderColor = Color.Default;
         Color PrevTextColor = Color.Default;
+        int count = 0;
 
         #region EntryTextProperty
         public static readonly BindableProperty EntryTextProperty = BindableProperty.Create(nameof(EntryText), typeof(string), typeof(DescriptionEntry),
@@ -129,7 +130,8 @@ namespace Provider.Controls
         {
             DescriptionEntry descEntry = (bindable as DescriptionEntry);
             bool val = (bool)newValue;
-
+            if (descEntry.count <= 0)
+                return;
             if(!val)
             {
                 descEntry.PrevBorderColor = descEntry.BorderColor;
@@ -137,7 +139,7 @@ namespace Provider.Controls
             }
             else
             {
-                if (descEntry.BorderColor != Color.Default)
+                if (descEntry.PrevBorderColor != Color.Default)
                     descEntry.BorderColor = descEntry.PrevBorderColor;
             }
         }
@@ -203,19 +205,25 @@ namespace Provider.Controls
 
 
 		void OnUnderLinedEntryChanged(object sender, TextChangedEventArgs args)
-		{
-			//var eventHandler = this.UnderLinedEntryChanged;
-			//if (eventHandler != null)
-			//{
-			//	eventHandler(this, args);
-			//}
-			if (!string.IsNullOrEmpty(args.NewTextValue))
-			{
-				MinimizePlaceHolderIfRequired(false);
-			}
-            if(ValidateEmptyString )
+        {
+            //var eventHandler = this.UnderLinedEntryChanged;
+            //if (eventHandler != null)
+            //{
+            //	eventHandler(this, args);
+            //}
+            if (!string.IsNullOrEmpty(args.NewTextValue))
             {
-                if (string.IsNullOrEmpty(args.NewTextValue))
+                MinimizePlaceHolderIfRequired(false);
+            }
+            ValidateValue(args.NewTextValue);
+
+        }
+
+        private void ValidateValue(string entryText)
+        {
+            if (ValidateEmptyString)
+            {
+                if (string.IsNullOrEmpty(entryText))
                 {
                     //PrevBorderColor = BorderColor;
                     //BorderColor = Color.Red;
@@ -224,14 +232,13 @@ namespace Provider.Controls
                 else
                 {
                     //if (PrevBorderColor != Color.Default)
-                        //BorderColor = PrevBorderColor;
+                    //BorderColor = PrevBorderColor;
                     IsEntryValid = true;
                 }
             }
+        }
 
-		}
-
-		public void InvokeCompleted()
+        public void InvokeCompleted()
 		{
 			if (this.EntryCompleted != null)
 				this.EntryCompleted.Invoke(this, null);
@@ -239,11 +246,14 @@ namespace Provider.Controls
 
 		void OnEntryFocused(object sender, EventArgs args)
 		{
+            count++;
 			MinimizePlaceHolderIfRequired();
 		}
 
 		async void OnEntryUnfocused(object sender, EventArgs args)
 		{
+            IsEntryValid = true;
+            ValidateValue((sender as ExtendedEntry).Text);
 			if (string.IsNullOrEmpty(entrycontrol.Text) && isPlaceholderTextMinimized)
 			{
 				//await lblPlaceHolder.TranslateTo(0, 0, 100, Easing.Linear);
