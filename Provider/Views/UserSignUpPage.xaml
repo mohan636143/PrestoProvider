@@ -5,6 +5,7 @@
     xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:utility="clr-namespace:Provider.Utility"
     xmlns:resx="clr-namespace:Provider.Resources"
+    xmlns:beh="clr-namespace:Provider.Behaviors"
     x:Class="Provider.Views.UserSignUpPage"
     Title="Profile">
     <ContentPage.BindingContext>
@@ -70,7 +71,8 @@
                                     Grid.Row="0" Grid.Column="1" 
                                 EntryPlaceholderText="First Name" EntryText="{Binding FirstName}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource DescriptionEntryDefStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"
+                                IsEntryValid="{Binding IsFirstNameValid}"/>
                                 <!--<Label 
                                     Grid.Row="1" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -79,7 +81,8 @@
                                     Grid.Row="1" Grid.Column="1"
                                 EntryPlaceholderText="Last Name" EntryText="{Binding LastName}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource DescriptionEntryDefStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"
+                                IsEntryValid="{Binding IsSecNameValid}"/>
                                <!-- <Label 
                                     Grid.Row="2" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -88,7 +91,12 @@
                                     Grid.Row="2" Grid.Column="1"
                                 EntryPlaceholderText="Email ID" EntryText="{Binding Email}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource DescriptionEntryDefStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"
+                                IsEntryValid="{Binding IsMailValid}">
+                                <controls:DescriptionEntry.Behaviors>
+                                    <beh:ValidatorBehavior StringRegex="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"/>
+                                </controls:DescriptionEntry.Behaviors>
+                                </controls:DescriptionEntry>
                                <!-- <Label 
                                     Grid.Row="3" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -97,7 +105,12 @@
                                     Grid.Row="4" Grid.Column="1"
                                 EntryPlaceholderText="Mobile" EntryText="{Binding Mobile}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource DescriptionEntryDefStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"
+                                IsEntryValid="{Binding IsMobileValid}">
+                                <controls:DescriptionEntry.Behaviors>
+                                    <beh:ValidatorBehavior StringRegex="^[1-9]{1}[0-9]{9}$" />
+                                </controls:DescriptionEntry.Behaviors>
+                                </controls:DescriptionEntry>
                                 <!--<Label 
                                     Grid.Row="4" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -106,7 +119,12 @@
                                     Grid.Row="3" Grid.Column="1"
                                 EntryPlaceholderText="Age" EntryText="{Binding Age}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource DescriptionEntryDefStyle}"/>
+                                Style="{StaticResource DescriptionEntryDefStyle}"
+                                IsEntryValid="{Binding IsAgeValid}">
+                                <controls:DescriptionEntry.Behaviors>
+                                    <beh:ValidatorBehavior StringRegex="^[1-9]{0,1}[0-9]{0,1}$"/>
+                                </controls:DescriptionEntry.Behaviors>
+                                </controls:DescriptionEntry>
                                <!-- <Label 
                                     Grid.Row="5" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"

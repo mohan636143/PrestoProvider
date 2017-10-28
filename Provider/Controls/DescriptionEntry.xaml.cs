@@ -111,7 +111,7 @@ namespace Provider.Controls
 
 		public static readonly BindableProperty IsEntryValidProperty = BindableProperty.Create(nameof(IsEntryValid), typeof(bool),
 																							   typeof(DescriptionEntry), true,
-                                                                                               BindingMode.OneWayToSource);
+                                                                                               BindingMode.TwoWay,propertyChanged:OnEntryValidStateChanged);
 
 		public bool IsEntryValid
 		{
@@ -125,26 +125,43 @@ namespace Provider.Controls
 			}
 		}
 
+        static void OnEntryValidStateChanged(BindableObject bindable,object oldValue,object newValue)
+        {
+            DescriptionEntry descEntry = (bindable as DescriptionEntry);
+            bool val = (bool)newValue;
+
+            if(!val)
+            {
+                descEntry.PrevBorderColor = descEntry.BorderColor;
+                descEntry.BorderColor = Color.Red;
+            }
+            else
+            {
+                if (descEntry.BorderColor != Color.Default)
+                    descEntry.BorderColor = descEntry.PrevBorderColor;
+            }
+        }
+
 		#endregion
 
-		//#region ValidateEmpty
+		#region ValidateEmpty
 
-  //      public static readonly BindableProperty EntryBehaviorsProperty = BindableProperty.Create(nameof(EntryBehaviors), typeof(IList<Behavior>),
-		//																							   typeof(DescriptionEntry), null);
+        public static readonly BindableProperty EntryBehaviorsProperty = BindableProperty.Create(nameof(EntryBehaviors), typeof(IList<Behavior>),
+																									   typeof(DescriptionEntry), null);
 
-		//public IList<Behavior> EntryBehaviors
-		//{
-		//	get
-		//	{
-		//		return (IList<Behavior>)GetValue(EntryBehaviorsProperty);
-		//	}
-		//	set
-		//	{
-		//		SetValue(EntryBehaviorsProperty, value);
-		//	}
-		//}
+		public IList<Behavior> EntryBehaviors
+		{
+			get
+			{
+				return (IList<Behavior>)GetValue(EntryBehaviorsProperty);
+			}
+			set
+			{
+				SetValue(EntryBehaviorsProperty, value);
+			}
+		}
 
-		//#endregion
+		#endregion
 
 		public ExtendedEntry ExposedEntry;
 
@@ -200,14 +217,14 @@ namespace Provider.Controls
             {
                 if (string.IsNullOrEmpty(args.NewTextValue))
                 {
-                    PrevBorderColor = BorderColor;
-                    BorderColor = Color.Red;
+                    //PrevBorderColor = BorderColor;
+                    //BorderColor = Color.Red;
                     IsEntryValid = false;
                 }
                 else
                 {
-                    if (PrevBorderColor != Color.Default)
-                        BorderColor = PrevBorderColor;
+                    //if (PrevBorderColor != Color.Default)
+                        //BorderColor = PrevBorderColor;
                     IsEntryValid = true;
                 }
             }

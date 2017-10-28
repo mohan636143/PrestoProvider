@@ -8,19 +8,38 @@ namespace Provider.ViewModels
 {
     public class CodePageViewModel : ViewModelBase
     {
+
+        private string _code;
+        public string Code
+        {
+            get
+            {
+                return _code;
+            }
+            set
+            {
+                _code = value;
+                OnPropertyChanged("Code");
+            }
+        }
+
+        public bool IsCodeValid { get; set; }
+
         public ICommand SubmitCodeCommand { get; set; }
 
         public CodePageViewModel()
         {
+            IsCodeValid = false;
             SubmitCodeCommand = new Command(() => LoadNextPage());
         }
 
 		private void LoadNextPage()
 		{
-
-            //App.SetPage(new RegSuccessPage());
-            App.Current.MainPage = new RegSuccessPage();
-
+            if (IsCodeValid)
+                //App.SetPage(new RegSuccessPage());
+                App.Current.MainPage = new RegSuccessPage();
+            else
+                App.Current.MainPage.DisplayAlert("Error", "Please enter a valid 6 digit code", "OK");
 		}
     }
 }

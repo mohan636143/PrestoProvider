@@ -99,8 +99,8 @@ namespace Provider.ViewModels
             }
         }
 
-        private int _age;
-        public int Age
+        private string _age;
+        public string Age
         {
             get
             {
@@ -185,6 +185,13 @@ namespace Provider.ViewModels
 			}
 		}
 
+        public bool IsFirstNameValid { get; set; }
+        public bool IsSecNameValid { get; set; }
+        public bool IsMailValid { get; set; }
+        public bool IsMobileValid { get; set; }
+        public bool IsAgeValid { get; set; }
+
+
         #endregion
 
         #region Commands
@@ -200,9 +207,11 @@ namespace Provider.ViewModels
             StoredAcc = App.Store.FindAccountsForService(Constants.GoogleAuth).FirstOrDefault();
             if (StoredAcc == null)
                 StoredAcc = App.Store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
+
+            //IsFirstNameValid = IsSecNameValid = IsMailValid = IsMobileValid = IsAgeValid = false;
             UpdateData(StoredAcc);
             StoredUserProfileData = new UserProfile();
-            NextCommand = new Command((obj) => LoadNextPage());
+            NextCommand = new Command((obj) => ValidateData());
         }
 
         #endregion
@@ -271,8 +280,20 @@ namespace Provider.ViewModels
 			userData.ID = Email;
 			userData.Name = FirstName + " " + LastName;
             userData.Email = Email;
-            userData.Age = Age;
+            userData.Age = Convert.ToInt32(Age);
             userData.MobNo = Mobile;
+        }
+
+        void ValidateData()
+        {
+            if(IsFirstNameValid && IsSecNameValid && IsMailValid&&IsMobileValid&&IsAgeValid)
+            {
+                LoadNextPage();
+            }       
+            else
+            {
+                App.Current.MainPage.DisplayAlert("Error","Please correct data and try again.","OK");
+            }
         }
 
         #endregion

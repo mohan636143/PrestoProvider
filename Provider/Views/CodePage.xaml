@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:controls="clr-namespace:Provider.Controls"
     xmlns:vm="clr-namespace:Provider.ViewModels"
+    xmlns:beh="clr-namespace:Provider.Behaviors"
     x:Class="Provider.Views.CodePage">
     <ContentPage.BindingContext>
         <vm:CodePageViewModel/>
@@ -16,9 +17,15 @@
             />
             <controls:DescriptionEntry 
                         VerticalOptions="Fill"
+                        EntryText="{Binding Code}"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
-                        />
+                        IsEntryValid="{Binding IsCodeValid}"
+            >
+                <controls:DescriptionEntry.Behaviors>
+                    <beh:ValidatorBehavior StringRegex="^[0-9]{6}$"/>
+                </controls:DescriptionEntry.Behaviors>
+            </controls:DescriptionEntry>
              <Label 
                 Text="Send new code"
                 Style="{StaticResource DefLabelStyle}"
@@ -29,6 +36,7 @@
                 Style="{StaticResource DefLabelStyle}"
             />
             <controls:RoundedButton 
+                VerticalOptions="End"
                 LabelText="Submit"
                 TapCommand="{Binding SubmitCodeCommand}"
             />

@@ -32,7 +32,7 @@
             TextChanged="OnUnderLinedEntryChanged"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="Center"
-
+            Behaviors="{Binding EntryBehaviors}"
             EntryBorderStyle="NoBorderStyle"
             HorizontalTextAlignment="Start"
             EntryVerticalTextAlignment="Center"
