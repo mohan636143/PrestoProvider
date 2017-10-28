@@ -9,7 +9,12 @@
         <vm:CodePageViewModel/>
     </ContentPage.BindingContext>
 	<ContentPage.Content>
-        <StackLayout Padding="30,15">
+        <Grid Padding="0,10,0,25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+             <StackLayout Padding="30,15">
             <Label 
                 Text="Enter your code"
                 Style="{StaticResource DefLabelStyle}"
@@ -35,11 +40,13 @@
                 Text="Tap button below to accept Presto's Terms, Data Policy, Cookie use and Privacy Policy"
                 Style="{StaticResource DefLabelStyle}"
             />
+        </StackLayout>
             <controls:RoundedButton 
+                Grid.Row="1"
                 VerticalOptions="End"
                 LabelText="Submit"
                 TapCommand="{Binding SubmitCodeCommand}"
             />
-        </StackLayout>
+        </Grid>
 	</ContentPage.Content>
 </ContentPage>
