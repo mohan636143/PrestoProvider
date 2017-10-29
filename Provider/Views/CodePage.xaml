@@ -4,7 +4,8 @@
     xmlns:controls="clr-namespace:Provider.Controls"
     xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:beh="clr-namespace:Provider.Behaviors"
-    x:Class="Provider.Views.CodePage">
+    x:Class="Provider.Views.CodePage"
+    Title="Register">
     <ContentPage.BindingContext>
         <vm:CodePageViewModel/>
     </ContentPage.BindingContext>

@@ -48,10 +48,10 @@
                         Style="{StaticResource SignUpPageLabelStyle}"
                         Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
                     <controls:RoundedView
-                        BorderColor="Gray" BorderRadius="6" BorderThickness="2"
+                        BorderColor="Gray" BorderRadius="0" BorderThickness="2"
                         Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                         <Editor 
-                            Text="{Binding About}"
+                            Text="{Binding About}" 
                             Style="{StaticResource DefaultEditorStyle}"/>
                     </controls:RoundedView>
                     <Label
@@ -87,7 +87,8 @@
                         PickerText="Select" PickerAnchor="&#x25bc;"
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
                         ItemsSource="{Binding CateringTimes}"
-                        SelectedIndex="{Binding SelectedTime}"/>
+                        SelectedIndex="{Binding SelectedTime}"
+                        IsEnabled="{Binding PreOrder}"/>
                 </Grid>
             </ScrollView>
             <controls:RoundedButton

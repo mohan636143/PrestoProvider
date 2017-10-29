@@ -36,8 +36,7 @@ namespace Provider.ViewModels
 		private void LoadNextPage()
 		{
             if (IsCodeValid)
-                //App.SetPage(new RegSuccessPage());
-                App.Current.MainPage = new RegSuccessPage();
+                App.Current.MainPage = new ProviderLaunchPage() { Detail = new RegSuccessPage(), BarBackgroundColor = Color.Teal, BarTintColor = Color.White, ShowLeftMasterNavButton = false };
             else
                 App.Current.MainPage.DisplayAlert("Error", "Please enter a valid 6 digit code", "OK");
 		}

@@ -329,8 +329,32 @@ namespace Provider.Infrastructure
         }
         #endregion
 
-        #region ShowRightMasterNavButtonProperty
-        public static readonly BindableProperty ShowRightMasterNavButtonProperty =
+        #region ShowLeftMasterNavButtonProperty
+        public static readonly BindableProperty ShowLeftMasterNavButtonProperty =
+		   BindableProperty.Create(nameof(ShowLeftMasterNavButton),
+								   typeof(Boolean),
+								   typeof(DualMasterPage),
+								   true,
+								   propertyChanged: OnShowLeftMasterNavButton);
+
+        public Boolean ShowLeftMasterNavButton
+		{
+			get { return (Boolean)GetValue(ShowLeftMasterNavButtonProperty); }
+			set { SetValue(ShowLeftMasterNavButtonProperty, value); }
+		}
+
+		private static void OnShowLeftMasterNavButton(object bindable, object oldVal, object newVal)
+		{
+			DualMasterPage rlf = (DualMasterPage)bindable;
+			if (rlf._navBarPage != null)
+			{
+                rlf._navBarPage.ShowLeftMasterButton = (Boolean)newVal;
+			}
+		}
+		#endregion
+
+		#region ShowRightMasterNavButtonProperty
+		public static readonly BindableProperty ShowRightMasterNavButtonProperty =
            BindableProperty.Create(nameof(ShowRightMasterNavButton),
                                    typeof(Boolean),
                                    typeof(DualMasterPage),

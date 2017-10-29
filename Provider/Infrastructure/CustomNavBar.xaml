@@ -37,6 +37,7 @@
         <StackLayout 
           x:Name="leftPanel" 
           Spacing="5"
+
           Orientation="Horizontal" 
           VerticalOptions="FillAndExpand" 
           HorizontalOptions="StartAndExpand"/>

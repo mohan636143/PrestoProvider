@@ -60,6 +60,7 @@
                                 VerticalOptions="Center"
                                 AutoHidePlaceholder="true" BorderColor="Transparent"
                                 EntryText="{Binding NewCuisine}"
+                                ValidateEmptyString="false"
                             />
                             <controls:FitImage 
                                 HorizontalOptions="End"

@@ -27,7 +27,7 @@ namespace Provider.Controls
 
 		public static BindableProperty IsToggledProperty = BindableProperty.Create(nameof(IsToggled),
 																					 typeof(bool), typeof(ToggleSwitch),
-																					 defaultValue: true,
+                                                                                   defaultValue: true,defaultBindingMode:BindingMode.TwoWay,
                                                                                    propertyChanged:OnToggled);
 
         public bool IsToggled

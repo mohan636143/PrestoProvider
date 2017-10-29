@@ -71,7 +71,7 @@ namespace Provider.ViewModels
 			}
 		}
 
-		private int _selectedTime;
+        private int _selectedTime = -1;
 		public int SelectedTime
 		{
 			get
@@ -115,6 +115,7 @@ namespace Provider.ViewModels
         public ProfileStepOnePageViewModel()
         {
             IsKitchenNameValid = IsChannelValid = false;
+            PreOrder = true;
             CateringTimes = new List<string>() { "Select", "15 mins", "30 mins", "60 mins", "90 mins", "2 hours", "3 hours" };
             NextCommand = new Command(() => ProceedtoNextPage());
         }
@@ -147,8 +148,15 @@ namespace Provider.ViewModels
 
         bool ValidateData()
         {
-            if (IsKitchenNameValid && IsChannelValid && SelectedTime > 0)
-                return true;
+            if (IsKitchenNameValid && IsChannelValid)
+            {
+                if (!PreOrder)
+                    return true;
+                if (PreOrder && SelectedTime < 0)
+                    return false;
+                else
+                    return true;
+            }
             else
                 return false;
         }

@@ -205,7 +205,9 @@ namespace Provider.Controls
         #region Methods
 
         async void OnCustomPickerTapped(object sender, EventArgs e)
-		{
+        {
+            if (!(sender as CustomPicker).IsEnabled)
+                return;
 			string selectedVal = await App.Current.MainPage.DisplayActionSheet("", "", "", ItemsSource.ToArray());
 			SelectedIndex = ItemsSource.IndexOf(selectedVal);
 

@@ -7,7 +7,7 @@
     xmlns:resx="clr-namespace:Provider.Resources"
     xmlns:beh="clr-namespace:Provider.Behaviors"
     x:Class="Provider.Views.UserSignUpPage"
-    Title="Profile">
+    Title="Register">
     <ContentPage.BindingContext>
         <vm:UserSignUpPageViewModel/>
     </ContentPage.BindingContext>

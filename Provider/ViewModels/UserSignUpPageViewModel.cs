@@ -258,9 +258,7 @@ namespace Provider.ViewModels
 
             UpdateSingleton();
 
-            //App.SetPage(new CodePage());
-            App.Current.MainPage = new CodePage();
-
+            App.Current.MainPage = new ProviderLaunchPage() { Detail = new CodePage(), BarBackgroundColor = Color.Teal, BarTintColor = Color.White, ShowLeftMasterNavButton = false };
 		}
 
         //private void UpdateProfileData(UserProfile profileData)

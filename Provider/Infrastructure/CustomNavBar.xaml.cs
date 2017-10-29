@@ -130,7 +130,7 @@ namespace Provider.Infrastructure
 			}
 		}
 
-		private bool _showRightMasterButton;
+        private bool _showRightMasterButton;
 		public bool ShowRightMasterButton
 		{
 			get
@@ -163,6 +163,21 @@ namespace Provider.Infrastructure
 				{
 					this.rightPanel.Children.RemoveAt(iButtonIndex);
 				}
+			}
+		}
+
+		private bool _showLeftMasterButton;
+        public bool ShowLeftMasterButton
+		{
+			get
+			{
+				return _showLeftMasterButton;
+			}
+			set
+			{
+				_showLeftMasterButton = value;
+                this.leftPanel.IsVisible = value;
+				
 			}
 		}
 
