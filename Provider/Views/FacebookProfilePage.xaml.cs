@@ -8,71 +8,76 @@ using Xamarin.Forms;
 
 namespace Provider.Views
 {
-	   public partial class FacebookProfilePage : ContentPage
-	{
-	  Account account;
-	  AccountStore store;
+    public partial class FacebookProfilePage : ContentPage
+    {
+        Account account;
+        AccountStore store;
+        WebView webview;
 
-	  public FacebookProfilePage()
-	  {
-	      InitializeComponent();
+        public FacebookProfilePage()
+        {
+            InitializeComponent();
 
-	      store = AccountStore.Create();
-	      account = store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
+            store = AccountStore.Create();
+            account = store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
 
-	      var apiRequest = "https://www.facebook.com/v2.10/dialog/oauth?client_id="
-	                 + Constants.FacebookClientId
-	                 + "&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html";
+            var apiRequest = "https://www.facebook.com/v2.10/dialog/oauth?client_id="
+                       + Constants.FacebookClientId
+                       + "&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html";
 
-	      var webview = new WebView
-	      {
-	          Source = apiRequest,
-	          HeightRequest = 1
-	      };
+            webview = new WebView
+            {
+                Source = apiRequest,
+                HeightRequest = 1
+            };
 
-	      webview.Navigated += WebViewOnNavigated;
+            webview.Navigated += WebViewOnNavigated;
 
-	      Content = webview;
+            Content = webview;
 
-	  }
+        }
 
-	  private async void WebViewOnNavigated(object sender, WebNavigatedEventArgs e)
-	  {
-	      if (e.Url.Contains("access_token"))
-	      {
-	          var accessToken = ExtractAccessTokenFromUrl(e.Url);
+        private async void WebViewOnNavigated(object sender, WebNavigatedEventArgs e)
+        {
+            if (e.Url.Contains("access_token"))
+            {
+                var accessToken = ExtractAccessTokenFromUrl(e.Url);
 
-	          if (accessToken != "")
-	          {
 
-	              await SetFacebookUserProfileAsync(accessToken);
+                if (accessToken != "")
+                {
+					StackLayout sl = new StackLayout()
+					{
+						VerticalOptions = LayoutOptions.Center,
+						HorizontalOptions = LayoutOptions.Center,
+						Margin = new Thickness(30.0, 10.0)
+					};
+					sl.Children.Add(new Label { Text = "Please wait while we fetch your user data. ", TextColor = Color.Teal });
+					Content = sl;
+                    await SetFacebookUserProfileAsync(accessToken);
+                }
+            }
+        }
 
-	              //Content = MainStackLayout;
+        private string ExtractAccessTokenFromUrl(string url)
+        {
+            if (url.Contains("access_token") && url.Contains("&expires_in="))
+            {
+                var at = url.Replace("https://www.facebook.com/connect/login_success.html#access_token=", "");
 
-	              //await Navigation.PushAsync(new CustomerHomePage());
-	          }
-	      }
-	  }
+                var accessToken = at.Remove(at.IndexOf("&expires_in=", StringComparison.Ordinal));
 
-	  private string ExtractAccessTokenFromUrl(string url)
-	  {
-	      if (url.Contains("access_token") && url.Contains("&expires_in="))
-	      {
-	          var at = url.Replace("https://www.facebook.com/connect/login_success.html#access_token=", "");
+                return accessToken;
+            }
 
-	          var accessToken = at.Remove(at.IndexOf("&expires_in=", StringComparison.Ordinal));
-
-	          return accessToken;
-	      }
-
-	      return string.Empty;
-	  }
-	  public async Task SetFacebookUserProfileAsync(string accessToken)
-	  {
-	      var facebookServices = new FacebookServices();
+            return string.Empty;
+        }
+        public async Task SetFacebookUserProfileAsync(string accessToken)
+        {
+            var facebookServices = new FacebookServices();
 
             FacebookProfileData facebookProfile = await facebookServices.GetFacebookProfileAsync(accessToken);
-	      
-	  }
-	}
+
+        }
+    }
 }

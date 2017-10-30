@@ -31,8 +31,9 @@ namespace Provider.Utility
 			string email;
 			account.Properties.TryGetValue("Email", out email);
 
-            GetProfileAction action = new GetProfileAction("1",this);
+            GetProfileAction action = new GetProfileAction(email,this);
             action.Perform();
+
 		}
 
         async void HandleNavigation(bool userExists)
