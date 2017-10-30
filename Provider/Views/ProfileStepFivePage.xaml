@@ -102,7 +102,7 @@
                         />
                         <controls:RoundedView
                             Grid.Row="1" Grid.Column="1"
-                            BorderColor="Gray" BorderRadius="6" BorderThickness="2">
+                            BorderColor="Gray" BorderRadius="0" BorderThickness="2">
                             <Editor
                             Style="{StaticResource DefaultEditorStyle}"
                             Text="{Binding ItemDesc}"/>
@@ -147,7 +147,7 @@
                         />
                         <controls:RoundedView
                             Grid.Row="5" Grid.Column="1"
-                            BorderColor="Gray" BorderRadius="6" BorderThickness="2">
+                            BorderColor="Gray" BorderRadius="0" BorderThickness="2">
                             <Editor
                             Style="{StaticResource DefaultEditorStyle}"
                             Text="{Binding Ingredients}"/>

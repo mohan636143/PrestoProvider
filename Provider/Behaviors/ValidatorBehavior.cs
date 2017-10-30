@@ -63,6 +63,8 @@ namespace Provider.Behaviors
                 dEntry.IsEntryValid = false;
                 return;
             }
+            if (string.IsNullOrEmpty(eEntry.Text))
+                return;
             bool isMatch = Regex.IsMatch(eEntry.Text, regex);
             //if(dEntry.ValidateEmptyString)
             //{

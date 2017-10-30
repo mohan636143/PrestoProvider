@@ -120,7 +120,8 @@
                                 EntryPlaceholderText="Age" EntryText="{Binding Age}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
-                                IsEntryValid="{Binding IsAgeValid}">
+                                IsEntryValid="{Binding IsAgeValid}"
+                                ValidateEmptyString="false">
                                 <controls:DescriptionEntry.Behaviors>
                                     <beh:ValidatorBehavior StringRegex="^[1-9]{0,1}[0-9]{0,1}$"/>
                                 </controls:DescriptionEntry.Behaviors>

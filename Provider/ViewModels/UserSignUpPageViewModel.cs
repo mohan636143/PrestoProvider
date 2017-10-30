@@ -284,7 +284,7 @@ namespace Provider.ViewModels
 
         void ValidateData()
         {
-            if(IsFirstNameValid && IsSecNameValid && IsMailValid&&IsMobileValid&&IsAgeValid)
+            if(IsFirstNameValid && IsSecNameValid && IsMailValid&&IsMobileValid)
             {
                 LoadNextPage();
             }       

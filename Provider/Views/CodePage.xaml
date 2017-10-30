@@ -28,9 +28,9 @@
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
                         IsEntryValid="{Binding IsCodeValid}"
             >
-                <controls:DescriptionEntry.Behaviors>
+               <!-- <controls:DescriptionEntry.Behaviors>
                     <beh:ValidatorBehavior StringRegex="^[0-9]{6}$"/>
-                </controls:DescriptionEntry.Behaviors>
+                </controls:DescriptionEntry.Behaviors>-->
             </controls:DescriptionEntry>
              <Label 
                 Text="Send new code"

@@ -40,7 +40,6 @@
                         VerticalOptions="Center"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
-                        ValidateEmptyString="true"
                         IsEntryValid="{Binding IsKitchenNameValid}"
                         />
                     <Label 
@@ -64,7 +63,6 @@
                         VerticalOptions="Center"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
-                        ValidateEmptyString="true"
                         IsEntryValid="{Binding IsChannelValid}"
                         />
                     <Label

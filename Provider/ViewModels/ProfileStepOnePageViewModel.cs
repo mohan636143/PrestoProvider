@@ -143,22 +143,24 @@ namespace Provider.ViewModels
             userData.Desc = About;
             userData.YouTubeCh = Channel;
             userData.IsPreOrder = PreOrder;
+            if(SelectedTime>=0)
             userData.MinLeadTime = CateringTimes[SelectedTime];
         }
 
         bool ValidateData()
         {
-            if (IsKitchenNameValid && IsChannelValid)
-            {
-                if (!PreOrder)
-                    return true;
-                if (PreOrder && SelectedTime < 0)
-                    return false;
-                else
-                    return true;
-            }
-            else
-                return false;
+            //if (IsKitchenNameValid && IsChannelValid)
+            //{
+            //    if (!PreOrder)
+            //        return true;
+            //    if (PreOrder && SelectedTime < 0)
+            //        return false;
+            //    else
+            //        return true;
+            //}
+            //else
+            //return false;
+            return true;
         }
 
         #endregion
