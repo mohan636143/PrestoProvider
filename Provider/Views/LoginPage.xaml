@@ -19,13 +19,13 @@
             <Grid Padding="15,10,30,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <!--<RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>-->
                 </Grid.RowDefinitions>
 
 
-                <Image Grid.Row="0"
+                <Image Grid.Row="0" Margin="0,10" HeightRequest="150" WidthRequest="250"
                     Source="PrestoLogo.png" Aspect="AspectFit"/>
                 <Grid Grid.Row="1" Margin="25" RowSpacing="15" BackgroundColor="Transparent">
                     <Grid.RowDefinitions>
@@ -37,28 +37,30 @@
                     <Label
                         Grid.Row="0"  VerticalTextAlignment="Center"
                         Text="{x:Static resx:PrestoResources.txtLoginFoodNetwork}" 
-                        FontSize="25" 
+                        FontSize="40" 
                         Style="{StaticResource DefLabelStyle}">
                     </Label>
                     <Label 
                         Grid.Row="1" VerticalTextAlignment="Center"
                         Text="{x:Static resx:PrestoResources.txtLoginUnleash}"
-                        FontSize="25"
+                        FontSize="25" FontAttributes="Bold"
+                        VerticalOptions="End" 
                         Style="{StaticResource DefLabelStyle}">
                     </Label>
                     <Label 
                         Grid.Row="2" VerticalTextAlignment="Center"
                         Text="{x:Static resx:PrestoResources.txtLoginDesc}"
-                        FontSize="16"
+                        FontSize="20" FontAttributes="Bold"
+                        VerticalOptions="Start"
                         Style="{StaticResource DefLabelStyle}">
                     </Label>
     <!--            </Grid>-->
                 <!--<Grid Grid.Row="1" Margin="25" VerticalOptions="EndAndExpand" >-->
                     <controls:ImageButton
                         Grid.Row="3" 
-                        FillColor="White" BorderColor="Teal" BorderRadius="0" 
+                        FillColor="#4D6FA9" BorderColor="Transparent" 
                         BorderThickness="2" SourceImage="facebook.png" Text="Login with Facebook"
-                        TextColor="Teal" TapCommand="{Binding FbLoginCommand}"/>
+                        TextColor="White" TapCommand="{Binding FbLoginCommand}"/>
                     <!-- Currently commented as not required by the user -->
                     <!--<controls:ImageButton x:Name="btnGoogle"
                         Grid.Row="4" IsVisible="false"
