@@ -67,65 +67,106 @@
                                     Grid.Row="0" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="First Name"/>-->
+                            <StackLayout 
+                                    Grid.Row="0" Grid.Column="1" >
                                 <controls:DescriptionEntry 
-                                    Grid.Row="0" Grid.Column="1" 
                                 EntryPlaceholderText="First Name" EntryText="{Binding FirstName}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
                                 IsEntryValid="{Binding IsFirstNameValid}"/>
+                                <Label Text="First Name cannot be empty" IsVisible="false" TextColor="Red">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsFirstNameValid}" Value="false">
+                                            <Setter Property="IsVisible" Value="true"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </StackLayout>
                                 <!--<Label 
                                     Grid.Row="1" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Last Name"/>-->
-                                 <controls:DescriptionEntry  
-                                    Grid.Row="1" Grid.Column="1"
+                             <StackLayout  
+                                    Grid.Row="1" Grid.Column="1">
+                                 <controls:DescriptionEntry 
                                 EntryPlaceholderText="Last Name" EntryText="{Binding LastName}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
                                 IsEntryValid="{Binding IsSecNameValid}"/>
+                                <Label Text="Last Name cannot be empty" IsVisible="false" TextColor="Red">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsSecNameValid}" Value="false">
+                                            <Setter Property="IsVisible" Value="true"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                </StackLayout>
                                <!-- <Label 
                                     Grid.Row="2" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Email"/>-->
+                             <StackLayout 
+                                    Grid.Row="2" Grid.Column="1" >
                                  <controls:DescriptionEntry 
-                                    Grid.Row="2" Grid.Column="1"
                                 EntryPlaceholderText="Email ID" EntryText="{Binding Email}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
-                                IsEntryValid="{Binding IsMailValid}">
+                                IsEntryValid="{Binding IsMailValid}"
+                                KeyboardType="Email">
                                 <controls:DescriptionEntry.Behaviors>
                                     <beh:ValidatorBehavior StringRegex="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"/>
                                 </controls:DescriptionEntry.Behaviors>
                                 </controls:DescriptionEntry>
+                                <Label Text="{Binding EmailErrorText}" IsVisible="false" TextColor="Red">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMailValid}" Value="false">
+                                            <Setter Property="IsVisible" Value="true"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                </StackLayout>
                                <!-- <Label 
                                     Grid.Row="3" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Mobile"/>-->
+                             <StackLayout 
+                                    Grid.Row="4" Grid.Column="1">
                                  <controls:DescriptionEntry 
-                                    Grid.Row="4" Grid.Column="1"
                                 EntryPlaceholderText="Mobile" EntryText="{Binding Mobile}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
-                                IsEntryValid="{Binding IsMobileValid}">
+                                IsEntryValid="{Binding IsMobileValid}"
+                                KeyboardType="Telephone">
                                 <controls:DescriptionEntry.Behaviors>
                                     <beh:ValidatorBehavior StringRegex="^[1-9]{1}[0-9]{9}$" />
                                 </controls:DescriptionEntry.Behaviors>
                                 </controls:DescriptionEntry>
+                                <Label Text="{Binding MobileErrorText}" IsVisible="false" TextColor="Red">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMobileValid}" Value="false">
+                                            <Setter Property="IsVisible" Value="true"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                </StackLayout>
                                 <!--<Label 
                                     Grid.Row="4" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Age"/>-->
+                             <StackLayout 
+                                    Grid.Row="3" Grid.Column="1" >
                                  <controls:DescriptionEntry 
-                                    Grid.Row="3" Grid.Column="1"
                                 EntryPlaceholderText="Age" EntryText="{Binding Age}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
                                 IsEntryValid="{Binding IsAgeValid}"
-                                ValidateEmptyString="false">
+                                ValidateEmptyString="false"
+                                KeyboardType="Numeric">
                                 <controls:DescriptionEntry.Behaviors>
                                     <beh:ValidatorBehavior StringRegex="^[1-9]{0,1}[0-9]{0,1}$"/>
                                 </controls:DescriptionEntry.Behaviors>
                                 </controls:DescriptionEntry>
+                                </StackLayout>
                                <!-- <Label 
                                     Grid.Row="5" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"

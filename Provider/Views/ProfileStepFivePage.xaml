@@ -128,7 +128,8 @@
                             Grid.Row="3" Grid.Column="1"
                         EntryPlaceholderText="" EntryText="{Binding Price}" 
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                        Style="{StaticResource RoundedEntryStyle}"/>
+                        Style="{StaticResource RoundedEntryStyle}"
+                        KeyboardType="Numeric"/>
 
                          <Label 
                             Grid.Row="4" Grid.Column="0"
@@ -139,7 +140,8 @@
                             Grid.Row="4" Grid.Column="1"
                         EntryPlaceholderText="" EntryText="{Binding Quantity}" 
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                        Style="{StaticResource RoundedEntryStyle}"/>
+                        Style="{StaticResource RoundedEntryStyle}"
+                        KeyboardType="Numeric"/>
                        <Label 
                             Grid.Row="5" Grid.Column="0"
                             Text="Ingredients"

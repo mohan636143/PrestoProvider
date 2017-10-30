@@ -27,16 +27,20 @@
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
                         IsEntryValid="{Binding IsCodeValid}"
+                        KeyboardType="Numeric"
             >
                <!-- <controls:DescriptionEntry.Behaviors>
                     <beh:ValidatorBehavior StringRegex="^[0-9]{6}$"/>
                 </controls:DescriptionEntry.Behaviors>-->
             </controls:DescriptionEntry>
-             <Label 
-                Text="Send new code"
-                Style="{StaticResource DefLabelStyle}"
-                HorizontalOptions="Center"
-            />
+                <StackLayout Spacing="0" Orientation="Vertical" HorizontalOptions="Center">
+                 <Label 
+                    Text="Send new code"
+                    Style="{StaticResource DefLabelStyle}"
+                    HorizontalOptions="Center"
+                />
+                    <BoxView HeightRequest="1" Color="Teal" HorizontalOptions="Fill"/>
+            </StackLayout>
             <Label 
                 Text="Tap button below to accept Presto's Terms, Data Policy, Cookie use and Privacy Policy"
                 Style="{StaticResource DefLabelStyle}"

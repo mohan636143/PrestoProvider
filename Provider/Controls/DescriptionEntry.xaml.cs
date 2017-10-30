@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace Provider.Controls
 {
@@ -163,9 +164,29 @@ namespace Provider.Controls
 			}
 		}
 
-		#endregion
+        #endregion
 
-		public ExtendedEntry ExposedEntry;
+        #region KeyBoardType
+
+        public static readonly BindableProperty KeyBoardTypeProperty = BindableProperty.Create(nameof(KeyboardType), typeof(Keyboard),
+                                                                                               typeof(DescriptionEntry), Keyboard.Default,
+																							   BindingMode.TwoWay);
+
+		public Keyboard KeyboardType
+		{
+			get
+			{
+				return (Keyboard)GetValue(KeyBoardTypeProperty);
+			}
+			set
+			{
+				SetValue(KeyBoardTypeProperty, value);
+			}
+		}
+
+    #endregion
+
+        public ExtendedEntry ExposedEntry;
 
 		public DescriptionEntry()
 		{

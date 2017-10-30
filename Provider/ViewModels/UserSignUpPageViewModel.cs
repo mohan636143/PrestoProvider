@@ -185,19 +185,104 @@ namespace Provider.ViewModels
 			}
 		}
 
-        public bool IsFirstNameValid { get; set; }
-        public bool IsSecNameValid { get; set; }
-        public bool IsMailValid { get; set; }
-        public bool IsMobileValid { get; set; }
-        public bool IsAgeValid { get; set; }
+        private bool _isFirstNameValid = true;
+        public bool IsFirstNameValid
+        {
+            get
+            {
+                return _isFirstNameValid;
+            }
+            set
+            {
+                _isFirstNameValid = value;
+                OnPropertyChanged("IsFirstNameValid");
+            }
+        }
+
+        private bool _isSecNameValid = true;
+		public bool IsSecNameValid
+		{
+			get
+			{
+				return _isSecNameValid;
+			}
+			set
+			{
+				_isSecNameValid = value;
+				OnPropertyChanged("IsSecNameValid");
+			}
+		}
+
+        private bool _isMailValid = true;
+		public bool IsMailValid
+		{
+			get
+			{
+				return _isMailValid;
+			}
+			set
+			{
+				_isMailValid = value;
+                if (string.IsNullOrEmpty(Email))
+                    EmailErrorText = "Mail cannot be empty.";
+                else
+                    EmailErrorText = "Please enter a valid e-mail.";
+				OnPropertyChanged("IsMailValid");
+			}
+		}
+
+        private bool _isMobileValid = true;
+		public bool IsMobileValid
+		{
+			get
+			{
+				return _isMobileValid;
+			}
+			set
+			{
+				_isMobileValid = value;
+                if (string.IsNullOrEmpty(Mobile))
+                    MobileErrorText = "Mobile number cannot be empty.";
+				else
+					MobileErrorText = "Please enter a valid mobile number.";
+				OnPropertyChanged("IsMobileValid");
+			}
+		}
+
+        private string _emailErrorText;
+        public string EmailErrorText
+        {
+            get
+            {
+                return _emailErrorText;
+            }
+            set
+            {
+                _emailErrorText = value;
+                OnPropertyChanged("EmailErrorText");
+            }
+        }
+
+		private string _mobileErrorText;
+		public string MobileErrorText
+		{
+			get
+			{
+				return _mobileErrorText;
+			}
+			set
+			{
+				_mobileErrorText = value;
+				OnPropertyChanged("MobileErrorText");
+			}
+		}
 
 
-        #endregion
+		#endregion
 
-        #region Commands
+		#region Commands
 
         public ICommand NextCommand { get; set; }
-
         #endregion
 
         #region Constructor
@@ -238,7 +323,7 @@ namespace Provider.ViewModels
             Email = tempData;
             //Mobile
             storedAcc.Properties.TryGetValue(AccProperties.Mobile, out tempData);
-            Mobile = tempData;
+            Mobile = (tempData == null)?"":tempData;
             //Location
             storedAcc.Properties.TryGetValue(AccProperties.Location, out tempData);
             Location = tempData;
@@ -290,7 +375,7 @@ namespace Provider.ViewModels
             }       
             else
             {
-                App.Current.MainPage.DisplayAlert("Error","Please correct data and try again.","OK");
+                //App.Current.MainPage.DisplayAlert("Error","Please correct data and try again.","OK");
             }
         }
 

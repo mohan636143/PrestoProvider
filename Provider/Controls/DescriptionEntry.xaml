@@ -39,7 +39,9 @@
             Unfocused="OnEntryUnfocused"
             Focused="OnEntryFocused"
             Completed="OnEntryCompleted"
-            IsPassword="{Binding IsEntryPassword}"/>
+            IsPassword="{Binding IsEntryPassword}"
+            Keyboard="{Binding KeyboardType}"
+            />
         <!--<controls:ExtendedEntry.Margin>
                     <OnPlatform x:TypeArguments="Thickness" iOS="6,6" Android="3,7,5,0"/>
                 </controls:ExtendedEntry.Margin>-->
