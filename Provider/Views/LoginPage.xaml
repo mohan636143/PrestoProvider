@@ -29,7 +29,7 @@
                     Source="PrestoLogo.png" Aspect="AspectFit"/>
                 <Grid Grid.Row="1" Margin="25" RowSpacing="15" BackgroundColor="Transparent">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>

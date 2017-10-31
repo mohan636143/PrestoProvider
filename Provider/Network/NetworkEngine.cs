@@ -61,7 +61,7 @@ namespace Provider.Network
             if (action.MakeNetworkCall())
 			{
 				HttpClient client = new HttpClient(new NativeMessageHandler());
-
+                client.Timeout = new TimeSpan(0, 0, 45);
 				// Get the HTTP Method.
 				HTTPMethod httpMethod = action.GetMethod();
 

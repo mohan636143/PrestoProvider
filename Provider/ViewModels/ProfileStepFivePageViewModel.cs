@@ -9,6 +9,7 @@ using Provider.Actions;
 using System.Linq;
 using Provider.Interface;
 using System.IO;
+using Provider.Views;
 
 namespace Provider.ViewModels
 {
@@ -173,6 +174,20 @@ namespace Provider.ViewModels
             }
         }
 
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get
+            {
+                return _isBusy;
+            }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged("IsBusy");
+            }
+        }
+
         #endregion
 
         #region Commands
@@ -222,18 +237,19 @@ namespace Provider.ViewModels
 		{
 			ItemModel item = CreateItem();
 			UpdateSingleton(item);
-            bool res = await App.Current.MainPage.DisplayAlert("Add/Continue", "Your item has been added. \n Continue adding another item ?", "Add", "Update");
+            //bool res = await App.Current.MainPage.DisplayAlert("Add/Continue", "Your item has been added. \n Continue adding another item ?", "Add", "Update");
 
-            switch (res)
-            {
-                case true:
-                    RefreshUI();
-                    break;
-                case false:
+            //switch (res)
+            //{
+            //    case true:
+            //        RefreshUI();
+            //        break;
+            //    case false:
+            IsBusy = true;
                     SaveProfileAction saveAction = new SaveProfileAction(this);
                     saveAction.Perform();
-                    break;
-            }
+            //        break;
+            //}
         }
 
         private ItemModel CreateItem()
@@ -321,12 +337,16 @@ namespace Provider.ViewModels
 
         public void OnActionSuccess(ProviderResponse data, string actionIdentifier)
         {
-            App.Current.MainPage.DisplayAlert("Success", "Your menu is updated.", "OK");
+            IsBusy = false;
+            //App.Current.MainPage.DisplayAlert("Success", "Your menu is updated.", "OK");
+            App.SetPage(new ProviderItemsSummaryPage());
         }
 
         public void OnActionError(string message, string actionIdentifier)
         {
-            App.Current.MainPage.DisplayAlert("Error", "Oops ! There is an error while updating the menu.", "OK");
+            IsBusy = false;
+            //App.Current.MainPage.DisplayAlert("Error", "Oops ! There is an error while updating the menu.", "OK");
+            App.SetPage(new ProviderItemsSummaryPage());
         }
 
         #endregion

@@ -47,9 +47,6 @@
     <EmbeddedResource Include="Views\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ProfilePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\ProviderLaunchPage.xaml" />
     <EmbeddedResource Include="Controls\FitImage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -60,37 +57,10 @@
     <EmbeddedResource Include="Views\UserSignUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ProviderSkillsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\DescriptionEntry.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\CheckBox.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\CuisindAndDishesPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\SelectLabel.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\CapsuleLabel.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\DishesAndMainMenuPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\TermsAndConditionsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\HomePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\OrderListPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\OrderDescriptionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\PrestoResources.resx">
@@ -124,10 +94,7 @@
     <EmbeddedResource Include="Views\RegSuccessPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ItemsSummaryPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Accordion.xaml">
+    <EmbeddedResource Include="Views\ProviderItemsSummaryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -139,7 +106,6 @@
     <Compile Include="Controls\CustomPicker.xaml.cs">
       <DependentUpon>CustomPicker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ExtendedButton.cs" />
     <Compile Include="Controls\ExtendedEntry.cs" />
     <Compile Include="Controls\ImageButton.xaml.cs">
       <DependentUpon>ImageButton.xaml</DependentUpon>
@@ -164,18 +130,13 @@
     <Compile Include="Views\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProfilePage.xaml.cs">
-      <DependentUpon>ProfilePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ProviderLaunchPage.xaml.cs">
       <DependentUpon>ProviderLaunchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\FitImage.xaml.cs">
       <DependentUpon>FitImage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ProfilePageViewModel.cs" />
     <Compile Include="Utility\FontFamily.cs" />
-    <Compile Include="Controls\ExtendedLabel.cs" />
     <Compile Include="ViewModels\MenuPageViewModel.cs" />
     <Compile Include="Infrastructure\Constants.cs" />
     <Compile Include="Views\FacebookProfilePage.xaml.cs">
@@ -189,50 +150,15 @@
     <Compile Include="ViewModels\UserSignUpPageViewModel.cs" />
     <Compile Include="Infrastructure\AccProperties.cs" />
     <Compile Include="Controls\RoundedEntry.cs" />
-    <Compile Include="Views\ProviderSkillsPage.xaml.cs">
-      <DependentUpon>ProviderSkillsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\ProviderSkillsPageViewModel.cs" />
     <Compile Include="Utility\ProfileCreationUtility.cs" />
     <Compile Include="Controls\DescriptionEntry.xaml.cs">
       <DependentUpon>DescriptionEntry.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CheckBox.xaml.cs">
-      <DependentUpon>CheckBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CuisindAndDishesPage.xaml.cs">
-      <DependentUpon>CuisindAndDishesPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\SelectLabel.xaml.cs">
       <DependentUpon>SelectLabel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CapsuleLabel.xaml.cs">
-      <DependentUpon>CapsuleLabel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\WrapView.cs" />
-    <Compile Include="ViewModels\CusinesAndDishesPageViewModel.cs" />
     <Compile Include="Models\SelectLabelModel.cs" />
-    <Compile Include="Views\DishesAndMainMenuPage.xaml.cs">
-      <DependentUpon>DishesAndMainMenuPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\DishesAndMainMenuPageViewModel.cs" />
-    <Compile Include="ViewModels\TermsAndConditonsPageViewModel.cs" />
-    <Compile Include="Views\TermsAndConditionsPage.xaml.cs">
-      <DependentUpon>TermsAndConditionsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\HomePageViewModel.cs" />
-    <Compile Include="Views\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CapsuleLabelModel.cs" />
-    <Compile Include="ViewModels\OrderListPageViewModel.cs" />
-    <Compile Include="Views\OrderListPage.xaml.cs">
-      <DependentUpon>OrderListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\OrderDescriptionPageViewModel.cs" />
-    <Compile Include="Views\OrderDescriptionPage.xaml.cs">
-      <DependentUpon>OrderDescriptionPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Resources\PrestoResources.Designer.cs">
       <DependentUpon>PrestoResources.resx</DependentUpon>
     </Compile>
@@ -275,19 +201,18 @@
     <Compile Include="Network\NetworkEngine.cs" />
     <Compile Include="Models\ProviderProfile.cs" />
     <Compile Include="Actions\SaveProfileAction.cs" />
-    <Compile Include="Views\ItemsSummaryPage.xaml.cs">
-      <DependentUpon>ItemsSummaryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\ItemsSummaryPageViewModel.cs" />
-    <Compile Include="Controls\Accordion.xaml.cs">
-      <DependentUpon>Accordion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AppModel.cs" />
     <Compile Include="Models\ProviderResponse.cs" />
     <Compile Include="Actions\GetProfileAction.cs" />
     <Compile Include="Interface\IMedia.cs" />
     <Compile Include="Models\MediaFile.cs" />
     <Compile Include="Behaviors\ValidatorBehavior.cs" />
+    <Compile Include="Views\ProviderItemsSummaryPage.xaml.cs">
+      <DependentUpon>ProviderItemsSummaryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ProviderItemsSummaryPageViewModel.cs" />
+    <Compile Include="Controls\GroupView.cs" />
+    <Compile Include="Infrastructure\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

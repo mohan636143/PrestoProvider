@@ -42,7 +42,7 @@ namespace Provider
                 MainPage = new LoginPage();
             else
                 //MainPage = new ProviderLaunchPage() { Detail = new ProfilePage()};
-                MainPage = new ProviderLaunchPage() { Detail = new UserSignUpPage(), BarBackgroundColor = Color.FromHex("#343434"), BarTintColor = Color.White, ShowLeftMasterNavButton = false};
+                MainPage = new ProviderLaunchPage() { Detail = new ProviderItemsSummaryPage(), BarBackgroundColor = Color.FromHex("#343434"), BarTintColor = Color.White, ShowLeftMasterNavButton = true};
         }
 
         public static void SetPage(Page newPage)

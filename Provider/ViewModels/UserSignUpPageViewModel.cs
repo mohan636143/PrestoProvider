@@ -223,9 +223,9 @@ namespace Provider.ViewModels
 			set
 			{
 				_isMailValid = value;
-                if (string.IsNullOrEmpty(Email))
-                    EmailErrorText = "Mail cannot be empty.";
-                else
+                //if (string.IsNullOrEmpty(Email))
+                //    EmailErrorText = "Mail cannot be empty.";
+                //else
                     EmailErrorText = "Please enter a valid e-mail.";
 				OnPropertyChanged("IsMailValid");
 			}
@@ -241,9 +241,9 @@ namespace Provider.ViewModels
 			set
 			{
 				_isMobileValid = value;
-                if (string.IsNullOrEmpty(Mobile))
-                    MobileErrorText = "Mobile number cannot be empty.";
-				else
+    //            if (string.IsNullOrEmpty(Mobile))
+    //                MobileErrorText = "Mobile number cannot be empty.";
+				//else
 					MobileErrorText = "Please enter a valid mobile number.";
 				OnPropertyChanged("IsMobileValid");
 			}
@@ -343,7 +343,7 @@ namespace Provider.ViewModels
 
             UpdateSingleton();
 
-            App.Current.MainPage = new ProviderLaunchPage() { Detail = new CodePage(), BarBackgroundColor = Color.Teal, BarTintColor = Color.White, ShowLeftMasterNavButton = false };
+            App.Current.MainPage = new ProviderLaunchPage() { Detail = new RegSuccessPage(), BarBackgroundColor = Color.Teal, BarTintColor = Color.White, ShowLeftMasterNavButton = false };
 		}
 
         //private void UpdateProfileData(UserProfile profileData)

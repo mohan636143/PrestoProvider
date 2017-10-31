@@ -52,6 +52,7 @@ namespace Provider.Views
 						HorizontalOptions = LayoutOptions.Center,
 						Margin = new Thickness(30.0, 10.0)
 					};
+                    sl.Children.Add(new ActivityIndicator() { Color = Color.Teal, IsRunning = IsVisible = true });
 					sl.Children.Add(new Label { Text = "Please wait while we fetch your user data. ", TextColor = Color.Teal });
 					Content = sl;
                     await SetFacebookUserProfileAsync(accessToken);

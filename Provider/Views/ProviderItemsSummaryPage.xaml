@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:vm="clr-namespace:Provider.ViewModels"
+    xmlns:resx="clr-namespace:Provider.Resources"
+    x:Class="Provider.Views.ProviderItemsSummaryPage"
+    Title="Profile">
+    <ContentPage.BindingContext>
+        <vm:ProviderItemsSummaryPageViewModel/>
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <Grid Padding="0,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Margin="20,0"
+                Text="Tada!! Here is your magic menu"
+                Style="{StaticResource DefLabelStyle}"
+            /> 
+            <ScrollView Grid.Row="1" Padding="20,10">
+              <controls:GroupListView ItemsSource="{Binding Items}" GroupingParameter="FoodCategory" >
+                    <controls:GroupListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <controls:RoundedView Padding="5,1" BorderColor="Teal" BorderRadius="0" BorderThickness="2" FillColor="#606060">
+                                <Label Text="{Binding FoodCategory}" TextColor="White" HorizontalTextAlignment="Center" Margin="6,3"/>
+                            </controls:RoundedView>
+                        </DataTemplate>
+                    </controls:GroupListView.GroupHeaderTemplate>
+                    <controls:GroupListView.ItemTemplate>
+                        <DataTemplate>
+                           <Grid Padding="10,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Name}" TextColor="Teal"
+                                    Style="{StaticResource DefLabelStyle}"
+                                    Grid.Row="0" Grid.Column="0"/>
+
+                                <Label Text="{Binding Price,StringFormat='{0}$'}" 
+                                    Style="{StaticResource DefLabelStyle}"
+                                    TextColor="Gray" HorizontalTextAlignment="End"
+                                    Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="{Binding Desc}" 
+                                    Style="{StaticResource DefLabelStyle}"
+                                    TextColor="Gray"
+                                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                                <Label Text="{Binding Qty,StringFormat='Available Quantity: {0}'}" 
+                                    Style="{StaticResource DefLabelStyle}"
+                                    TextColor="Gray" HorizontalTextAlignment="End"
+                                    Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+                           </Grid>
+                        </DataTemplate>
+                    </controls:GroupListView.ItemTemplate>
+              </controls:GroupListView>
+            </ScrollView>
+            <controls:RoundedButton
+                Grid.Row="2"
+                LabelText="Add Item"
+                Style="{StaticResource DefRoundedBtnStyle}"
+                TapCommand="{Binding NextCommand}"
+                VerticalOptions="Center"/>
+            <controls:RoundedButton
+                Grid.Row="3"
+                LabelText="Continue"
+                Style="{StaticResource DefRoundedBtnStyle}"
+                TapCommand="{Binding ContinueCommand}"
+                VerticalOptions="Center"/>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -43,11 +43,23 @@ namespace Provider.Utility
             {
                 //Currently using UserSignup Page.
                 //Once the api is fully working we can go to profile page
-                nextPage = new ProviderLaunchPage() { Detail = new UserSignUpPage(), BarBackgroundColor = Color.FromHex("#343434"), BarTintColor = Color.White, ShowLeftMasterNavButton = false};
+                nextPage = new ProviderLaunchPage()
+                {
+                    Detail = new UserSignUpPage(),
+                    BarBackgroundColor = Color.FromHex("#343434"),
+                    BarTintColor = Color.White,
+                    ShowLeftMasterNavButton = false
+                };
             }
             else
             {
-                nextPage = new ProviderLaunchPage() { Detail = new UserSignUpPage(), BarBackgroundColor = Color.FromHex("#343434"), BarTintColor = Color.White, ShowLeftMasterNavButton = false};
+                nextPage = new ProviderLaunchPage()
+                {
+                    Detail = new UserSignUpPage(),
+                    BarBackgroundColor = Color.FromHex("#343434"),
+                    BarTintColor = Color.White,
+                    ShowLeftMasterNavButton = false
+                };
             }
 
             await App.Current.MainPage.Navigation.PopModalAsync();
