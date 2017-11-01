@@ -26,7 +26,7 @@
                     <Label 
                         Margin="0,15,0,0"
                         Grid.Row="0"
-                        Text="What Cuisines do you serve ?"
+                        Text="What Cuisine do you serve ?"
                         Style="{StaticResource DefLabelStyle}"
                     />
                     <controls:WrapView
@@ -45,12 +45,15 @@
                     <Label 
                         Margin="0,15,0,0"
                         Grid.Row="2"
-                        Text="Didn't find your cuisine? You can create/add one below"
+                        Text="Didn't find your cuisine?. You can create your ownS"
                         Style="{StaticResource DefLabelStyle}"
                     />
                     <controls:RoundedView 
-                        Grid.Row="3" Padding="10,0"
-                        BorderColor="Gray" BorderRadius="0" BorderThickness="2">
+                        Grid.Row="3" Padding="10,0" HeightRequest="50"
+                        BorderColor="{StaticResource PrestoColor}" BorderRadius="0" BorderThickness="2">
+                        <controls:RoundedView.BorderRadius>
+                            <OnPlatform x:TypeArguments="x:Int32" Android="50" iOS="25"/>
+                        </controls:RoundedView.BorderRadius>
                         <StackLayout Orientation="Horizontal" >
                             <controls:DescriptionEntry 
                                 EntryPlaceholderText="Cuisine Name"

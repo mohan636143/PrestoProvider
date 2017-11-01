@@ -7,8 +7,8 @@
     x:Name="toggleSwitch"
     HorizontalOptions="Fill" VerticalOptions="Fill"
     HeightRequest="30" WidthRequest="50"
-    BorderColor="Teal" BorderThickness="2"
-    Margin="3">
+    BorderThickness="2"
+    Margin="3" FillColor="{Binding Source={x:Reference toggleSwitch}, SwitchColor}">
     <controls:RoundedView.GestureRecognizers>
         <TapGestureRecognizer Tapped="Handle_Tapped"/>
     </controls:RoundedView.GestureRecognizers>

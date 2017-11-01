@@ -129,20 +129,20 @@ namespace Provider.Controls
 
         static void OnEntryValidStateChanged(BindableObject bindable,object oldValue,object newValue)
         {
-            DescriptionEntry descEntry = (bindable as DescriptionEntry);
-            bool val = (bool)newValue;
-            if (descEntry.count <= 0)
-                return;
-            if(!val)
-            {
-                descEntry.PrevBorderColor = descEntry.BorderColor;
-                descEntry.BorderColor = Color.Red;
-            }
-            else
-            {
-                if (descEntry.PrevBorderColor != Color.Default)
-                    descEntry.BorderColor = descEntry.PrevBorderColor;
-            }
+            //DescriptionEntry descEntry = (bindable as DescriptionEntry);
+            //bool val = (bool)newValue;
+            //if (descEntry.count <= 0)
+            //    return;
+            //if(!val)
+            //{
+            //    descEntry.PrevBorderColor = descEntry.BorderColor;
+            //    descEntry.BorderColor = Color.Red;
+            //}
+            //else
+            //{
+            //    if (descEntry.PrevBorderColor != Color.Default)
+            //        descEntry.BorderColor = descEntry.PrevBorderColor;
+            //}
         }
 
 		#endregion

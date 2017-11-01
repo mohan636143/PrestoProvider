@@ -12,6 +12,8 @@
             <Color x:Key="HomePageHeadingColor">Yellow</Color>
             <Color x:Key="HomePageLabelBGColor">#10F5F5F5</Color>
             <Color x:Key="HomePageLabelColor">Black</Color>
+            <Color x:Key="PrestoColor">#53d1ef</Color>
+            <Color x:Key="SelectLabelTextColor">#f76619</Color>
 
             <!--Styles-->
             <Style TargetType="{x:Type ContentPage}" x:Key="DefaultPageStyle">
@@ -19,16 +21,22 @@
                 <Setter Property="Padding" Value="15"/>
             </Style>
             
-            <Style TargetType="{x:Type controls:RoundedView}" x:Key="PickerStyle">
-                    <Setter Property="BorderColor" Value="Gray"/>
+            <Style TargetType="{x:Type controls:CustomPicker}" x:Key="PickerStyle">
+                    <Setter Property="BorderColor" Value="{StaticResource PrestoColor}"/>
                     <Setter Property="BorderThickness" >
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
                     </Setter.Value>
+                    </Setter>   
+                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="BorderRadius" >
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="40" iOS="20"/>
+                    </Setter.Value>
                     </Setter>
-                    <Setter Property="BorderRadius" Value="0"/>     
-                    <Setter Property="HeightRequest" Value="30"/>
-                    <Setter Property="Padding" Value="6"/>
+                    <Setter Property="PickerTextColor" Value="Black"/>
+                    <Setter Property="PickerAnchorColor" Value="{StaticResource PrestoColor}"/>
+                    <Setter Property="Padding" Value="10"/>
 <!--                    <Setter Property="VerticalOptions" Value="Center"/>-->
             </Style>
             
@@ -64,7 +72,7 @@
             
             <Style TargetType="{x:Type Label}" x:Key="DefLabelStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
-                <Setter Property="TextColor" Value="Teal" />
+                <Setter Property="TextColor" Value="{StaticResource PrestoColor}" />
 <!--                <Setter Property="FontSize" Value="22" />-->
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
@@ -85,10 +93,10 @@
             </Style>
 
             <Style TargetType="{x:Type controls:RoundedView}" x:Key="RoundedEntryStyle">
-                <Setter Property="BorderColor" Value="Gray" />
+                <Setter Property="BorderColor" Value="{StaticResource PrestoColor}" />
                 <Setter Property="BorderRadius">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32" Android="0" iOS="0"/>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="55" iOS="20"/>
                     </Setter.Value>
                 </Setter>
                 <Setter Property="BorderThickness" Value="2" />
@@ -107,7 +115,7 @@
             </Style>
 
             <Style TargetType="{x:Type controls:DescriptionEntry}" x:Key="DescriptionEntryDefStyle">
-                <Setter Property="BorderColor" Value="#53d1ef" />
+                <Setter Property="BorderColor" Value="{StaticResource PrestoColor}" />
                 <Setter Property="BorderRadius">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32" Android="55" iOS="25"/>
@@ -136,10 +144,10 @@
                         <OnPlatform x:TypeArguments="x:Double" Android="45" iOS="35"/>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="BorderColor" Value="Gray" />
+                <Setter Property="BorderColor" Value="{StaticResource PrestoColor}" />
                 <Setter Property="BorderRadius">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32" Android="0" iOS="0"/>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="45" iOS="20"/>
                     </Setter.Value>
                 </Setter>
                 <Setter Property="BorderThickness" Value="2" />
@@ -171,24 +179,30 @@
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
             </Style>
 
+            <Style TargetType="{x:Type Label}" x:Key="SelectLabelTextStyle">
+                <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+                <Setter Property="TextColor" Value="{StaticResource SelectLabelTextColor}" />
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
             <Style TargetType="{x:Type controls:SelectLabel}" x:Key="SelectLabelDefStyle">
                 <Setter Property="HeightRequest" Value="40" />
                 <Setter Property="BorderRadius">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32" Android="0" iOS="0"/>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="40" iOS="20"/>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="BorderColor" Value="Teal" />
+                <Setter Property="BorderColor" Value="#f76619" />
                 <Setter Property="BorderThickness" >
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
                     </Setter.Value>
                     </Setter>
                 <Setter Property="FillColor" Value="White" />
-                <Setter Property="SelectedFillColor" Value="Teal" />
+                <Setter Property="SelectedFillColor" Value="#f76619" />
                 <Setter Property="SelectedLabelColor" Value="White" />
                 <Setter Property="Padding" Value="5,2" />
-                <Setter Property="LabelStyle" Value="{StaticResource SignUpPageLabelStyle}" />
+                <Setter Property="LabelStyle" Value="{StaticResource SelectLabelTextStyle}"></Setter>
             </Style>
 
             <Style TargetType="{x:Type Label}" x:Key="CapsuleLabelDescStyle">
@@ -204,7 +218,7 @@
 
              <Style TargetType="{x:Type Label}" x:Key="DefRoundedBtnLabelStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
-                <Setter Property="TextColor" Value="Teal" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
                 <Setter Property="FontSize" Value="16"/>
@@ -212,10 +226,11 @@
 
             <Style TargetType="{x:Type controls:RoundedButton}" x:Key="DefRoundedBtnStyle">   
                     <Setter Property="HeightRequest" Value="40"/>
-                    <Setter Property="BorderColor" Value="Teal"/>
+                    <Setter Property="BorderColor" Value="{StaticResource PrestoColor}"/>
+                    <Setter Property="FillColor" Value="{StaticResource PrestoColor}"/>
                     <Setter Property="BorderThickness" >
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="20"/>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
                     </Setter.Value>
                     </Setter>
                     <Setter Property="BorderRadius">
@@ -231,12 +246,12 @@
                     <Setter Property="HorizontalOptions" Value="Center"/>
                     <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
-            <Style TargetType="{x:Type controls:ToggleSwitch}" x:Key="DefToggleSwitchStyleStyle">   
+            <Style TargetType="{x:Type controls:ToggleSwitch}" x:Key="DefToggleSwitchStyle">   
 <!--                    <Setter Property="HeightRequest" Value="40"/>-->
                     <Setter Property="HorizontalOptions" Value="End"/>
                     <Setter Property="VerticalOptions" Value="Center"/>
-                    <Setter Property="SwitchColor" Value="Green"/>
-                    <Setter Property="BorderColor" Value="Green"/> 
+                    <Setter Property="SwitchColor" Value="{StaticResource PrestoColor}"/>
+                    <Setter Property="BorderColor" Value="{StaticResource PrestoColor}"/> 
             </Style>
             <Style TargetType="{x:Type Label}" x:Key="ItemAddLabelStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />

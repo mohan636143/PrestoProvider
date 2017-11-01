@@ -11,7 +11,8 @@ namespace Provider.Controls
 
         public static BindableProperty SwitchColorProperty = BindableProperty.Create(nameof(SwitchColor),
                                                                                      typeof(Color), typeof(ToggleSwitch),
-                                                                                     defaultValue: Color.Green);
+                                                                                     defaultBindingMode:BindingMode.TwoWay,
+                                                                                     defaultValue: Color.Default);
 
         public Color SwitchColor
         {
@@ -64,7 +65,7 @@ namespace Provider.Controls
         public ToggleSwitch()
         {
             InitializeComponent();
-            FillColor = SwitchColor;
+            //FillColor = SwitchColor;
         }
 
         void Handle_Tapped(object sender, TappedEventArgs e)

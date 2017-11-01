@@ -57,7 +57,7 @@
     <!--            </Grid>-->
                 <!--<Grid Grid.Row="1" Margin="25" VerticalOptions="EndAndExpand" >-->
                     <controls:ImageButton
-                        Grid.Row="3" 
+                        Grid.Row="3" HeightRequest="50"
                         FillColor="#4D6FA9" BorderColor="Transparent" 
                         BorderThickness="2" SourceImage="facebook.png" Text="Login with Facebook"
                         TextColor="White" TapCommand="{Binding FbLoginCommand}"/>

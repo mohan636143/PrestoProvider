@@ -103,7 +103,7 @@
                         />
                         <controls:RoundedView
                             Grid.Row="1" Grid.Column="1"
-                            BorderColor="Gray" BorderRadius="0" BorderThickness="2">
+                            BorderColor="{StaticResource PrestoColor}" BorderRadius="15" BorderThickness="2">
                             <Editor
                             Style="{StaticResource DefaultEditorStyle}"
                             Text="{Binding ItemDesc}"/>
@@ -150,7 +150,7 @@
                         />
                         <controls:RoundedView
                             Grid.Row="5" Grid.Column="1"
-                            BorderColor="Gray" BorderRadius="0" BorderThickness="2">
+                            BorderColor="{StaticResource PrestoColor}" BorderRadius="15" BorderThickness="2">
                             <Editor
                             Style="{StaticResource DefaultEditorStyle}"
                             Text="{Binding Ingredients}"/>
@@ -165,7 +165,7 @@
                         <controls:WrapView
                         ItemsSource="{Binding Types}">
                         <controls:WrapView.Columns>
-                            <OnIdiom x:TypeArguments="x:Int32" Phone="3" Tablet="5"/>
+                            <OnIdiom x:TypeArguments="x:Int32" Phone="2" Tablet="3"/>
                         </controls:WrapView.Columns>
                         <controls:WrapView.ItemTemplate>
                             <DataTemplate>

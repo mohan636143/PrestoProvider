@@ -39,7 +39,7 @@
                         Grid.Row="2" RowSpacing="10"
                         ItemsSource="{Binding Categories}">
                         <controls:WrapView.Columns>
-                            <OnIdiom x:TypeArguments="x:Int32" Phone="1" Tablet="2"/>
+                            <OnIdiom x:TypeArguments="x:Int32" Phone="2" Tablet="3"/>
                         </controls:WrapView.Columns>
                         <controls:WrapView.ItemTemplate>
                             <DataTemplate>
@@ -49,8 +49,11 @@
                         </controls:WrapView.ItemTemplate>
                     </controls:WrapView>
                      <controls:RoundedView 
-                        Grid.Row="3" Padding="10,0"
-                        BorderColor="Gray" BorderRadius="0" BorderThickness="2">
+                        Grid.Row="3" Padding="10,0" HeightRequest="50"
+                        BorderColor="{StaticResource PrestoColor}" BorderRadius="0" BorderThickness="2">
+                        <controls:RoundedView.BorderRadius>
+                            <OnPlatform x:TypeArguments="x:Int32" Android="50" iOS="25"/>
+                        </controls:RoundedView.BorderRadius>
                         <StackLayout Orientation="Horizontal" >
                             <controls:DescriptionEntry 
                                 EntryPlaceholderText="Create you own Category"

@@ -30,14 +30,16 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <Label
+                   <!-- <Label
                         Text="Kitchen Name"
                         Style="{StaticResource SignUpPageLabelStyle}"
-                        Grid.Row="0" Grid.Column="0"/>
+                        Grid.Row="0" Grid.Column="0"/>-->
                     <controls:DescriptionEntry 
                         EntryText="{Binding KitchenName}"
-                        Grid.Row="0" Grid.Column="1"
+                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                         VerticalOptions="Center"
+                        EntryPlaceholderText="Kitchen Name"
+                        AutoHidePlaceholder="true"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
                         IsEntryValid="{Binding IsKitchenNameValid}"
@@ -45,22 +47,26 @@
                     <Label 
                         Text="{x:Static resx:PrestoResources.txtProfileStepOneKitchenDesc}"
                         Style="{StaticResource SignUpPageLabelStyle}"
-                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        TextColor="{StaticResource PrestoColor}"
+                    />
                     <controls:RoundedView
-                        BorderColor="Gray" BorderRadius="0" BorderThickness="2"
-                        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        BorderColor="{StaticResource PrestoColor}" BorderRadius="15" BorderThickness="2"
+                        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                        >
                         <Editor 
                             Text="{Binding About}" 
                             Style="{StaticResource DefaultEditorStyle}"/>
                     </controls:RoundedView>
-                    <Label
+                   <!-- <Label
                         Text="Youtube Channel Name"
                         Style="{StaticResource SignUpPageLabelStyle}"
-                        Grid.Row="3" Grid.Column="0"/>
+                        Grid.Row="3" Grid.Column="0"/>-->
                     <controls:DescriptionEntry 
-                        EntryText="{Binding Channel}"
-                        Grid.Row="3" Grid.Column="1"
+                        EntryText="{Binding Channel}" EntryPlaceholderText="Youtube Channel Name"
+                        Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                         VerticalOptions="Center"
+                        AutoHidePlaceholder="true"
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
                         Style="{StaticResource NoLabelRoundedEntryStyle}"
                         IsEntryValid="{Binding IsChannelValid}"
@@ -69,24 +75,32 @@
                         Text="Accept Catering Orders"
                         Style="{StaticResource SignUpPageLabelStyle}"
                         Grid.Row="4" Grid.Column="0" 
+                        TextColor="{StaticResource PrestoColor}"
                         Grid.ColumnSpan="2" HorizontalOptions="Start"/>
                     <controls:ToggleSwitch
-                        Style="{StaticResource DefToggleSwitchStyleStyle}"
-                        Grid.Row="4" Grid.Column="1" 
+                        Style="{StaticResource DefToggleSwitchStyle}"
+                        Grid.Row="4" Grid.Column="1"
+                        BorderColor="{StaticResource PrestoColor}"
+                        SwitchColor="{StaticResource PrestoColor}"
                         HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
                         IsToggled="{Binding PreOrder}"/>
                     <Label
                         Text="Minimum time you need for Catering Order"
                         Style="{StaticResource SignUpPageLabelStyle}"
-                        Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        TextColor="{StaticResource PrestoColor}"
+                        Grid.Row="5" Grid.Column="0" 
+                        LineBreakMode="WordWrap"
+                    />
                     <controls:CustomPicker 
-                        Grid.Row="6" Grid.Column="0"
+                        Grid.Row="5" Grid.Column="1"
+                        BorderColor="{StaticResource PrestoColor}"
                         Style="{StaticResource PickerStyle}"
                         PickerText="Select" PickerAnchor="&#x25bc;"
-                        PickerTextColor="Gray" PickerAnchorColor="Gray"
                         ItemsSource="{Binding CateringTimes}"
                         SelectedIndex="{Binding SelectedTime}"
-                        IsEnabled="{Binding PreOrder}"/>
+                        IsEnabled="{Binding PreOrder}"
+                        WidthRequest="120" HorizontalOptions="End"
+                    />
                 </Grid>
             </ScrollView>
             <controls:RoundedButton

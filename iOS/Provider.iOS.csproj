@@ -157,6 +157,7 @@
     <Compile Include="Renderers\ExtendedEntryRenderer.cs" />
     <Compile Include="Renderers\VideoSplashRenderer.cs" />
     <Compile Include="Renderers\CustomWebViewRenderer.cs" />
+    <Compile Include="Renderers\ShadowEffectRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\avatar.png" />

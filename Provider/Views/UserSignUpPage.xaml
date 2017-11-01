@@ -32,12 +32,12 @@
                                     Text="{x:Static resx:PrestoResources.txtUserSignUpPageTopMsg}"
                                     Style="{StaticResource DefLabelStyle}"
                                     FontSize="20"
-                                    TextColor="#53d1ef"/>
+                                    TextColor="{StaticResource PrestoColor}"/>
                                 <controls:RoundedView 
                                     Grid.Row="1"
                                     Margin="10" HorizontalOptions="Center" 
                                     HeightRequest="100" WidthRequest="100" 
-                                    BorderColor="#53d1ef" BorderThickness="2">
+                                    BorderColor="{StaticResource PrestoColor}" BorderThickness="2">
                                     <controls:RoundedView.BorderRadius>
                                         <OnPlatform x:TypeArguments="x:Int32" Android="100" iOS="50" />
                                     </controls:RoundedView.BorderRadius>
@@ -75,9 +75,14 @@
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
                                 IsEntryValid="{Binding IsFirstNameValid}"/>
-                                <Label Text="First Name cannot be empty" IsVisible="false" TextColor="Red">
+                                <Label IsVisible="true" TextColor="Red" >
                                     <Label.Triggers>
-                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsFirstNameValid}" Value="false">
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsFirstNameValid}" Value="true">
+                                            <Setter Property="Text" Value=""/>
+                                            <Setter Property="IsVisible" Value="false"/>
+                                        </DataTrigger>
+                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsFirstNameValid}" Value="false">
+                                            <Setter Property="Text" Value="First Name cannot be empty"/>
                                             <Setter Property="IsVisible" Value="true"/>
                                         </DataTrigger>
                                     </Label.Triggers>
@@ -94,9 +99,14 @@
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
                                 IsEntryValid="{Binding IsSecNameValid}"/>
-                                <Label Text="Last Name cannot be empty" IsVisible="false" TextColor="Red">
+                                <Label IsVisible="true" TextColor="Red">
                                     <Label.Triggers>
-                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsSecNameValid}" Value="false">
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsSecNameValid}" Value="true">
+                                            <Setter Property="Text" Value=""/>
+                                            <Setter Property="IsVisible" Value="false"/>
+                                        </DataTrigger>
+                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsSecNameValid}" Value="false">
+                                            <Setter Property="Text" Value="Last Name cannot be empty."/>
                                             <Setter Property="IsVisible" Value="true"/>
                                         </DataTrigger>
                                     </Label.Triggers>
@@ -123,6 +133,9 @@
                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMailValid}" Value="false">
                                             <Setter Property="IsVisible" Value="true"/>
                                         </DataTrigger>
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMailValid}" Value="true">
+                                            <Setter Property="IsVisible" Value="false"/>
+                                        </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
                                 </StackLayout>
@@ -146,6 +159,9 @@
                                     <Label.Triggers>
                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMobileValid}" Value="false">
                                             <Setter Property="IsVisible" Value="true"/>
+                                        </DataTrigger>
+                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMobileValid}" Value="true">
+                                            <Setter Property="IsVisible" Value="false"/>
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
@@ -216,7 +232,7 @@
                                 Grid.Row="5" Grid.Column="1"
                                 Text="{x:Static resx:PrestoResources.txtUserSignUpPageBtmMsg}"
                                 Style="{StaticResource DefLabelStyle}"
-                                TextColor="#53d1ef"/>
+                                TextColor="{StaticResource PrestoColor}"/>
                             
                             </Grid>
                         </StackLayout>
@@ -225,8 +241,6 @@
                     Grid.Row="1"
                     Style="{StaticResource DefRoundedBtnStyle}" 
                     LabelText="   Continue   "
-                    FillColor="#53d1ef"
-                    BorderColor="#53d1ef"
                     HorizontalOptions="Center"
                     TapCommand="{Binding NextCommand}"/>
             </Grid>

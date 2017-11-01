@@ -220,6 +220,8 @@ namespace Provider.ViewModels
 		{
 			get
 			{
+                if(!_isMailValid && isMailChanged)
+                    EmailErrorText = "Please enter a valid e-mail.";
 				return _isMailValid;
 			}
 			set
@@ -236,6 +238,8 @@ namespace Provider.ViewModels
 		{
 			get
 			{
+                if (!_isMobileValid&& isMobileChanged)
+					MobileErrorText = "Please enter a valid mobile number.";
 				return _isMobileValid;
 			}
 			set
@@ -247,7 +251,7 @@ namespace Provider.ViewModels
 			}
 		}
 
-        private string _emailErrorText = null;
+        private string _emailErrorText;
         public string EmailErrorText
         {
             get
@@ -261,7 +265,7 @@ namespace Provider.ViewModels
             }
         }
 
-		private string _mobileErrorText = null;
+		private string _mobileErrorText;
 		public string MobileErrorText
 		{
 			get
@@ -319,12 +323,18 @@ namespace Provider.ViewModels
             LastName = tempData;
             //Email
             storedAcc.Properties.TryGetValue(AccProperties.Email, out tempData);
-            if(!string.IsNullOrEmpty(tempData))
-            Email = tempData;
+            if (!string.IsNullOrEmpty(tempData))
+                Email = tempData;
+            else
+            {
+                IsMailValid = false;
+            }
             //Mobile
             storedAcc.Properties.TryGetValue(AccProperties.Mobile, out tempData);
-            if(!string.IsNullOrEmpty(tempData))
-            Mobile = tempData;
+            if (!string.IsNullOrEmpty(tempData))
+                Mobile = tempData;
+            else
+                IsMobileValid = false;
             //Location
             storedAcc.Properties.TryGetValue(AccProperties.Location, out tempData);
             Location = tempData;
@@ -376,7 +386,8 @@ namespace Provider.ViewModels
 
         void ValidateData()
         {
-            if(IsFirstNameValid && IsSecNameValid && IsMailValid&&IsMobileValid)
+            isMobileChanged = isMailChanged = true;
+            if(IsFirstNameValid && IsSecNameValid && IsMailValid&& IsMobileValid)
             {
                 LoadNextPage();
             }       

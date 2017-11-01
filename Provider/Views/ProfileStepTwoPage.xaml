@@ -37,7 +37,7 @@
                         Style="{StaticResource DefLabelStyle}"
                     />
                     <controls:CustomPicker
-                        Grid.Row="1" Grid.Column="0" 
+                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                         PickerText="Select" PickerAnchor="&#x25bc;"
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
                         ItemsSource="{Binding PeopleCount}"
@@ -55,7 +55,7 @@
                     />
                     <controls:ToggleSwitch 
                         Grid.Row="3" Grid.Column="1"
-                        Style="{StaticResource DefToggleSwitchStyleStyle}"
+                        Style="{StaticResource DefToggleSwitchStyle}"
                         HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
                         IsToggled="{Binding OpenAllWeek}"
                     />
@@ -63,11 +63,13 @@
                         Grid.Row="4" Grid.Column="0" 
                         Text="Start Time"
                         Style="{StaticResource DefLabelStyle}"
+                        HorizontalOptions="Center"
                     />
                     <Label 
                         Grid.Row="4" Grid.Column="1" 
                         Text="End Time"
                         Style="{StaticResource DefLabelStyle}"
+                        HorizontalOptions="Center"
                     />
                     <controls:CustomPicker
                         Grid.Row="5" Grid.Column="0" 
@@ -75,6 +77,8 @@
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
                         ItemsSource="{Binding TimeSlots}"
                         SelectedIndex="{Binding WeekStartIndex}"
+                        WidthRequest="120"
+                        HorizontalOptions="Center"
                     />
                     <controls:CustomPicker
                         Grid.Row="5" Grid.Column="1" 
@@ -82,11 +86,13 @@
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
                         ItemsSource="{Binding TimeSlots}"
                         SelectedIndex="{Binding WeekEndIndex}"
+                        WidthRequest="120"
+                        HorizontalOptions="Center"
                     />
                     <Label 
                         Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" 
                         Text="If you are not open on all days or hours vary, please pick your schedule on each day below"
-                        Style="{StaticResource DefLabelStyle}"
+                        Style="{StaticResource DefLabelStyle}" TextColor="Black"
                     />
                     <Grid 
                         Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
@@ -97,7 +103,7 @@
                         />
                         <controls:ToggleSwitch 
                             Grid.Row="0" Grid.Column="1"
-                        Style="{StaticResource DefToggleSwitchStyleStyle}"
+                            Style="{StaticResource DefToggleSwitchStyle}"
                             HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"
                             IsToggled="{Binding OpenSunday}"
                         />
@@ -105,11 +111,13 @@
                             Grid.Row="1" Grid.Column="0" 
                             Text="Start Time"
                             Style="{StaticResource DefLabelStyle}"
+                            HorizontalOptions="Center"
                         />
                         <Label 
                             Grid.Row="1" Grid.Column="1" 
                             Text="End Time"
                             Style="{StaticResource DefLabelStyle}"
+                            HorizontalOptions="Center"
                         />
                          <controls:CustomPicker
                         Grid.Row="2" Grid.Column="0" 
@@ -117,6 +125,8 @@
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
                         ItemsSource="{Binding TimeSlots}"
                         SelectedIndex="{Binding SunStartIndex}"
+                        WidthRequest="120"
+                        HorizontalOptions="Center"
                     />
                     <controls:CustomPicker
                         Grid.Row="2" Grid.Column="1" 
@@ -124,6 +134,8 @@
                         PickerTextColor="Gray" PickerAnchorColor="Gray"
                         ItemsSource="{Binding TimeSlots}"
                         SelectedIndex="{Binding SunEndIndex}"
+                        WidthRequest="120"
+                        HorizontalOptions="Center"
                     />
                     </Grid>
                 </Grid>

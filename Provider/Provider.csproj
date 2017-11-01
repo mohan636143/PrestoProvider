@@ -213,6 +213,7 @@
     <Compile Include="ViewModels\ProviderItemsSummaryPageViewModel.cs" />
     <Compile Include="Controls\GroupView.cs" />
     <Compile Include="Infrastructure\Extensions.cs" />
+    <Compile Include="Controls\Shadow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

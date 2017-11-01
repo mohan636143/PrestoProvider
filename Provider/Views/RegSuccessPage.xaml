@@ -32,7 +32,7 @@
                 Style="{StaticResource DefLabelStyle}"
             />
             <controls:RoundedButton 
-                LabelText="Continue" BorderColor="#53d1ef" FillColor="White"
+                LabelText="Continue" BorderColor="{StaticResource PrestoColor}" FillColor="White"
                 HeightRequest="50">
                  <controls:RoundedButton.BorderRadius>
                     <OnPlatform x:TypeArguments="x:Int32" Android="50" iOS="25"/>

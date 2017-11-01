@@ -142,6 +142,7 @@
     <Compile Include="Services\MediaPickerService.cs" />
     <Compile Include="Activities\MediaPickerActivity.cs" />
     <Compile Include="Renderers\CustomWebViewRenderer.cs" />
+    <Compile Include="Renderers\ShadowRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -178,6 +179,7 @@
     <AndroidResource Include="Resources\drawable\greentick.png" />
     <AndroidResource Include="Resources\drawable\photo.png" />
     <AndroidResource Include="Resources\drawable\thumbsup.png" />
+    <AndroidResource Include="Resources\drawable\gradient.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
