@@ -31,12 +31,13 @@
                                     Grid.Row="0"
                                     Text="{x:Static resx:PrestoResources.txtUserSignUpPageTopMsg}"
                                     Style="{StaticResource DefLabelStyle}"
-                                    FontSize="20"/>
+                                    FontSize="20"
+                                    TextColor="#53d1ef"/>
                                 <controls:RoundedView 
                                     Grid.Row="1"
                                     Margin="10" HorizontalOptions="Center" 
                                     HeightRequest="100" WidthRequest="100" 
-                                    BorderColor="Gray" BorderThickness="2">
+                                    BorderColor="#53d1ef" BorderThickness="2">
                                     <controls:RoundedView.BorderRadius>
                                         <OnPlatform x:TypeArguments="x:Int32" Android="100" iOS="50" />
                                     </controls:RoundedView.BorderRadius>
@@ -214,7 +215,8 @@
                                 <Label 
                                 Grid.Row="5" Grid.Column="1"
                                 Text="{x:Static resx:PrestoResources.txtUserSignUpPageBtmMsg}"
-                                Style="{StaticResource DefLabelStyle}"/>
+                                Style="{StaticResource DefLabelStyle}"
+                                TextColor="#53d1ef"/>
                             
                             </Grid>
                         </StackLayout>
@@ -222,7 +224,10 @@
                  <controls:RoundedButton 
                     Grid.Row="1"
                     Style="{StaticResource DefRoundedBtnStyle}" 
-                    LabelText="Continue"
+                    LabelText="   Continue   "
+                    FillColor="#53d1ef"
+                    BorderColor="#53d1ef"
+                    HorizontalOptions="Center"
                     TapCommand="{Binding NextCommand}"/>
             </Grid>
         </Grid>

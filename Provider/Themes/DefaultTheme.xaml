@@ -107,10 +107,10 @@
             </Style>
 
             <Style TargetType="{x:Type controls:DescriptionEntry}" x:Key="DescriptionEntryDefStyle">
-                <Setter Property="BorderColor" Value="Gray" />
+                <Setter Property="BorderColor" Value="#53d1ef" />
                 <Setter Property="BorderRadius">
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32" Android="0" iOS="0"/>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="55" iOS="25"/>
                     </Setter.Value>
                 </Setter>
                 <Setter Property="BorderThickness" Value="2" />
@@ -211,16 +211,20 @@
             </Style>
 
             <Style TargetType="{x:Type controls:RoundedButton}" x:Key="DefRoundedBtnStyle">   
-          <!--                    <Setter Property="HeightRequest" Value="40"/>-->
+                    <Setter Property="HeightRequest" Value="40"/>
                     <Setter Property="BorderColor" Value="Teal"/>
                     <Setter Property="BorderThickness" >
                     <Setter.Value>
-                        <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="20"/>
                     </Setter.Value>
                     </Setter>
-                    <Setter Property="BorderRadius" Value="0"/>  
+                    <Setter Property="BorderRadius">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="40" iOS="20"/>
+                    </Setter.Value>
+                </Setter> 
                     <Setter Property="Padding" Value="6"/>
-                    <Setter Property="FillColor" Value="White"/>
+<!--                    <Setter Property="FillColor" Value="#53d1ef"/>-->
                     <Setter Property="Padding" Value="6"/>
                     <Setter Property="LabelStyle" Value="{StaticResource DefRoundedBtnLabelStyle}" />
                     <Setter Property="WidthRequest" Value="250"/>

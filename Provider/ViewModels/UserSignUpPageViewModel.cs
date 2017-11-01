@@ -344,7 +344,13 @@ namespace Provider.ViewModels
 
             UpdateSingleton();
 
-            App.Current.MainPage = new ProviderLaunchPage() { Detail = new RegSuccessPage(), BarBackgroundColor = Color.Teal, BarTintColor = Color.White, ShowLeftMasterNavButton = false };
+            App.Current.MainPage = new ProviderLaunchPage()
+            {
+                Detail = new RegSuccessPage(),
+                BarBackgroundColor = Color.FromHex("#9ee122"),
+                BarTintColor = Color.White,
+                ShowLeftMasterNavButton = false
+            };
 		}
 
         //private void UpdateProfileData(UserProfile profileData)

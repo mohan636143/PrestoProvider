@@ -2,17 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Provider.Controls"
+    xmlns:utils="clr-namespace:Provider.Utility;assembly=Provider"
     x:Class="Provider.Views.RegSuccessPage"
-    Title="Register">
+    Title="Register"
+    BackgroundColor="#9ee122">
 	<ContentPage.Content>
         <StackLayout Spacing="30" Padding="30,15" VerticalOptions="Center" HorizontalOptions="Center">
-            <controls:FitImage Size="24" ImgSource="greentick.png" HorizontalOptions="Center"/>
+            <controls:RoundedView HeightRequest="250" WidthRequest="250"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                BorderColor="White" BorderThickness="1" Padding="0" FillColor="#9ee122">
+                <controls:RoundedView.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Int32" Android="250" iOS="125"/>
+                </controls:RoundedView.BorderRadius>
+                <controls:FitImage Size="200" Margin="50"
+                ImgSource="thumbsup.png" HorizontalOptions="Center"/>
+            </controls:RoundedView>
             <Label 
-                Text="Congratulations !! Your registration is now complete and few steps away to open your kitchen for business. Tap button below to get your profile setup."
+                Text="Congratulations!!" TextColor="White" FontSize="30"
+                Style="{StaticResource DefLabelStyle}"
+            />
+            <Label 
+                Text="Your registration is now complete and few steps away to open your kitchen for business. "
+                TextColor="White" FontSize="20"
+                Style="{StaticResource DefLabelStyle}"
+            />
+            <Label 
+                Text="Tap button below to get your profile setup."
+                TextColor="White" FontSize="20"
                 Style="{StaticResource DefLabelStyle}"
             />
             <controls:RoundedButton 
-                LabelText="Continue">
+                LabelText="Continue" BorderColor="#53d1ef" FillColor="White"
+                HeightRequest="50">
+                 <controls:RoundedButton.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Int32" Android="50" iOS="25"/>
+                </controls:RoundedButton.BorderRadius>
+                <controls:RoundedButton.LabelStyle>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="VerticalOptions" Value="Center"/>
+                        <Setter Property="VerticalTextAlignment" Value="Center"/>
+                        <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
+                    </Style>
+                </controls:RoundedButton.LabelStyle>
                 <controls:RoundedButton.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Handle_Tapped"/>
                 </controls:RoundedButton.GestureRecognizers>
