@@ -80,6 +80,7 @@ namespace Provider.ViewModels
             }
             set
             {
+                isMailChanged = true;
                 _email = value;
                 OnPropertyChanged("Email");
             }
@@ -94,6 +95,7 @@ namespace Provider.ViewModels
             }
             set
             {
+                isMobileChanged = true;
                 _mobile = value;
                 OnPropertyChanged("Mobile");
             }
@@ -223,11 +225,9 @@ namespace Provider.ViewModels
 			set
 			{
 				_isMailValid = value;
-                //if (string.IsNullOrEmpty(Email))
-                //    EmailErrorText = "Mail cannot be empty.";
-                //else
-                    EmailErrorText = "Please enter a valid e-mail.";
 				OnPropertyChanged("IsMailValid");
+                if (isMailChanged)
+					EmailErrorText = "Please enter a valid e-mail.";
 			}
 		}
 
@@ -241,15 +241,13 @@ namespace Provider.ViewModels
 			set
 			{
 				_isMobileValid = value;
-    //            if (string.IsNullOrEmpty(Mobile))
-    //                MobileErrorText = "Mobile number cannot be empty.";
-				//else
-					MobileErrorText = "Please enter a valid mobile number.";
 				OnPropertyChanged("IsMobileValid");
+                if (isMobileChanged)
+					MobileErrorText = "Please enter a valid mobile number.";
 			}
 		}
 
-        private string _emailErrorText;
+        private string _emailErrorText = null;
         public string EmailErrorText
         {
             get
@@ -263,7 +261,7 @@ namespace Provider.ViewModels
             }
         }
 
-		private string _mobileErrorText;
+		private string _mobileErrorText = null;
 		public string MobileErrorText
 		{
 			get
@@ -276,7 +274,8 @@ namespace Provider.ViewModels
 				OnPropertyChanged("MobileErrorText");
 			}
 		}
-
+        bool isMobileChanged = false;
+        bool isMailChanged = false;
 
 		#endregion
 
@@ -320,10 +319,12 @@ namespace Provider.ViewModels
             LastName = tempData;
             //Email
             storedAcc.Properties.TryGetValue(AccProperties.Email, out tempData);
+            if(!string.IsNullOrEmpty(tempData))
             Email = tempData;
             //Mobile
             storedAcc.Properties.TryGetValue(AccProperties.Mobile, out tempData);
-            Mobile = (tempData == null)?"":tempData;
+            if(!string.IsNullOrEmpty(tempData))
+            Mobile = tempData;
             //Location
             storedAcc.Properties.TryGetValue(AccProperties.Location, out tempData);
             Location = tempData;

@@ -150,7 +150,7 @@
                         <OnPlatform x:TypeArguments="Thickness" Android="10,0" iOS="10,0"/>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="ValidateEmptyString" Value="True"/>
+                <Setter Property="ValidateEmptyString" Value="False"/>
             </Style>
 
             <Style TargetType="{x:Type Editor}" x:Key="DefaultEditorStyle">
