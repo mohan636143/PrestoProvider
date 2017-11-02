@@ -18,7 +18,7 @@ namespace Provider.Views
         void Handle_Tapped(object sender, System.EventArgs e)
         {
             //App.SetPage(new ProfileStepOnePage());
-            App.Current.MainPage = new ProviderLaunchPage() { Detail = new ProfileStepOnePage(), BarBackgroundColor = Color.FromHex("#343434"), BarTintColor = Color.White };
+            App.Current.MainPage = new ProviderLaunchPage() { Detail = new ProfileStepOnePage(), BarBackgroundColor = Color.FromHex("#FFFFFF"), BarTintColor = Color.Black };
 		}
     }
 }

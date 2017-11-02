@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:controls="clr-namespace:Provider.Controls"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="Provider.Infrastructure.CustomNavBar">
+    x:Class="Provider.Infrastructure.CustomNavBar"
+>
     <StackLayout 
-    Orientation="Horizontal" 
-    HorizontalOptions="FillAndExpand">
+    Orientation="Vertical" 
+    HorizontalOptions="FillAndExpand"
+    Padding="0">
     
     <Grid x:Name="centralPanel" 
           HorizontalOptions="FillAndExpand" 
@@ -51,12 +54,13 @@
       </StackLayout>
 
     </Grid>
+        <controls:Shadow x:Name="shadow" HeightRequest="10" Margin="0"/>
 
     <StackLayout.HeightRequest>
       <OnPlatform x:TypeArguments="x:Double" iOS="64" Android="44" />
     </StackLayout.HeightRequest>
     <StackLayout.Padding>
-      <OnPlatform x:TypeArguments="Thickness" iOS="5,20,5,3" Android="5,3,5,3" />
+      <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" Android="0,3,0,0" />
     </StackLayout.Padding>
   </StackLayout>
 </ContentPage>

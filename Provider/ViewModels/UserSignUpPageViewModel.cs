@@ -359,7 +359,8 @@ namespace Provider.ViewModels
                 Detail = new RegSuccessPage(),
                 BarBackgroundColor = Color.FromHex("#9ee122"),
                 BarTintColor = Color.White,
-                ShowLeftMasterNavButton = false
+                ShowLeftMasterNavButton = false,
+                ShowShadow = false
             };
 		}
 

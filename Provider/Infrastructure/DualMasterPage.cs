@@ -382,6 +382,32 @@ namespace Provider.Infrastructure
         #endregion
 
 
+        #region ShowShadow
+
+        public static BindableProperty ShowShadowProperty = BindableProperty.Create(nameof(ShowShadow), typeof(bool), typeof(DualMasterPage),
+                                                                                    defaultValue: true, defaultBindingMode: BindingMode.TwoWay,
+                                                                                    propertyChanged: OnShadowChanged);
+
+        public bool ShowShadow
+        {
+            get
+            {
+                return (bool)GetValue(ShowShadowProperty);
+            }
+            set
+            {
+                SetValue(ShowShadowProperty, value);
+            }
+        }
+
+        private static void OnShadowChanged(BindableObject bindable,object oldValue,object newValue)
+        {
+            DualMasterPage dmPage = (bindable as DualMasterPage);
+            dmPage._navBarPage.ShowShadow = (bool)newValue;
+        }
+
+        #endregion
+
 
         protected override void LayoutChildren(double x, double y, double width, double height)
         {

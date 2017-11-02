@@ -48,8 +48,8 @@ namespace Provider.Utility
                 nextPage = new ProviderLaunchPage()
                 {
                     Detail = new UserSignUpPage(),
-                    BarBackgroundColor = Color.FromHex("#343434"),
-                    BarTintColor = Color.White,
+                    BarBackgroundColor = Color.FromHex("#FFFFFF"),
+                    BarTintColor = Color.Black,
                     ShowLeftMasterNavButton = false
                 };
             }
@@ -58,8 +58,8 @@ namespace Provider.Utility
                 nextPage = new ProviderLaunchPage()
                 {
                     Detail = new UserSignUpPage(),
-                    BarBackgroundColor = Color.FromHex("#343434"),
-                    BarTintColor = Color.White,
+                    BarBackgroundColor = Color.FromHex("#FFFFFF"),
+                    BarTintColor = Color.Black,
                     ShowLeftMasterNavButton = false
                 };
             }

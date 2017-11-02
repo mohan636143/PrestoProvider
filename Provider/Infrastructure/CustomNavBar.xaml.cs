@@ -181,6 +181,20 @@ namespace Provider.Infrastructure
 			}
 		}
 
+        private bool _showShadow;
+        public bool ShowShadow
+        {
+            get
+            {
+                return _showShadow;
+            }
+            set
+            {
+                _showShadow = value;
+                this.shadow.IsVisible = false;
+            }
+        }
+
 		private Color _barTintColor;
 		public Color BarTintColor
 		{
