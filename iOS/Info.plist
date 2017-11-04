@@ -59,7 +59,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library to select image of dish</string>
 	<key>CFBundleVersion</key>
-	<string>17</string>
+	<string>18</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 </dict>
