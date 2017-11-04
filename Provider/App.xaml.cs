@@ -45,7 +45,7 @@ namespace Provider
 
                 MainPage = new ProviderLaunchPage()
                 {
-                    Detail = new UserSignUpPage(),
+                    Detail = new ProviderItemsSummaryPage(),
                     BarBackgroundColor = Color.White,
                     BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
                     ShowLeftMasterNavButton = true

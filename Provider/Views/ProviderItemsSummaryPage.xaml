@@ -68,7 +68,7 @@
                 Grid.Row="2"
                 LabelText="Add Item"
                 Style="{StaticResource DefRoundedBtnStyle}"
-                TapCommand="{Binding NextCommand}"
+                TapCommand="{Binding AddItemCommand}"
                 VerticalOptions="Center"/>
             <controls:RoundedButton
                 Grid.Row="3"

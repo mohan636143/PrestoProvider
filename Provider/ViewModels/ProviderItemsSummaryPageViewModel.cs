@@ -3,6 +3,8 @@ using Provider.Infrastructure;
 using System.Windows.Input;
 using System.Collections.Generic;
 using Provider.Models;
+using Xamarin.Forms;
+using Provider.Views;
 
 namespace Provider.ViewModels
 {
@@ -49,6 +51,13 @@ namespace Provider.ViewModels
 					Qty = "100000",FoodCategory="Hot Panini"}
 
             };
+
+            AddItemCommand = new Command(() => LoadAddItemPage());
+        }
+
+        private void LoadAddItemPage()
+        {
+            App.SetPage(new ProfileStepFivePage());
         }
     }
 }
