@@ -7,7 +7,8 @@
     xmlns:resx="clr-namespace:Provider.Resources"
     xmlns:beh="clr-namespace:Provider.Behaviors"
     x:Class="Provider.Views.UserSignUpPage"
-    Title="Register">
+    Title="Register"
+    Style="{StaticResource DefaultPageStyle}">
     <ContentPage.BindingContext>
         <vm:UserSignUpPageViewModel/>
     </ContentPage.BindingContext>
@@ -19,7 +20,8 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ScrollView BackgroundColor="Transparent" Padding="20,0">
+                <controls:CustomScroller BackgroundColor="Transparent" Padding="20,0" 
+                    Orientation="Vertical" ScrollPosition="{Binding ScrollerPosition}">
                       <StackLayout BackgroundColor="White" Spacing="20" >
                             
                             <Grid >
@@ -32,7 +34,7 @@
                                     Text="{x:Static resx:PrestoResources.txtUserSignUpPageTopMsg}"
                                     Style="{StaticResource DefLabelStyle}"
                                     FontSize="20"
-                                    TextColor="{StaticResource PrestoColor}"/>
+                                    TextColor="{StaticResource PrestoGreyColor}"/>
                                 <controls:RoundedView 
                                     Grid.Row="1"
                                     Margin="10" HorizontalOptions="Center" 
@@ -45,12 +47,13 @@
                                 </controls:RoundedView>
                             </Grid>
                             
-                            <Grid Padding="30,10" RowSpacing="15">
+                            <Grid Padding="30,10" >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -79,11 +82,11 @@
                                     <Label.Triggers>
                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsFirstNameValid}" Value="true">
                                             <Setter Property="Text" Value=""/>
-                                            <Setter Property="IsVisible" Value="false"/>
+<!--                                            <Setter Property="IsVisible" Value="false"/>-->
                                         </DataTrigger>
                                          <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsFirstNameValid}" Value="false">
                                             <Setter Property="Text" Value="First Name cannot be empty"/>
-                                            <Setter Property="IsVisible" Value="true"/>
+<!--                                            <Setter Property="IsVisible" Value="true"/>-->
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
@@ -103,11 +106,11 @@
                                     <Label.Triggers>
                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsSecNameValid}" Value="true">
                                             <Setter Property="Text" Value=""/>
-                                            <Setter Property="IsVisible" Value="false"/>
+<!--                                            <Setter Property="IsVisible" Value="false"/>-->
                                         </DataTrigger>
                                          <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsSecNameValid}" Value="false">
                                             <Setter Property="Text" Value="Last Name cannot be empty."/>
-                                            <Setter Property="IsVisible" Value="true"/>
+<!--                                            <Setter Property="IsVisible" Value="true"/>-->
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
@@ -128,13 +131,13 @@
                                     <beh:ValidatorBehavior StringRegex="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"/>
                                 </controls:DescriptionEntry.Behaviors>
                                 </controls:DescriptionEntry>
-                                <Label Text="{Binding EmailErrorText}" IsVisible="false" TextColor="Red">
+                                <Label Text="{Binding EmailErrorText}" IsVisible="true" TextColor="Red">
                                     <Label.Triggers>
-                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMailValid}" Value="false">
-                                            <Setter Property="IsVisible" Value="true"/>
-                                        </DataTrigger>
+                                       <!-- <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMailValid}" Value="false">
+                                            <Setter Property="Text" Value="Please enter a valid e-mail."/>
+                                        </DataTrigger>-->
                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMailValid}" Value="true">
-                                            <Setter Property="IsVisible" Value="false"/>
+                                            <Setter Property="Text" Value=""/>
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
@@ -155,13 +158,13 @@
                                     <beh:ValidatorBehavior StringRegex="^[1-9]{1}[0-9]{9}$" />
                                 </controls:DescriptionEntry.Behaviors>
                                 </controls:DescriptionEntry>
-                                <Label Text="{Binding MobileErrorText}" IsVisible="false" TextColor="Red">
+                                <Label Text="{Binding MobileErrorText}" IsVisible="true" TextColor="Red">
                                     <Label.Triggers>
-                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMobileValid}" Value="false">
-                                            <Setter Property="IsVisible" Value="true"/>
-                                        </DataTrigger>
+                                       <!-- <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMobileValid}" Value="false">
+                                            <Setter Property="Text" Value="Please enter a valid mobile number"/>
+                                        </DataTrigger>-->
                                          <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsMobileValid}" Value="true">
-                                            <Setter Property="IsVisible" Value="false"/>
+                                            <Setter Property="Text" Value=""/>
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
@@ -183,16 +186,45 @@
                                     <beh:ValidatorBehavior StringRegex="^[1-9]{0,1}[0-9]{0,1}$"/>
                                 </controls:DescriptionEntry.Behaviors>
                                 </controls:DescriptionEntry>
+                                <Label TextColor="Red">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsAgeValid}" Value="false">
+                                            <Setter Property="Text" Value="Please enter a valid age"/>
+                                        </DataTrigger>
+                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsAgeValid}" Value="true">
+                                            <Setter Property="Text" Value=""/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
                                 </StackLayout>
                                <!-- <Label 
                                     Grid.Row="5" Grid.Column="0"
                                     Style="{StaticResource SignUpPageLabelStyle}"
                                     Text="Zip Code"/>-->
-                                <!-- <controls:DescriptionEntry IsVisible="false"
-                                    Grid.Row="5" Grid.Column="1"
+                                <StackLayout 
+                                    Grid.Row="5" Grid.Column="1" >
+                                 <controls:DescriptionEntry 
                                 EntryPlaceholderText="Zip Code" EntryText="{Binding Location}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                                Style="{StaticResource DescriptionEntryDefStyle}"/>-->
+                                Style="{StaticResource DescriptionEntryDefStyle}"
+                                IsEntryValid="{Binding IsZipValid}"
+                                ValidateEmptyString="false"
+                                KeyboardType="Numeric">
+                                <controls:DescriptionEntry.Behaviors>
+                                    <beh:ValidatorBehavior StringRegex="^[1-9]{0,1}[0-9]{0,4}$"/>
+                                </controls:DescriptionEntry.Behaviors>
+                                </controls:DescriptionEntry>
+                                <Label TextColor="Red">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsZipValid}" Value="false">
+                                            <Setter Property="Text" Value="Please enter a valid age"/>
+                                        </DataTrigger>
+                                         <DataTrigger TargetType="{x:Type Label}" Binding="{Binding IsZipValid}" Value="true">
+                                            <Setter Property="Text" Value=""/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                </StackLayout>
                                <!-- <Label 
                                     Grid.Row="6" Grid.Column="1"
                                     Style="{StaticResource SignUpPageLabelStyle}"
@@ -229,14 +261,14 @@
                                 DescriptionLabelStyle="{StaticResource DefaultCheckBoxDescStyle}"
                                 />-->
                                 <Label 
-                                Grid.Row="5" Grid.Column="1"
+                                Grid.Row="6" Grid.Column="1"
                                 Text="{x:Static resx:PrestoResources.txtUserSignUpPageBtmMsg}"
                                 Style="{StaticResource DefLabelStyle}"
                                 TextColor="{StaticResource PrestoColor}"/>
                             
                             </Grid>
                         </StackLayout>
-                </ScrollView>
+                </controls:CustomScroller>
                  <controls:RoundedButton 
                     Grid.Row="1"
                     Style="{StaticResource DefRoundedBtnStyle}" 

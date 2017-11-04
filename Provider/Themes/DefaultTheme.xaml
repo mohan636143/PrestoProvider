@@ -14,6 +14,8 @@
             <Color x:Key="HomePageLabelColor">Black</Color>
             <Color x:Key="PrestoColor">#53d1ef</Color>
             <Color x:Key="SelectLabelTextColor">#f76619</Color>
+            <Color x:Key="PrestoButtonColor">#59db5a </Color>
+            <Color x:Key="PrestoGreyColor">#868686</Color>
 
             <!--Styles-->
             <Style TargetType="{x:Type ContentPage}" x:Key="DefaultPageStyle">
@@ -72,14 +74,14 @@
             
             <Style TargetType="{x:Type Label}" x:Key="DefLabelStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
-                <Setter Property="TextColor" Value="{StaticResource PrestoColor}" />
+                <Setter Property="TextColor" Value="{StaticResource PrestoGreyColor}" />
 <!--                <Setter Property="FontSize" Value="22" />-->
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
 
             <Style TargetType="{x:Type Label}" x:Key="SignUpPageLabelStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
-                <Setter Property="TextColor" Value="Teal" />
+                <Setter Property="TextColor" Value="{StaticResource PrestoGreyColor}" />
 <!--                <Setter Property="VerticalOptions" Value="Center"/>-->
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
             </Style>
@@ -181,7 +183,7 @@
 
             <Style TargetType="{x:Type Label}" x:Key="SelectLabelTextStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
-                <Setter Property="TextColor" Value="{StaticResource SelectLabelTextColor}" />
+                <Setter Property="TextColor" Value="{StaticResource PrestoGreyColor}" />
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
             </Style>
 
@@ -192,14 +194,15 @@
                         <OnPlatform x:TypeArguments="x:Int32" Android="40" iOS="20"/>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="BorderColor" Value="#f76619" />
+                <Setter Property="BorderColor" Value="{StaticResource PrestoGreyColor}" />
                 <Setter Property="BorderThickness" >
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
                     </Setter.Value>
                     </Setter>
                 <Setter Property="FillColor" Value="White" />
-                <Setter Property="SelectedFillColor" Value="#f76619" />
+                <Setter Property="SelectedFillColor" Value="{StaticResource PrestoButtonColor}" />
+                <Setter Property="SelectedBorderColor" Value="{StaticResource PrestoButtonColor}" />
                 <Setter Property="SelectedLabelColor" Value="White" />
                 <Setter Property="Padding" Value="5,2" />
                 <Setter Property="LabelStyle" Value="{StaticResource SelectLabelTextStyle}"></Setter>
@@ -226,8 +229,8 @@
 
             <Style TargetType="{x:Type controls:RoundedButton}" x:Key="DefRoundedBtnStyle">   
                     <Setter Property="HeightRequest" Value="40"/>
-                    <Setter Property="BorderColor" Value="{StaticResource PrestoColor}"/>
-                    <Setter Property="FillColor" Value="{StaticResource PrestoColor}"/>
+                    <Setter Property="BorderColor" Value="{StaticResource PrestoButtonColor}"/>
+                    <Setter Property="FillColor" Value="{StaticResource PrestoButtonColor}"/>
                     <Setter Property="BorderThickness" >
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
@@ -250,8 +253,8 @@
 <!--                    <Setter Property="HeightRequest" Value="40"/>-->
                     <Setter Property="HorizontalOptions" Value="End"/>
                     <Setter Property="VerticalOptions" Value="Center"/>
-                    <Setter Property="SwitchColor" Value="{StaticResource PrestoColor}"/>
-                    <Setter Property="BorderColor" Value="{StaticResource PrestoColor}"/> 
+                    <Setter Property="SwitchColor" Value="{StaticResource PrestoButtonColor}"/>
+                    <Setter Property="BorderColor" Value="{StaticResource PrestoButtonColor}"/> 
             </Style>
             <Style TargetType="{x:Type Label}" x:Key="ItemAddLabelStyle">
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />

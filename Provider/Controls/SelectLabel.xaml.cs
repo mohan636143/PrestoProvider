@@ -10,6 +10,7 @@ namespace Provider.Controls
 
 	    Color DefaultFillColor = Color.Default;
 		Color DefaultTextColor = Color.Default;
+        Color DefaultBorderColor = Color.Default;
 
 		#region Bindable Properties
 
@@ -67,13 +68,16 @@ namespace Provider.Controls
             {
                 view.DefaultFillColor = view.FillColor;
                 view.DefaultTextColor = view.toggleLabel.TextColor;
+                view.DefaultBorderColor = view.BorderColor;
                 view.FillColor = view.SelectedFillColor;
                 view.toggleLabel.TextColor = view.SelectedLabelColor;
+                view.BorderColor = view.SelectedFillColor;
             }
             else
             {
                 view.FillColor = view.DefaultFillColor;
                 view.toggleLabel.TextColor = view.DefaultTextColor;
+                view.BorderColor = view.DefaultBorderColor;
             }
         }
 
@@ -104,6 +108,21 @@ namespace Provider.Controls
 			set
 			{
 				SetValue(SelectedLabelColorProperty, value);
+			}
+		}
+
+		public static BindableProperty SelectedBorderColorProperty = BindableProperty.Create(nameof(SelectedBorderColor), typeof(Color), typeof(SelectLabel),
+																					defaultValue: Color.Black, defaultBindingMode: BindingMode.TwoWay);
+
+		public Color SelectedBorderColor
+		{
+			get
+			{
+				return (Color)GetValue(SelectedBorderColorProperty);
+			}
+			set
+			{
+				SetValue(SelectedBorderColorProperty, value);
 			}
 		}
 

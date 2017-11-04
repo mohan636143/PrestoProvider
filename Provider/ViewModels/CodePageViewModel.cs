@@ -36,7 +36,13 @@ namespace Provider.ViewModels
 		private void LoadNextPage()
 		{
             if (IsCodeValid)
-                App.Current.MainPage = new ProviderLaunchPage() { Detail = new RegSuccessPage(), BarBackgroundColor = Color.Teal, BarTintColor = Color.White, ShowLeftMasterNavButton = false };
+                App.Current.MainPage = new ProviderLaunchPage()
+                {
+                    Detail = new RegSuccessPage(),
+                    BarBackgroundColor = Color.White,
+                    BarTintColor = (Color)App.Current.Resources["PrestoColor"],
+                    ShowLeftMasterNavButton = false
+                };
             else
                 App.Current.MainPage.DisplayAlert("Error", "Please enter a valid code", "OK");
 		}

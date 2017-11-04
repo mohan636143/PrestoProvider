@@ -5,7 +5,8 @@
     xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:resx="clr-namespace:Provider.Resources"
     x:Class="Provider.Views.ProfileStepFourPage"
-    Title="Profile">
+    Title="Profile"
+    Style="{StaticResource DefaultPageStyle}">
     <ContentPage.BindingContext>
         <vm:ProfileStepFourPageViewModel/>
     </ContentPage.BindingContext>

@@ -5,7 +5,8 @@
     xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:resx="clr-namespace:Provider.Resources"
     x:Class="Provider.Views.ProfileStepThreePage"
-    Title="Profile">
+    Title="Profile"
+    Style="{StaticResource DefaultPageStyle}">
     <ContentPage.BindingContext>
         <vm:ProfileStepThreePageViewModel/>
     </ContentPage.BindingContext>
@@ -28,6 +29,7 @@
                         Grid.Row="0"
                         Text="What Cuisine do you serve ?"
                         Style="{StaticResource DefLabelStyle}"
+                        TextColor="{StaticResource PrestoGreyColor}"
                     />
                     <controls:WrapView
                         Grid.Row="1"

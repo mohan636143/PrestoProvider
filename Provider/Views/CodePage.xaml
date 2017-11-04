@@ -5,7 +5,8 @@
     xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:beh="clr-namespace:Provider.Behaviors"
     x:Class="Provider.Views.CodePage"
-    Title="Register">
+    Title="Register"
+    Style="{StaticResource DefaultPageStyle}">
     <ContentPage.BindingContext>
         <vm:CodePageViewModel/>
     </ContentPage.BindingContext>

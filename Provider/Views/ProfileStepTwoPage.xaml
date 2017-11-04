@@ -5,7 +5,8 @@
     xmlns:vm="clr-namespace:Provider.ViewModels"
     xmlns:resx="clr-namespace:Provider.Resources"
     x:Class="Provider.Views.ProfileStepTwoPage"
-    Title="Profile">
+    Title="Profile"
+    Style="{StaticResource DefaultPageStyle}">
     <ContentPage.BindingContext>
         <vm:ProfileStepTwoPageViewModel/>
     </ContentPage.BindingContext>
@@ -92,7 +93,7 @@
                     <Label 
                         Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" 
                         Text="If you are not open on all days or hours vary, please pick your schedule on each day below"
-                        Style="{StaticResource DefLabelStyle}" TextColor="Black"
+                        Style="{StaticResource DefLabelStyle}"
                     />
                     <Grid 
                         Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
@@ -146,6 +147,25 @@
                 Style="{StaticResource DefRoundedBtnStyle}"
                 TapCommand="{Binding NextCommand}"
                 VerticalOptions="Center"/>
+            <Grid IsVisible="false"
+                BackgroundColor="#30868686"
+                Grid.Row="0" Grid.RowSpan="2"
+            >
+            <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions> 
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+                <controls:RoundedView 
+                    BorderRadius="30" FillColor="White">
+                
+                </controls:RoundedView>
+            </Grid>
         </Grid>
 	</ContentPage.Content>
 </ContentPage>

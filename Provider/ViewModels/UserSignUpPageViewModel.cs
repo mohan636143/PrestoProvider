@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using System.Windows.Input;
 using Provider.Views;
 using Provider.Models;
+using Provider.Controls;
 
 namespace Provider.ViewModels
 {
@@ -131,61 +132,61 @@ namespace Provider.ViewModels
 
         public UserProfile StoredUserProfileData { get; set; }
 
-        private bool _enableNotify;
-        public bool EnableNotify
-        {
-            get
-            {
-                return _enableNotify;
-            }
-            set
-            {
-                _enableNotify = value;
-                OnPropertyChanged("EnableNotify");
-            }
-        }
+  //      private bool _enableNotify;
+  //      public bool EnableNotify
+  //      {
+  //          get
+  //          {
+  //              return _enableNotify;
+  //          }
+  //          set
+  //          {
+  //              _enableNotify = value;
+  //              OnPropertyChanged("EnableNotify");
+  //          }
+  //      }
 
-        private string _aboutMe;
-        public string AboutMe
-        {
-            get
-            {
-                return _aboutMe;
-            }
-            set
-            {
-                _aboutMe = value;
-                OnPropertyChanged("AboutMe");
-            }
-        }
+  //      private string _aboutMe;
+  //      public string AboutMe
+  //      {
+  //          get
+  //          {
+  //              return _aboutMe;
+  //          }
+  //          set
+  //          {
+  //              _aboutMe = value;
+  //              OnPropertyChanged("AboutMe");
+  //          }
+  //      }
 
-		private bool _accessFriends;
-		public bool AccessFriends
-		{
-			get
-			{
-				return _accessFriends;
-			}
-			set
-			{
-				_accessFriends = value;
-				OnPropertyChanged("AccessFriends");
-			}
-		}
+		//private bool _accessFriends;
+		//public bool AccessFriends
+		//{
+		//	get
+		//	{
+		//		return _accessFriends;
+		//	}
+		//	set
+		//	{
+		//		_accessFriends = value;
+		//		OnPropertyChanged("AccessFriends");
+		//	}
+		//}
 
-		private bool _addPosts;
-		public bool AddPosts
-		{
-			get
-			{
-				return _addPosts;
-			}
-			set
-			{
-				_addPosts = value;
-				OnPropertyChanged("AddPosts");
-			}
-		}
+		//private bool _addPosts;
+		//public bool AddPosts
+		//{
+		//	get
+		//	{
+		//		return _addPosts;
+		//	}
+		//	set
+		//	{
+		//		_addPosts = value;
+		//		OnPropertyChanged("AddPosts");
+		//	}
+		//}
 
         private bool _isFirstNameValid = true;
         public bool IsFirstNameValid
@@ -278,6 +279,20 @@ namespace Provider.ViewModels
 				OnPropertyChanged("MobileErrorText");
 			}
 		}
+
+        private ScrollPositions _scrollerPosition;
+        public ScrollPositions ScrollerPosition
+        {
+            get
+            {
+                return _scrollerPosition;
+            }
+            set
+            {
+                _scrollerPosition = value;
+                OnPropertyChanged("ScrollerPosition");
+            }
+        }
         bool isMobileChanged = false;
         bool isMailChanged = false;
 
@@ -357,10 +372,9 @@ namespace Provider.ViewModels
             App.Current.MainPage = new ProviderLaunchPage()
             {
                 Detail = new RegSuccessPage(),
-                BarBackgroundColor = Color.FromHex("#9ee122"),
-                BarTintColor = Color.White,
-                ShowLeftMasterNavButton = false,
-                ShowShadow = false
+                BarBackgroundColor = Color.White,
+                BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
+                ShowLeftMasterNavButton = false
             };
 		}
 
@@ -394,6 +408,8 @@ namespace Provider.ViewModels
             }       
             else
             {
+                if (isMobileChanged)
+                    ScrollerPosition = ScrollPositions.Bottom;
                 //App.Current.MainPage.DisplayAlert("Error","Please correct data and try again.","OK");
             }
         }
