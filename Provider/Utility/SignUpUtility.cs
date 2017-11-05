@@ -38,35 +38,35 @@ namespace Provider.Utility
 
 		}
 
-        async void HandleNavigation(bool userExists)
-        {
-            ProviderLaunchPage nextPage;
-            if (userExists)
-            {
-                //Currently using UserSignup Page.
-                //Once the api is fully working we can go to profile page
-                nextPage = new ProviderLaunchPage()
-                {
-                    Detail = new UserSignUpPage(),
-                    BarBackgroundColor = Color.White,
-                    BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
-                    ShowLeftMasterNavButton = false
-                };
-            }
-            else
-            {
-                nextPage = new ProviderLaunchPage()
-                {
-                    Detail = new UserSignUpPage(),
-                    BarBackgroundColor = Color.White,
-                    BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
-                    ShowLeftMasterNavButton = false
-                };
-            }
+		async void HandleNavigation(bool userExists)
+		{
+			ProviderLaunchPage nextPage;
+			if (userExists)
+			{
+				//Currently using UserSignup Page.
+				//Once the api is fully working we can go to profile page
+				nextPage = new ProviderLaunchPage()
+				{
+					Detail = new UserSignUpPage(),
+					BarBackgroundColor = Color.White,
+					BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
+					ShowLeftMasterNavButton = false
+				};
+			}
+			else
+			{
+				nextPage = new ProviderLaunchPage()
+				{
+					Detail = new UserSignUpPage(),
+					BarBackgroundColor = Color.White,
+					BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
+					ShowLeftMasterNavButton = false
+				};
+			}
 
-            await App.Current.MainPage.Navigation.PopModalAsync();
-            App.Current.MainPage = nextPage;
-        }
+			await App.Current.MainPage.Navigation.PopModalAsync();
+			App.Current.MainPage = nextPage;
+		}
 
         public void OnActionSuccess(ProviderProfileModel data, string actionIdentifier)
         {

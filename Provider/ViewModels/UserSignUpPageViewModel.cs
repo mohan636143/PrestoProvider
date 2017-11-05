@@ -8,10 +8,11 @@ using System.Windows.Input;
 using Provider.Views;
 using Provider.Models;
 using Provider.Controls;
+using Provider.Actions;
 
 namespace Provider.ViewModels
 {
-    public class UserSignUpPageViewModel : ViewModelBase
+    public class UserSignUpPageViewModel : ViewModelBase, GetProfileAction.IActionResponse
     {
 
         #region Properties
@@ -58,19 +59,19 @@ namespace Provider.ViewModels
             }
         }
 
-		private string _lastname;
-		public string LastName
-		{
-			get
-			{
+        private string _lastname;
+        public string LastName
+        {
+            get
+            {
                 return _lastname;
-			}
-			set
-			{
+            }
+            set
+            {
                 _lastname = value;
-				OnPropertyChanged("LastName");
-			}
-		}
+                OnPropertyChanged("LastName");
+            }
+        }
 
         private string _email;
         public string Email
@@ -132,61 +133,61 @@ namespace Provider.ViewModels
 
         public UserProfile StoredUserProfileData { get; set; }
 
-  //      private bool _enableNotify;
-  //      public bool EnableNotify
-  //      {
-  //          get
-  //          {
-  //              return _enableNotify;
-  //          }
-  //          set
-  //          {
-  //              _enableNotify = value;
-  //              OnPropertyChanged("EnableNotify");
-  //          }
-  //      }
+        //      private bool _enableNotify;
+        //      public bool EnableNotify
+        //      {
+        //          get
+        //          {
+        //              return _enableNotify;
+        //          }
+        //          set
+        //          {
+        //              _enableNotify = value;
+        //              OnPropertyChanged("EnableNotify");
+        //          }
+        //      }
 
-  //      private string _aboutMe;
-  //      public string AboutMe
-  //      {
-  //          get
-  //          {
-  //              return _aboutMe;
-  //          }
-  //          set
-  //          {
-  //              _aboutMe = value;
-  //              OnPropertyChanged("AboutMe");
-  //          }
-  //      }
+        //      private string _aboutMe;
+        //      public string AboutMe
+        //      {
+        //          get
+        //          {
+        //              return _aboutMe;
+        //          }
+        //          set
+        //          {
+        //              _aboutMe = value;
+        //              OnPropertyChanged("AboutMe");
+        //          }
+        //      }
 
-		//private bool _accessFriends;
-		//public bool AccessFriends
-		//{
-		//	get
-		//	{
-		//		return _accessFriends;
-		//	}
-		//	set
-		//	{
-		//		_accessFriends = value;
-		//		OnPropertyChanged("AccessFriends");
-		//	}
-		//}
+        //private bool _accessFriends;
+        //public bool AccessFriends
+        //{
+        //	get
+        //	{
+        //		return _accessFriends;
+        //	}
+        //	set
+        //	{
+        //		_accessFriends = value;
+        //		OnPropertyChanged("AccessFriends");
+        //	}
+        //}
 
-		//private bool _addPosts;
-		//public bool AddPosts
-		//{
-		//	get
-		//	{
-		//		return _addPosts;
-		//	}
-		//	set
-		//	{
-		//		_addPosts = value;
-		//		OnPropertyChanged("AddPosts");
-		//	}
-		//}
+        //private bool _addPosts;
+        //public bool AddPosts
+        //{
+        //	get
+        //	{
+        //		return _addPosts;
+        //	}
+        //	set
+        //	{
+        //		_addPosts = value;
+        //		OnPropertyChanged("AddPosts");
+        //	}
+        //}
 
         private bool _isFirstNameValid = true;
         public bool IsFirstNameValid
@@ -203,54 +204,54 @@ namespace Provider.ViewModels
         }
 
         private bool _isSecNameValid = true;
-		public bool IsSecNameValid
-		{
-			get
-			{
-				return _isSecNameValid;
-			}
-			set
-			{
-				_isSecNameValid = value;
-				OnPropertyChanged("IsSecNameValid");
-			}
-		}
+        public bool IsSecNameValid
+        {
+            get
+            {
+                return _isSecNameValid;
+            }
+            set
+            {
+                _isSecNameValid = value;
+                OnPropertyChanged("IsSecNameValid");
+            }
+        }
 
         private bool _isMailValid = true;
-		public bool IsMailValid
-		{
-			get
-			{
-                if(!_isMailValid && isMailChanged)
+        public bool IsMailValid
+        {
+            get
+            {
+                if (!_isMailValid && isMailChanged)
                     EmailErrorText = "Please enter a valid e-mail.";
-				return _isMailValid;
-			}
-			set
-			{
-				_isMailValid = value;
-				OnPropertyChanged("IsMailValid");
+                return _isMailValid;
+            }
+            set
+            {
+                _isMailValid = value;
+                OnPropertyChanged("IsMailValid");
                 if (isMailChanged)
-					EmailErrorText = "Please enter a valid e-mail.";
-			}
-		}
+                    EmailErrorText = "Please enter a valid e-mail.";
+            }
+        }
 
         private bool _isMobileValid = true;
-		public bool IsMobileValid
-		{
-			get
-			{
-                if (!_isMobileValid&& isMobileChanged)
-					MobileErrorText = "Please enter a valid mobile number.";
-				return _isMobileValid;
-			}
-			set
-			{
-				_isMobileValid = value;
-				OnPropertyChanged("IsMobileValid");
+        public bool IsMobileValid
+        {
+            get
+            {
+                if (!_isMobileValid && isMobileChanged)
+                    MobileErrorText = "Please enter a valid mobile number.";
+                return _isMobileValid;
+            }
+            set
+            {
+                _isMobileValid = value;
+                OnPropertyChanged("IsMobileValid");
                 if (isMobileChanged)
-					MobileErrorText = "Please enter a valid mobile number.";
-			}
-		}
+                    MobileErrorText = "Please enter a valid mobile number.";
+            }
+        }
 
         private string _emailErrorText;
         public string EmailErrorText
@@ -266,19 +267,19 @@ namespace Provider.ViewModels
             }
         }
 
-		private string _mobileErrorText;
-		public string MobileErrorText
-		{
-			get
-			{
-				return _mobileErrorText;
-			}
-			set
-			{
-				_mobileErrorText = value;
-				OnPropertyChanged("MobileErrorText");
-			}
-		}
+        private string _mobileErrorText;
+        public string MobileErrorText
+        {
+            get
+            {
+                return _mobileErrorText;
+            }
+            set
+            {
+                _mobileErrorText = value;
+                OnPropertyChanged("MobileErrorText");
+            }
+        }
 
         private ScrollPositions _scrollerPosition;
         public ScrollPositions ScrollerPosition
@@ -293,12 +294,27 @@ namespace Provider.ViewModels
                 OnPropertyChanged("ScrollerPosition");
             }
         }
+
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get
+            {
+                return _isBusy;
+            }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged("IsBusy");
+            }
+        }
+
         bool isMobileChanged = false;
         bool isMailChanged = false;
 
-		#endregion
+        #endregion
 
-		#region Commands
+        #region Commands
 
         public ICommand NextCommand { get; set; }
         #endregion
@@ -314,7 +330,7 @@ namespace Provider.ViewModels
             //IsFirstNameValid = IsSecNameValid = IsMailValid = IsMobileValid = IsAgeValid = false;
             UpdateData(StoredAcc);
             StoredUserProfileData = new UserProfile();
-            NextCommand = new Command((obj) => ValidateData());
+            NextCommand = new Command((obj) => ValidateUserExistence());
         }
 
         #endregion
@@ -357,26 +373,26 @@ namespace Provider.ViewModels
 
 
 
-		private void LoadNextPage()
-		{
-            //UpdateProfileData(StoredUserProfileData);
-            //NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
-            //navPage.PushAsync(new CuisindAndDishesPage());
+        //private void LoadNextPage()
+        //{
+        //    //UpdateProfileData(StoredUserProfileData);
+        //    //NavigationPage navPage = ((App.Current.MainPage as DualMasterPage).DualMasterNavPage);
+        //    //navPage.PushAsync(new CuisindAndDishesPage());
 
-            //DualMasterPage mainPage = App.Current.MainPage as DualMasterPage;
-            //if (mainPage != null)
-            //mainPage.Detail = new CuisindAndDishesPage();
+        //    //DualMasterPage mainPage = App.Current.MainPage as DualMasterPage;
+        //    //if (mainPage != null)
+        //    //mainPage.Detail = new CuisindAndDishesPage();
 
-            UpdateSingleton();
+        //    UpdateSingleton();
 
-            App.Current.MainPage = new ProviderLaunchPage()
-            {
-                Detail = new RegSuccessPage(),
-                BarBackgroundColor = Color.White,
-                BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
-                ShowLeftMasterNavButton = false
-            };
-		}
+        //    App.Current.MainPage = new ProviderLaunchPage()
+        //    {
+        //        Detail = new RegSuccessPage(),
+        //        BarBackgroundColor = Color.White,
+        //        BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
+        //        ShowLeftMasterNavButton = false
+        //    };
+        //}
 
         //private void UpdateProfileData(UserProfile profileData)
         //{
@@ -389,30 +405,92 @@ namespace Provider.ViewModels
         //}
 
         void UpdateSingleton()
-		{
+        {
             ProviderProfileModel userData = AppModel.AppDataInstance.ProviderData;
 
-			userData.ID = Email;
-			userData.Name = FirstName + " " + LastName;
+            userData.ID = Email;
+            userData.Name = FirstName + " " + LastName;
             userData.Email = Email;
             userData.Age = Convert.ToInt32(Age);
             userData.MobNo = Mobile;
         }
 
-        void ValidateData()
+        bool ValidateData()
         {
             isMobileChanged = isMailChanged = true;
-            if(IsFirstNameValid && IsSecNameValid && IsMailValid&& IsMobileValid)
+            if (IsFirstNameValid && IsSecNameValid && IsMailValid && IsMobileValid)
             {
-                LoadNextPage();
-            }       
+                //LoadNextPage();
+                return true;
+            }
             else
             {
                 if (isMobileChanged)
                     ScrollerPosition = ScrollPositions.Bottom;
+                return false;
                 //App.Current.MainPage.DisplayAlert("Error","Please correct data and try again.","OK");
             }
         }
+
+        void ValidateUserExistence()
+        {
+            bool isValid = ValidateData();
+            if (isValid)
+            {
+                GetProfileAction action = new GetProfileAction(Email, this);
+                action.Perform();
+                IsBusy = true;
+            }
+        }
+
+		async void HandleNavigation(bool userExists)
+		{
+            UpdateSingleton();
+			ProviderLaunchPage nextPage;
+			if (userExists)
+			{
+				//Currently using UserSignup Page.
+				//Once the api is fully working we can go to profile page
+				nextPage = new ProviderLaunchPage()
+				{
+                    Detail = new RegSuccessPage(),
+					BarBackgroundColor = Color.White,
+					BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
+					ShowLeftMasterNavButton = false
+				};
+			}
+			else
+			{
+				nextPage = new ProviderLaunchPage()
+				{
+                    Detail = new RegSuccessPage(),
+					BarBackgroundColor = Color.White,
+					BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
+					ShowLeftMasterNavButton = false
+				};
+			}
+
+			App.Current.MainPage = nextPage;
+		}
+
+		#endregion
+
+		#region ActionRespose
+
+		public void OnActionSuccess(ProviderProfileModel data, string actionIdentifier)
+		{
+            IsBusy = false;
+			if (data.Msg != "NO RECORDS")
+				HandleNavigation(true);
+			else
+				HandleNavigation(false);
+		}
+
+		public void OnActionError(string message, string actionIdentifier)
+		{
+            IsBusy = false;
+			HandleNavigation(false);
+		}
 
         #endregion
 

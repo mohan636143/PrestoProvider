@@ -97,6 +97,48 @@ namespace Provider.ViewModels
 			}
 		}
 
+		private bool _openSunday;
+		public bool OpenSunday
+		{
+			get
+			{
+				return _openSunday;
+			}
+			set
+			{
+				_openSunday = value;
+				OnPropertyChanged("OpenSunday");
+			}
+		}
+
+		private int _sunStartIndex;
+		public int SunStartIndex
+		{
+			get
+			{
+				return _sunStartIndex;
+			}
+			set
+			{
+				_sunStartIndex = value;
+				OnPropertyChanged("SunStartIndex");
+			}
+		}
+
+		private int _sunEndIndex;
+		public int SunEndIndex
+		{
+			get
+			{
+				return _sunEndIndex;
+			}
+			set
+			{
+				_sunEndIndex = value;
+				OnPropertyChanged("SunEndIndex");
+			}
+		} 
+
         #endregion
 
         #region Commands
@@ -135,6 +177,9 @@ namespace Provider.ViewModels
             userData.BHourFrom = TimeSlots[WeekStartIndex];
             userData.BHourTo = TimeSlots[WeekEndIndex];
             //TODO : Add logic for sunday
+            userData.IsOnSunday = OpenSunday;
+            userData.SunBHourFrom = TimeSlots[SunStartIndex];
+            userData.SunBHourTo = TimeSlots[SunEndIndex];
 		}
 
 		#endregion

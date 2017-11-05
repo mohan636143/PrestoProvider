@@ -16,7 +16,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <ScrollView Grid.Row="0" Padding="20,0">
+            <ScrollView Grid.Row="0" 
+                Style="{StaticResource DefaultScrollerStyle}">
               <StackLayout Spacing="20" >
                             
                     <Grid >
@@ -87,33 +88,41 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                         <Label 
+                         <!--<Label 
                             Grid.Row="0" Grid.Column="0"
                             Text="Item Name"
                             Style="{StaticResource ItemAddLabelStyle}"
-                        />
+                        />-->
                         <controls:DescriptionEntry 
                             Grid.Row="0" Grid.Column="1" 
-                        EntryPlaceholderText="" EntryText="{Binding ItemName}" 
+                        EntryPlaceholderText="Item Name" EntryText="{Binding ItemName}" 
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                        Style="{StaticResource RoundedEntryStyle}"/>
-                        <Label 
+                        Style="{StaticResource NoLabelRoundedEntryStyle}"
+                        AutoHidePlaceholder="true"/>
+                        <!--<Label 
                             Grid.Row="1" Grid.Column="0"
                             Text="Description"
                             Style="{StaticResource ItemAddLabelStyle}"
-                        />
-                        <controls:RoundedView
-                            Grid.Row="1" Grid.Column="1"
-                            BorderColor="{StaticResource PrestoColor}" BorderRadius="15" BorderThickness="2">
-                            <Editor
-                            Style="{StaticResource DefaultEditorStyle}"
-                            Text="{Binding ItemDesc}"/>
-                        </controls:RoundedView>
-                        <Label 
+                        />-->
+                        <StackLayout
+                                Orientation="Vertical"
+                                Grid.Row="1" Grid.Column="1">
+                            <Label 
+                            Text="Description"
+                            Style="{StaticResource DefLabelStyle}"
+                            />
+                            <controls:RoundedView
+                                BorderColor="{StaticResource PrestoColor}" BorderRadius="15" BorderThickness="2">
+                                <Editor
+                                Style="{StaticResource DefaultEditorStyle}"
+                                Text="{Binding ItemDesc}"/>
+                            </controls:RoundedView>
+                        </StackLayout>
+                        <!--<Label 
                             Grid.Row="2" Grid.Column="0"
                             Text="Food Category"
                             Style="{StaticResource ItemAddLabelStyle}"
-                        />
+                        />-->
                          <controls:CustomPicker 
                          Grid.Row="2" Grid.Column="1"
                          PickerText="Select" PickerAnchor="&#x25bc;"
@@ -121,47 +130,56 @@
                          Style="{StaticResource PickerStyle}"
                          ItemsSource="{Binding Categories}"
                          SelectedIndex="{Binding SelectedCatIndex}"/>
-                         <Label 
+                         <!--<Label 
                             Grid.Row="3" Grid.Column="0"
                             Text="Price"
                             Style="{StaticResource ItemAddLabelStyle}"
-                        />
+                        />-->
                          <controls:DescriptionEntry 
                             Grid.Row="3" Grid.Column="1"
-                        EntryPlaceholderText="" EntryText="{Binding Price}" 
+                        EntryPlaceholderText="Price" EntryText="{Binding Price}" 
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                        Style="{StaticResource RoundedEntryStyle}"
-                        KeyboardType="Numeric"/>
+                        Style="{StaticResource NoLabelRoundedEntryStyle}"
+                        KeyboardType="Numeric"
+                        AutoHidePlaceholder="true"/>
 
-                         <Label 
+                         <!--<Label 
                             Grid.Row="4" Grid.Column="0"
                             Text="Available Quantity"
                             Style="{StaticResource ItemAddLabelStyle}"
-                        />
+                        />-->
                          <controls:DescriptionEntry 
                             Grid.Row="4" Grid.Column="1"
-                        EntryPlaceholderText="" EntryText="{Binding Quantity}" 
+                        EntryPlaceholderText="Available Quantity" EntryText="{Binding Quantity}" 
                         EntryStyle="{StaticResource SignUpPageEntryStyle}"
-                        Style="{StaticResource RoundedEntryStyle}"
-                        KeyboardType="Numeric"/>
-                       <Label 
+                        Style="{StaticResource NoLabelRoundedEntryStyle}"
+                        KeyboardType="Numeric"
+                        AutoHidePlaceholder="true"/>
+                       <!--<Label 
                             Grid.Row="5" Grid.Column="0"
                             Text="Ingredients"
                             Style="{StaticResource ItemAddLabelStyle}"
-                        />
-                        <controls:RoundedView
-                            Grid.Row="5" Grid.Column="1"
-                            BorderColor="{StaticResource PrestoColor}" BorderRadius="15" BorderThickness="2">
-                            <Editor
-                            Style="{StaticResource DefaultEditorStyle}"
-                            Text="{Binding Ingredients}"/>
-                        </controls:RoundedView>
+                        />-->
+                        <StackLayout
+                                Orientation="Vertical"
+                                Grid.Row="5" Grid.Column="1">
+                            <Label 
+                            Text="Ingredients"
+                            Style="{StaticResource DefLabelStyle}"
+                            />
+                            <controls:RoundedView
+                                BorderColor="{StaticResource PrestoColor}" BorderRadius="15" BorderThickness="2">
+                                <Editor
+                                Style="{StaticResource DefaultEditorStyle}"
+                                Text="{Binding Ingredients}"/>
+                            </controls:RoundedView>
+                        </StackLayout>
                             
                     </Grid>
                     <StackLayout>
                         <Label 
                             Text="Select all that applies"
-                            Style="{StaticResource ItemAddLabelStyle}"
+                            Style="{StaticResource DefLabelStyle}"
                         />
                         <controls:WrapView
                         ItemsSource="{Binding Types}">

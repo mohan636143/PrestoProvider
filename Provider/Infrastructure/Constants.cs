@@ -193,6 +193,7 @@ namespace Provider.Infrastructure
 		public string Last_Name { get; set; }
 		public string Locale { get; set; }
 		public Picture Picture { get; set; }
+        [JsonProperty("email")]
 		public string Email { get; set; }
 		public string Gender { get; set; }
 		public string Id { get; set; }

@@ -10,13 +10,13 @@
     <ContentPage.BindingContext>
         <vm:ProfileStepOnePageViewModel/>
     </ContentPage.BindingContext>
-	<ContentPage.Content>
+    <ContentPage.Content>
         <Grid Padding="0,15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <ScrollView Padding="20,0">
+            <ScrollView Style="{StaticResource DefaultScrollerStyle}">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -106,5 +106,5 @@
                 TapCommand="{Binding NextCommand}"
                 VerticalOptions="Center"/>
         </Grid>
-	</ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

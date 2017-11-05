@@ -20,8 +20,9 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <controls:CustomScroller BackgroundColor="Transparent" Padding="20,0" 
-                    Orientation="Vertical" ScrollPosition="{Binding ScrollerPosition}">
+                <controls:CustomScroller
+                    Orientation="Vertical" ScrollPosition="{Binding ScrollerPosition}"
+                    Style="{StaticResource DefaultScrollerStyle}">
                       <StackLayout BackgroundColor="White" Spacing="20" >
                             
                             <Grid >
@@ -276,6 +277,11 @@
                     HorizontalOptions="Center"
                     TapCommand="{Binding NextCommand}"/>
             </Grid>
+            <ActivityIndicator 
+                IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                Color="{StaticResource PrestoColor}"
+            />
         </Grid>
 	</ContentPage.Content>
 </ContentPage>

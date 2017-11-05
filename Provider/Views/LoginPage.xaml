@@ -23,12 +23,11 @@
                     <!--<RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>-->
                 </Grid.RowDefinitions>
-
-
-                <controls:FitImage Grid.Row="0" Margin="0,60,0,20" 
-                    Size="150" ImgSource="PrestoLogo.png" 
+                
+                <controls:FitImage Grid.Row="0" Margin="0,40,0,10" 
+                    Size="130" ImgSource="PrestoLogo.png" 
                     VerticalOptions="Center" HorizontalOptions="Center"/>
-                <Grid Grid.Row="1" Margin="25" RowSpacing="15" BackgroundColor="Transparent">
+                <Grid Grid.Row="1" Margin="25,10,25,25" RowSpacing="15" BackgroundColor="Transparent">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
@@ -38,21 +37,21 @@
                     <Label
                         Grid.Row="0"  VerticalTextAlignment="Center"
                         Text="{x:Static resx:PrestoResources.txtLoginFoodNetwork}" 
-                        FontSize="40" 
+                        FontSize="38" 
                         Style="{StaticResource DefLabelStyle}"
                         TextColor="#59bd5a">
                     </Label>
                     <Label 
                         Grid.Row="1" VerticalTextAlignment="Center"
                         Text="{x:Static resx:PrestoResources.txtLoginUnleash}"
-                        FontSize="25" FontAttributes="Bold"
+                        FontSize="23" FontAttributes="Bold"
                         VerticalOptions="End" 
                         Style="{StaticResource DefLabelStyle}">
                     </Label>
                     <Label 
                         Grid.Row="2" VerticalTextAlignment="Center"
                         Text="{x:Static resx:PrestoResources.txtLoginDesc}"
-                        FontSize="20" FontAttributes="Bold"
+                        FontSize="17" FontAttributes="Bold"
                         VerticalOptions="Start"
                         Style="{StaticResource DefLabelStyle}">
                     </Label>

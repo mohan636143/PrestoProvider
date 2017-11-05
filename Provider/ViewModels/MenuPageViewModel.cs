@@ -108,6 +108,7 @@ namespace Provider.ViewModels
 			{
 				App.Store.Delete(App.LoginAccount, Constants.GoogleAuth);
 			}
+            AppModel.AppDataInstance.ProviderData = null;
             App.Current.MainPage = new LoginPage();
         }
     }

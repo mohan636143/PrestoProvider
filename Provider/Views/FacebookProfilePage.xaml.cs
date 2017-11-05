@@ -21,11 +21,11 @@ namespace Provider.Views
             store = AccountStore.Create();
             account = store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
 
-            var apiRequest = "https://www.facebook.com/v2.10/dialog/oauth?client_id="
-                       + Constants.FacebookClientId
-                       + "&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html";
+			var apiRequest = "https://www.facebook.com/v2.10/dialog/oauth?client_id="
+					   + Constants.FacebookClientId
+					   + "&scope=email&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html";
 
-            webview = new WebView
+			webview = new WebView
             {
                 Source = apiRequest,
                 HeightRequest = 1

@@ -12,7 +12,7 @@
             <Color x:Key="HomePageHeadingColor">Yellow</Color>
             <Color x:Key="HomePageLabelBGColor">#10F5F5F5</Color>
             <Color x:Key="HomePageLabelColor">Black</Color>
-            <Color x:Key="PrestoColor">#53d1ef</Color>
+            <Color x:Key="PrestoColor">#59db5a</Color>
             <Color x:Key="SelectLabelTextColor">#f76619</Color>
             <Color x:Key="PrestoButtonColor">#59db5a </Color>
             <Color x:Key="PrestoGreyColor">#868686</Color>
@@ -20,7 +20,12 @@
             <!--Styles-->
             <Style TargetType="{x:Type ContentPage}" x:Key="DefaultPageStyle">
                 <Setter Property="BackgroundColor" Value="White"/>
-                <Setter Property="Padding" Value="15"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+
+            <Style TargetType="{x:Type controls:CustomScroller}" x:Key="DefaultScrollerStyle">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Padding" Value="20"/>
             </Style>
             
             <Style TargetType="{x:Type controls:CustomPicker}" x:Key="PickerStyle">
@@ -30,7 +35,11 @@
                         <OnPlatform x:TypeArguments="x:Int32" Android="2" iOS="2"/>
                     </Setter.Value>
                     </Setter>   
-                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" Android="45" iOS="35"/>
+                    </Setter.Value>
+                    </Setter>
                     <Setter Property="BorderRadius" >
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Int32" Android="40" iOS="20"/>
@@ -38,7 +47,7 @@
                     </Setter>
                     <Setter Property="PickerTextColor" Value="Black"/>
                     <Setter Property="PickerAnchorColor" Value="{StaticResource PrestoColor}"/>
-                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Padding" Value="10,0"/>
 <!--                    <Setter Property="VerticalOptions" Value="Center"/>-->
             </Style>
             
@@ -166,6 +175,7 @@
             <Style TargetType="{x:Type Editor}" x:Key="DefaultEditorStyle">
                 <Setter Property="HeightRequest" Value="180" />
                 <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="10,0" />
                 <Setter Property="FontFamily" Value="{x:Static utils:FontFamilyName.Calibri}" />
             </Style>
 

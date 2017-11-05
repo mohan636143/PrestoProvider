@@ -16,7 +16,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <ScrollView Grid.Row="0" Padding="20,0">
+            <ScrollView Grid.Row="0" 
+                Style="{StaticResource DefaultScrollerStyle}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
