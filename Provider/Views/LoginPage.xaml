@@ -57,7 +57,7 @@
                     </Label>
     <!--            </Grid>-->
                 <!--<Grid Grid.Row="1" Margin="25" VerticalOptions="EndAndExpand" >-->
-                    <controls:ImageButton
+                    <controls:ImageButton AutomationId="Am_LoginPage_LoginButton"
                         Grid.Row="3" HeightRequest="50"
                         FillColor="#3b5998" BorderColor="Transparent" 
                         BorderThickness="2" SourceImage="facebook.png" Text="Login with Facebook"

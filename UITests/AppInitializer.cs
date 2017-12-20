@@ -10,12 +10,19 @@ namespace Provider.UITests
     {
         public static IApp StartApp(Platform platform)
         {
-            if (platform == Platform.Android)
+            try
             {
-                return ConfigureApp.Android.StartApp();
-            }
+                if (platform == Platform.Android)
+                {
+                    return ConfigureApp.Android.EnableLocalScreenshots().StartApp();
+                }
 
-            return ConfigureApp.iOS.StartApp();
+                return ConfigureApp.iOS.EnableLocalScreenshots().StartApp();
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

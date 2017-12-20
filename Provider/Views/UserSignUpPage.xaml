@@ -74,7 +74,7 @@
                                     Text="First Name"/>-->
                             <StackLayout 
                                     Grid.Row="0" Grid.Column="1" >
-                                <controls:DescriptionEntry 
+                                <controls:DescriptionEntry AutomationId="Am_UserSignUp_txtFirstName"
                                 EntryPlaceholderText="First Name" EntryText="{Binding FirstName}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
@@ -98,7 +98,7 @@
                                     Text="Last Name"/>-->
                              <StackLayout  
                                     Grid.Row="1" Grid.Column="1">
-                                 <controls:DescriptionEntry 
+                                 <controls:DescriptionEntry AutomationId="Am_UserSignUp_txtLastName"
                                 EntryPlaceholderText="Last Name" EntryText="{Binding LastName}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
@@ -122,7 +122,7 @@
                                     Text="Email"/>-->
                              <StackLayout 
                                     Grid.Row="2" Grid.Column="1" >
-                                 <controls:DescriptionEntry 
+                                 <controls:DescriptionEntry AutomationId="Am_UserSignUp_txtEmail"
                                 EntryPlaceholderText="Email ID" EntryText="{Binding Email}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
@@ -149,7 +149,7 @@
                                     Text="Mobile"/>-->
                              <StackLayout 
                                     Grid.Row="4" Grid.Column="1">
-                                 <controls:DescriptionEntry 
+                                 <controls:DescriptionEntry AutomationId="Am_UserSignUp_txtMobile"
                                 EntryPlaceholderText="Mobile" EntryText="{Binding Mobile}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
@@ -176,7 +176,7 @@
                                     Text="Age"/>-->
                              <StackLayout 
                                     Grid.Row="3" Grid.Column="1" >
-                                 <controls:DescriptionEntry 
+                                 <controls:DescriptionEntry AutomationId="Am_UserSignUp_txtAge"
                                 EntryPlaceholderText="Age" EntryText="{Binding Age}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"
@@ -204,7 +204,7 @@
                                     Text="Zip Code"/>-->
                                 <StackLayout 
                                     Grid.Row="5" Grid.Column="1" >
-                                 <controls:DescriptionEntry 
+                                 <controls:DescriptionEntry AutomationId="Am_UserSignUp_txtLocation"
                                 EntryPlaceholderText="Zip Code" EntryText="{Binding Location}" 
                                 EntryStyle="{StaticResource SignUpPageEntryStyle}"
                                 Style="{StaticResource DescriptionEntryDefStyle}"

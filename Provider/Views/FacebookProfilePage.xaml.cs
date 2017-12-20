@@ -30,6 +30,8 @@ namespace Provider.Views
                 Source = apiRequest,
                 HeightRequest = 1
             };
+            webview.AutomationId = "Am_FbLogin_WebView";
+
 
             webview.Navigated += WebViewOnNavigated;
 

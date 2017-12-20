@@ -17,6 +17,8 @@ namespace Provider.iOS
 
             global::Xamarin.Auth.Presenters.XamarinIOS.AuthenticationConfiguration.Init();
 
+            Xamarin.Calabash.Start();
+
             // Code for starting up the Xamarin Test Cloud Agent
 //#if DEBUG
 //			Xamarin.Calabash.Start();
