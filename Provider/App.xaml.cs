@@ -35,21 +35,22 @@ namespace Provider
 
             AppModel.AppDataInstance.ProviderData = new ProviderProfileModel();
             NetworkEngine.Instance.SetServer("http://18.220.124.43/Presto/Provider/");
-            LoginAccount = Store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
-            if(LoginAccount == null)
-                LoginAccount = Store.FindAccountsForService(Constants.GoogleAuth).FirstOrDefault();
-            if (LoginAccount == null)
-                MainPage = new LoginPage();
-            else
-                //MainPage = new ProviderLaunchPage() { Detail = new ProfilePage()};
+            //LoginAccount = Store.FindAccountsForService(Constants.FacebookAuth).FirstOrDefault();
+            //if(LoginAccount == null)
+            //    LoginAccount = Store.FindAccountsForService(Constants.GoogleAuth).FirstOrDefault();
+            //if (LoginAccount == null)
+            //    MainPage = new LoginPage();
+            //else
+            ////MainPage = new ProviderLaunchPage() { Detail = new ProfilePage()};
 
-                MainPage = new ProviderLaunchPage()
-                {
-                    Detail = new UserSignUpPage(),
-                    BarBackgroundColor = Color.White,
-                    BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
-                    ShowLeftMasterNavButton = true
-                };
+            //MainPage = new ProviderLaunchPage()
+            //{
+            //    Detail = new UserSignUpPage(),
+            //    BarBackgroundColor = Color.White,
+            //    BarTintColor = (Color)App.Current.Resources["PrestoGreyColor"],
+            //    ShowLeftMasterNavButton = true
+            //};
+            App.Current.MainPage = new TestPage();
         }
 
         public static void SetPage(Page newPage)
@@ -59,7 +60,7 @@ namespace Provider
         }
 
 
-		protected override void OnStart()
+        protected override void OnStart()
         {
             // Handle when your app starts
         }

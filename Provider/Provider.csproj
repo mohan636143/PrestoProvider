@@ -97,6 +97,10 @@
     <EmbeddedResource Include="Views\ProviderItemsSummaryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -215,6 +219,9 @@
     <Compile Include="Infrastructure\Extensions.cs" />
     <Compile Include="Controls\Shadow.cs" />
     <Compile Include="Controls\CustomScroller.cs" />
+    <Compile Include="Views\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

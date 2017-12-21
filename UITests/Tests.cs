@@ -7,6 +7,7 @@ using Xamarin.UITest.Queries;
 using System.Threading.Tasks;
 using System.Linq;
 using Xamarin.UITest.Android;
+using System.Collections.Generic;
 
 namespace Provider.UITests
 {
@@ -115,15 +116,15 @@ namespace Provider.UITests
                 app.ClearText(entry => entry.Marked("Am_UserSignUp_txtFirstName"));
                 app.EnterText(entry => entry.Marked("Am_UserSignUp_txtFirstName"), "First");
 
-				//Tap the FirstName and Enter Text
-				app.Tap(entry => entry.Marked("Am_UserSignUp_txtLastName"));
-				app.ClearText(entry => entry.Marked("Am_UserSignUp_txtLastName"));
-				app.EnterText(entry => entry.Marked("Am_UserSignUp_txtLastName"), "Last");
+                //Tap the FirstName and Enter Text
+                app.Tap(entry => entry.Marked("Am_UserSignUp_txtLastName"));
+                app.ClearText(entry => entry.Marked("Am_UserSignUp_txtLastName"));
+                app.EnterText(entry => entry.Marked("Am_UserSignUp_txtLastName"), "Last");
 
-				//Tap the FirstName and Enter Text
-				app.Tap(entry => entry.Marked("Am_UserSignUp_txtEmail"));
-				app.ClearText(entry => entry.Marked("Am_UserSignUp_txtEmail"));
-				app.EnterText(entry => entry.Marked("Am_UserSignUp_txtEmail"), "test@xyz.com");
+                //Tap the FirstName and Enter Text
+                app.Tap(entry => entry.Marked("Am_UserSignUp_txtEmail"));
+                app.ClearText(entry => entry.Marked("Am_UserSignUp_txtEmail"));
+                app.EnterText(entry => entry.Marked("Am_UserSignUp_txtEmail"), "test@xyz.com");
 
             }
             catch (Exception ex)
@@ -131,5 +132,55 @@ namespace Provider.UITests
 
             }
         }
+
+        [Test]
+        public void TestListView()
+        {
+            try
+            {
+                // Func<AppQuery, AppQuery> mayank = c => c.Marked("Am_TestPage_ListView");
+
+
+
+                AppResult[] lstView = app.WaitForElement(c => c.Marked("Am_TestPage_ListView"));
+                AppResult[] listViewItems = app.Query(lst => lst.Marked("Am_TestPage_ListView").Child());
+                int count = listViewItems.Count();
+
+
+                //Func<AppQuery, AppQuery> firstCellInList = null;
+                for (int i = 0; i < count; i++)
+                {
+                    //  if(listViewItems[i)
+                    app.Tap(c => c.Marked(listViewItems[i].Label));
+
+
+                    ////if (platform == Platform.Android)
+                    ////    firstCellInList = x => x.Class("ViewCellRenderer_ViewCellContainer").Index(0);
+                    ////else if (platform == Platform.iOS)
+                    ////firstCellInList = x => x.Marked("{AutomationId of ViewCell}").Index(0);
+                    //if (platform == Platform.Android)
+                    //{
+                    //    //var tmp = app.Query()
+                    //}
+                    //else if (platform == Platform.iOS)
+                    //{
+
+                    //}
+                }
+                //if (platform == Platform.Android)
+                //    firstCellInList = x => x.Class("WebView").;
+                //else if (platform == Platform.iOS)
+                //    firstCellInList = x => x.Marked("{AutomationId of ViewCell}").Index(0);
+
+                //app.WaitForElement(firstCellInList);
+                //app.Tap(firstCellInList);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
     }
 }
