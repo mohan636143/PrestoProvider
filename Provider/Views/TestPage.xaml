@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="Provider.Views.TestPage">
+    x:Class="Provider.Views.TestPage"
+    x:Name="TestPage">
 	<ContentPage.Content>
         
         <Grid>
-            <ListView x:Name="lstViewTemp" AutomationId="Am_TestPage_ListView" 
+            <ListView x:Name="lstViewTemp" StyleId="mayank" AutomationId="Am_TestPage_ListView" 
                     SeparatorColor="Transparent" HasUnevenRows="true" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate >
                         <ViewCell >
-                            <Grid BackgroundColor="Black">
+                            <Grid BackgroundColor="Black" AutomationId="Am_TestGrid_Grid">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Label Text="{Binding LabelText}" TextColor="Silver" Grid.Row="0"/>
-                            <Button AutomationId="Am_TestPage_ListView1" Text="{Binding ButtonText}" Command="{Binding ButtonCommand}" IsEnabled="{Binding BtnWorks}"
+                            <Label Text="{Binding LabelText}" TextColor="Silver" Grid.Row="0" AutomationId="Am_TestGrid_Label"/>
+                            <Button AutomationId="Am_TestGrid_Btn" Text="{Binding ButtonText}" 
+                                    Command="{Binding Source={x:Reference TestPage}, ButtonCommand}" 
+                                    CommandParameter="{Binding LabelText}"
+                                    IsEnabled="{Binding BtnWorks}"
                                 Grid.Row="1" WidthRequest="200" HeightRequest="40" BackgroundColor="Silver" TextColor="Red"/>
                             </Grid>
                         </ViewCell>

@@ -142,31 +142,36 @@ namespace Provider.UITests
 
 
 
-                AppResult[] lstView = app.WaitForElement(c => c.Marked("Am_TestPage_ListView"));
-                AppResult[] listViewItems = app.Query(lst => lst.Marked("Am_TestPage_ListView").Child());
-                int count = listViewItems.Count();
+                AppResult[] lstView = app.WaitForElement(c => c.Marked("Am_TestGrid_Grid"));
+                Func<AppQuery, AppQuery> listViewItems = lst => lst.Marked("Am_TestGrid_Grid");
 
+
+                //app.Tap(c => c.Marked("Am_TestGrid_Grid").Index(0));
+                AppResult[] prop = app.Query(c => c.Marked("Am_TestGrid_Grid").Index(2).Descendant().Marked("Am_TestGrid_Btn"));
+                app.Tap(c => c.Marked(prop[0].Text).Index(2));
+                //int count = listViewItems.Count();
+                AppResult[] ListViewItems = app.Query(c => c.All().Class("Grid"));
 
                 //Func<AppQuery, AppQuery> firstCellInList = null;
-                for (int i = 0; i < count; i++)
-                {
-                    //  if(listViewItems[i)
-                    app.Tap(c => c.Marked(listViewItems[i].Label));
+                //for (int i = 0; i < count; i++)
+                //{
+                //  if(listViewItems[i)
+                //  app.Tap(c => c.Marked(listViewItems[i].Label));
 
 
-                    ////if (platform == Platform.Android)
-                    ////    firstCellInList = x => x.Class("ViewCellRenderer_ViewCellContainer").Index(0);
-                    ////else if (platform == Platform.iOS)
-                    ////firstCellInList = x => x.Marked("{AutomationId of ViewCell}").Index(0);
-                    //if (platform == Platform.Android)
-                    //{
-                    //    //var tmp = app.Query()
-                    //}
-                    //else if (platform == Platform.iOS)
-                    //{
+                ////if (platform == Platform.Android)
+                ////    firstCellInList = x => x.Class("ViewCellRenderer_ViewCellContainer").Index(0);
+                ////else if (platform == Platform.iOS)
+                ////firstCellInList = x => x.Marked("{AutomationId of ViewCell}").Index(0);
+                //if (platform == Platform.Android)
+                //{
+                //    //var tmp = app.Query()
+                //}
+                //else if (platform == Platform.iOS)
+                //{
 
-                    //}
-                }
+                //}
+                //}
                 //if (platform == Platform.Android)
                 //    firstCellInList = x => x.Class("WebView").;
                 //else if (platform == Platform.iOS)
@@ -174,11 +179,21 @@ namespace Provider.UITests
 
                 //app.WaitForElement(firstCellInList);
                 //app.Tap(firstCellInList);
+
+                //AppResult[] itemsList = app.Query(c => c.Marked("Am_TestGrid_Grid"));
             }
             catch (Exception ex)
             {
 
             }
+        }
+
+        [Test]
+        public void TestDisplayAlert()
+        {
+            TestListView();
+            AppResult[] tmp = app.WaitForElement(c => c.Text("Y").Parent());
+            //app.Tap(c => c.Text("Y"));
         }
 
 

@@ -14,7 +14,7 @@ namespace Provider.Views
             {
                 InitializeComponent();
                 this.BindingContext = this;
-                ButtonCommand = new Command(() => { DisplayAlert("BUtton", "Click", "Y"); });
+                ButtonCommand = new Command<string>((args) => HandleButtonClick(args));
                 FillDatatoListView();
             }
             catch (Exception ex)
@@ -30,14 +30,21 @@ namespace Provider.Views
         void FillDatatoListView()
         {
             ListData = new List<TestClass>();
-            ListData.Add(new TestClass() { LabelText = "Label 1", ButtonText = "Button 1", BtnWorks = true });
-            ListData.Add(new TestClass() { LabelText = "Label 2", ButtonText = "Button 2", BtnWorks = true });
-            ListData.Add(new TestClass() { LabelText = "Label 3", ButtonText = "Button 3", BtnWorks = false });
-            ListData.Add(new TestClass() { LabelText = "Label 4", ButtonText = "Button 4", BtnWorks = false });
-            ListData.Add(new TestClass() { LabelText = "Label 5", ButtonText = "Button 5", BtnWorks = true });
+            ListData.Add(new TestClass() { LabelText = "Label 1", ButtonText = "Button", BtnWorks = true });
+            ListData.Add(new TestClass() { LabelText = "Label 2", ButtonText = "Button", BtnWorks = true });
+            ListData.Add(new TestClass() { LabelText = "Label 3", ButtonText = "Button", BtnWorks = false });
+            ListData.Add(new TestClass() { LabelText = "Label 4", ButtonText = "Button", BtnWorks = false });
+            ListData.Add(new TestClass() { LabelText = "Label 5", ButtonText = "Button", BtnWorks = true });
 
 
             lstViewTemp.ItemsSource = ListData;
+
+            //Grid g = new Grid();
+            //g.Children
+        }
+        void HandleButtonClick(string BtnName)
+        {
+            DisplayAlert("BUtton", BtnName, "Y");
         }
     }
 
