@@ -189,11 +189,24 @@ namespace Provider.UITests
         }
 
         [Test]
-        public void TestDisplayAlert()
+        public async  void TestDisplayAlert()
         {
             TestListView();
-            AppResult[] tmp = app.WaitForElement(c => c.Text("Y").Parent());
-            //app.Tap(c => c.Text("Y"));
+
+            if(platform == Platform.Android)
+            {
+                AppResult[] alert =  app.Query(c => c.Class("AlertDialogLayout").Descendant("AppCompatButton"));
+                await Task.Delay(2000);
+                app.Tap(c => c.Marked(alert.First().Id));
+                alert = app.Query(c => c.Class("AppCompatButton"));
+            }
+            else if(platform == Platform.iOS)
+            {
+                AppResult[] alert = app.Query(c => c.ClassFull("_UIAlertControllerView"));
+            }
+
+//			iOS::app.Query(c => c.ClassFull("_UIAlertControllerView"))
+//Android::app.Query(c => c.Class("AlertDialogLayout"))
         }
 
 

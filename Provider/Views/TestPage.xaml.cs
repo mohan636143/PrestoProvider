@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using System.Windows.Input;
+using System.Threading.Tasks;
 
 namespace Provider.Views
 {
@@ -42,11 +43,25 @@ namespace Provider.Views
             //Grid g = new Grid();
             //g.Children
         }
-        void HandleButtonClick(string BtnName)
+        async void HandleButtonClick(string BtnName)
         {
-            DisplayAlert("BUtton", BtnName, "Y");
+            bool? res = null;
+            await DisplayAlert("BUtton", BtnName, "Y", "N").ContinueWith(
+                (arg) =>
+                {
+                    res = arg.Result;
+                });
+            if(res!= null && res == true)
+			{
+				await DisplayAlert("Click", "Y", "Y");
+			}
+            else if (res != null && res == false)
+			{
+				await DisplayAlert("Click", "N", "N");
+			}
         }
     }
+    
 
     public class TestClass
     {
